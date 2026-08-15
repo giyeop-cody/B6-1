@@ -26,6 +26,13 @@ aws --version
 - Python으로 CloudFormation YAML 문법과 필수 리소스 검사
 - Shell 스크립트 `bash -n` 검사
 
+## 현재 결과
+
+- `scripts/check_all.sh`: 정적 검사 전체 PASS
+- `cfn-lint infra/cloudformation.yml`: PASS
+- Docker build/run: 현재 환경에 Docker가 없어 대기
+- AWS API 검사: 계정이 없어 대기
+
 ## 최종 해결
 
 - Docker가 있는 로컬 PC에서 `scripts/test-local.sh` 실행
