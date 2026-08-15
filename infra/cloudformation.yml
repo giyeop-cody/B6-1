@@ -1,0 +1,243 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: B6-1 learning infrastructure - public VPC, EC2, Docker and Nginx
+
+Parameters:
+  ProjectName:
+    Type: String
+    Default: b6-1
+    AllowedPattern: '^[a-z0-9-]{3,20}$'
+    Description: Lowercase project tag and resource name prefix
+  KeyName:
+    Type: AWS::EC2::KeyPair::KeyName
+    Description: Existing EC2 key pair created in ap-northeast-2
+  AllowedSshCidr:
+    Type: String
+    Default: 127.0.0.1/32
+    AllowedPattern: '^(?:[0-9]{1,3}\.){3}[0-9]{1,3}/(?:[0-9]|[12][0-9]|3[0-2])$'
+    ConstraintDescription: Enter one IPv4 CIDR such as 203.0.113.10/32. Never use 0.0.0.0/0.
+    Description: Learner public IPv4 address with /32 for SSH
+  InstanceType:
+    Type: String
+    Default: t3.micro
+    AllowedValues:
+      - t3.micro
+      - t3.small
+    Description: Check the current account Free Tier or credits before deployment
+
+Rules:
+  RejectPublicSsh:
+    Assertions:
+      - Assert:
+          Fn::Not:
+            - Fn::Equals:
+                - Ref: AllowedSshCidr
+                - 0.0.0.0/0
+        AssertDescription: SSH must never be open to 0.0.0.0/0.
+
+Resources:
+  Vpc:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      Tags:
+        - Key: Name
+          Value:
+            Fn::Sub: '${ProjectName}-vpc'
+        - Key: Project
+          Value:
+            Ref: ProjectName
+
+  InternetGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: Name
+          Value:
+            Fn::Sub: '${ProjectName}-igw'
+        - Key: Project
+          Value:
+            Ref: ProjectName
+
+  InternetGatewayAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId:
+        Ref: Vpc
+      InternetGatewayId:
+        Ref: InternetGateway
+
+  PublicSubnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId:
+        Ref: Vpc
+      CidrBlock: 10.0.1.0/24
+      AvailabilityZone:
+        Fn::Select:
+          - 0
+          - Fn::GetAZs: ''
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value:
+            Fn::Sub: '${ProjectName}-public-subnet'
+        - Key: Project
+          Value:
+            Ref: ProjectName
+
+  PublicRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId:
+        Ref: Vpc
+      Tags:
+        - Key: Name
+          Value:
+            Fn::Sub: '${ProjectName}-public-rt'
+        - Key: Project
+          Value:
+            Ref: ProjectName
+
+  DefaultPublicRoute:
+    Type: AWS::EC2::Route
+    DependsOn: InternetGatewayAttachment
+    Properties:
+      RouteTableId:
+        Ref: PublicRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId:
+        Ref: InternetGateway
+
+  PublicSubnetRouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId:
+        Ref: PublicSubnet
+      RouteTableId:
+        Ref: PublicRouteTable
+
+  WebSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: B6-1 HTTP public and SSH learner IP only
+      VpcId:
+        Ref: Vpc
+      SecurityGroupIngress:
+        - Description: Public HTTP
+          IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+        - Description: SSH from learner public IP only
+          IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp:
+            Ref: AllowedSshCidr
+      SecurityGroupEgress:
+        - Description: Allow package and image downloads
+          IpProtocol: '-1'
+          CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value:
+            Fn::Sub: '${ProjectName}-web-sg'
+        - Key: Project
+          Value:
+            Ref: ProjectName
+
+  WebInstance:
+    Type: AWS::EC2::Instance
+    DependsOn: DefaultPublicRoute
+    CreationPolicy:
+      ResourceSignal:
+        Count: 1
+        Timeout: PT15M
+    Properties:
+      ImageId: '{{resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64}}'
+      InstanceType:
+        Ref: InstanceType
+      KeyName:
+        Ref: KeyName
+      MetadataOptions:
+        HttpEndpoint: enabled
+        HttpTokens: required
+      NetworkInterfaces:
+        - DeviceIndex: '0'
+          AssociatePublicIpAddress: true
+          DeleteOnTermination: true
+          SubnetId:
+            Ref: PublicSubnet
+          GroupSet:
+            - Ref: WebSecurityGroup
+      BlockDeviceMappings:
+        - DeviceName: /dev/xvda
+          Ebs:
+            DeleteOnTermination: true
+            Encrypted: true
+            VolumeSize: 8
+            VolumeType: gp3
+      UserData:
+        Fn::Base64:
+          Fn::Sub: |
+            #!/bin/bash
+            set -euxo pipefail
+            dnf update -y
+            dnf install -y docker git aws-cfn-bootstrap
+            systemctl enable --now docker
+            usermod -aG docker ec2-user
+            rm -rf /opt/b6-1
+            git clone --depth 1 https://github.com/giyeop-cody/B6-1.git /opt/b6-1
+            cd /opt/b6-1
+            docker build -t b6-1-web:latest .
+            docker rm -f b6-1-web 2>/dev/null || true
+            docker run -d --name b6-1-web --restart unless-stopped -p 80:80 b6-1-web:latest
+            for attempt in $(seq 1 30); do
+              if curl -fsS http://127.0.0.1/health | grep -qx OK; then
+                /opt/aws/bin/cfn-signal --success true --stack ${AWS::StackName} --resource WebInstance --region ${AWS::Region}
+                exit 0
+              fi
+              sleep 2
+            done
+            docker logs b6-1-web || true
+            /opt/aws/bin/cfn-signal --success false --stack ${AWS::StackName} --resource WebInstance --region ${AWS::Region}
+            exit 1
+      Tags:
+        - Key: Name
+          Value:
+            Fn::Sub: '${ProjectName}-web'
+        - Key: Project
+          Value:
+            Ref: ProjectName
+        - Key: ManagedBy
+          Value: CloudFormation
+
+Outputs:
+  WebsiteURL:
+    Description: Public website URL
+    Value:
+      Fn::Sub: 'http://${WebInstance.PublicIp}'
+  HealthURL:
+    Description: Public health check URL
+    Value:
+      Fn::Sub: 'http://${WebInstance.PublicIp}/health'
+  PublicIp:
+    Description: EC2 public IPv4; it can change after stop and start
+    Value:
+      Fn::GetAtt:
+        - WebInstance
+        - PublicIp
+  InstanceId:
+    Value:
+      Ref: WebInstance
+  VpcId:
+    Value:
+      Ref: Vpc
+  PublicSubnetId:
+    Value:
+      Ref: PublicSubnet
+  SecurityGroupId:
+    Value:
+      Ref: WebSecurityGroup
