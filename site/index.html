@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AWS VPC와 EC2, Docker, Nginx로 배포한 B6-1 학습 사이트">
+  <title>B6-1 Cloud Lab</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav" aria-label="주요 메뉴">
+      <a class="brand" href="#top" aria-label="B6-1 홈">
+        <span class="brand-mark" aria-hidden="true">B6</span>
+        <span>Cloud Lab</span>
+      </a>
+      <a class="health-link" href="/health">Health check</a>
+    </nav>
+
+    <section id="top" class="hero-content">
+      <p class="eyebrow">AWS · Docker · Nginx</p>
+      <h1>인터넷에서<br><span>내 서버까지.</span></h1>
+      <p class="hero-copy">
+        VPC 안의 EC2에서 Docker 컨테이너를 실행하고,
+        꼭 필요한 포트만 열어 제공하는 작은 웹 서비스입니다.
+      </p>
+      <div class="status" role="status">
+        <span class="status-dot" aria-hidden="true"></span>
+        <strong>서비스 응답 정상</strong>
+        <span id="checked-at">확인 중…</span>
+      </div>
+    </section>
+
+    <svg class="cloud-art" viewBox="0 0 620 420" role="img" aria-labelledby="cloud-title cloud-desc">
+      <title id="cloud-title">AWS 요청 흐름 그림</title>
+      <desc id="cloud-desc">인터넷 요청이 보안 그룹과 EC2를 지나 Docker Nginx에 도착하는 흐름</desc>
+      <defs>
+        <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#87f7d5"/>
+          <stop offset="1" stop-color="#51a8ff"/>
+        </linearGradient>
+      </defs>
+      <path class="orbit" d="M45 210 C130 55 475 25 570 190 C660 350 240 420 70 300"/>
+      <g class="node" transform="translate(48 173)">
+        <circle r="38" cx="38" cy="38"/>
+        <text x="38" y="34">USER</text><text x="38" y="51">🌐</text>
+      </g>
+      <g class="node" transform="translate(227 76)">
+        <rect width="120" height="76" rx="20"/>
+        <text x="60" y="33">SECURITY</text><text x="60" y="52">GROUP :80</text>
+      </g>
+      <g class="node strong" transform="translate(400 178)">
+        <rect width="142" height="94" rx="24"/>
+        <text x="71" y="35">EC2</text><text x="71" y="58">DOCKER</text><text x="71" y="77">NGINX</text>
+      </g>
+      <path class="arrow" d="M125 204 L224 132"/>
+      <path class="arrow" d="M350 131 L404 187"/>
+    </svg>
+  </header>
+
+  <main>
+    <section class="section" aria-labelledby="flow-title">
+      <p class="section-label">REQUEST FLOW</p>
+      <h2 id="flow-title">요청이 지나오는 네 단계</h2>
+      <div class="steps">
+        <article><span>01</span><h3>Public subnet</h3><p>Internet Gateway와 Route Table을 통해 외부 요청을 받습니다.</p></article>
+        <article><span>02</span><h3>Security group</h3><p>HTTP 80은 공개하고 SSH 22는 학습자의 IP만 허용합니다.</p></article>
+        <article><span>03</span><h3>EC2</h3><p>서울 리전의 작은 가상 서버 한 대가 Docker를 실행합니다.</p></article>
+        <article><span>04</span><h3>Nginx</h3><p>정적 페이지와 <code>/health</code> 상태 확인 응답을 제공합니다.</p></article>
+      </div>
+    </section>
+
+    <section class="proof" aria-labelledby="proof-title">
+      <div>
+        <p class="section-label">VERIFIABLE BY DESIGN</p>
+        <h2 id="proof-title">설명이 아니라<br>응답으로 확인합니다.</h2>
+      </div>
+      <pre><code>$ curl http://PUBLIC_IP/health
+OK
+
+$ docker ps
+b6-1-web   Up (healthy)</code></pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>B6-1 · AI/SW Basic · Seoul Region</p>
+    <p>재현 가능한 작은 클라우드 실습</p>
+  </footer>
+</body>
+</html>
