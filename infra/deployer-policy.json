@@ -11,15 +11,51 @@
         "cloudformation:DescribeStacks",
         "cloudformation:DescribeStackEvents",
         "cloudformation:DescribeStackResources",
-        "cloudformation:GetTemplate"
+        "cloudformation:GetTemplate",
+        "cloudformation:DescribeStackResource",
+        "cloudformation:ListStackResources"
       ],
       "Resource": "arn:aws:cloudformation:ap-northeast-2:*:stack/b6-1-*/*"
     },
     {
-      "Sid": "ValidateCloudFormationTemplate",
+      "Sid": "UseCloudFormationConsoleForB61",
       "Effect": "Allow",
-      "Action": "cloudformation:ValidateTemplate",
-      "Resource": "*"
+      "Action": [
+        "cloudformation:ValidateTemplate",
+        "cloudformation:ListStacks",
+        "cloudformation:GetTemplateSummary"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestedRegion": "ap-northeast-2"
+        }
+      }
+    },
+    {
+      "Sid": "ReadAmazonLinux2023PublicAmiParameter",
+      "Effect": "Allow",
+      "Action": [
+        "ssm:GetParameters"
+      ],
+      "Resource": "arn:aws:ssm:ap-northeast-2:*:parameter/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64"
+    },
+    {
+      "Sid": "UseSeoulCloudShellWithoutFileTransfer",
+      "Effect": "Allow",
+      "Action": [
+        "cloudshell:CreateEnvironment",
+        "cloudshell:CreateSession",
+        "cloudshell:GetEnvironmentStatus",
+        "cloudshell:StartEnvironment",
+        "cloudshell:PutCredentials"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestedRegion": "ap-northeast-2"
+        }
+      }
     },
     {
       "Sid": "ReadEc2Configuration",
