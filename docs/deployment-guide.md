@@ -2,7 +2,7 @@
 
 ## 0. 현재 진행 상태
 
-AWS 계정이 없어 실제 배포는 아직 실행하지 않았다. 이 문서는 계정 준비 후 그대로 따라갈 실행 순서다. 성공 URL과 스크린샷은 실제 확인 후에만 기록한다.
+2026-08-17에 계정 소유자가 기존 AWS 계정 사용 가능, Console 방식, 단기 비용 가능성을 확인했다. IAM·MFA·Budget·Key Pair 준비와 실제 배포는 아직 실행하지 않았다. 성공 URL과 스크린샷은 실제 확인 후에만 기록한다.
 
 ## 1. 로컬 Docker 확인
 
@@ -167,7 +167,7 @@ sudo docker logs b6-1-web
 scripts/aws-verify.sh b6-1-learning | tee evidence/aws-verification.txt
 ```
 
-CloudShell은 현재 로그인한 IAM 세션을 사용하므로 Access Key를 저장소에 넣을 필요가 없다.
+CloudShell은 현재 로그인한 IAM 세션을 사용하므로 Access Key를 저장소에 넣을 필요가 없다. `infra/deployer-policy.json`은 세션 생성과 자격 증명 전달에 필요한 CloudShell Action만 허용하며 파일 upload/download Action은 허용하지 않는다.
 
 ## 8. 필요한 증거
 

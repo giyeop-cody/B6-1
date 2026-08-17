@@ -113,7 +113,7 @@ outputs = template.get("Outputs", {})
 for key in ["WebsiteURL", "HealthURL", "PublicIp", "InstanceId", "VpcId", "PublicSubnetId", "SecurityGroupId"]:
     check(key in outputs, f"CloudFormation output missing: {key}")
 
-# IAM policy must be action-limited and region-constrained for EC2 writes.
+# IAM policy must be action-limited and complete enough for Console + CloudShell deployment.
 try:
     policy = json.loads(read("infra/deployer-policy.json"))
 except Exception as exc:
@@ -121,13 +121,45 @@ except Exception as exc:
     ERRORS.append(f"IAM policy JSON parse failed: {exc}")
 
 statements = policy.get("Statement", [])
+allowed_actions = set()
 for statement in statements:
     if statement.get("Effect") != "Allow":
         continue
     actions = statement.get("Action", [])
     if isinstance(actions, str):
         actions = [actions]
+    allowed_actions.update(actions)
     check("*" not in actions and "ec2:*" not in actions and "iam:*" not in actions, "Allow statement contains wildcard administration")
+
+required_deployment_actions = {
+    "cloudformation:ListStacks",
+    "cloudformation:GetTemplateSummary",
+    "cloudformation:ListStackResources",
+    "cloudformation:DescribeStackResource",
+    "ssm:GetParameters",
+    "cloudshell:CreateEnvironment",
+    "cloudshell:CreateSession",
+    "cloudshell:GetEnvironmentStatus",
+    "cloudshell:StartEnvironment",
+    "cloudshell:PutCredentials",
+}
+missing_actions = sorted(required_deployment_actions - allowed_actions)
+check(not missing_actions, f"IAM policy missing Console/CloudShell deployment actions: {missing_actions}")
+check("cloudshell:GetFileUploadUrls" not in allowed_actions, "CloudShell file upload permission is unnecessary")
+check("cloudshell:GetFileDownloadUrls" not in allowed_actions, "CloudShell file download permission is unnecessary")
+
+public_ami_parameter = "parameter/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64"
+check(
+    any(
+        statement.get("Effect") == "Allow"
+        and "ssm:GetParameters" in (
+            [statement.get("Action")] if isinstance(statement.get("Action"), str) else statement.get("Action", [])
+        )
+        and public_ami_parameter in str(statement.get("Resource", ""))
+        for statement in statements
+    ),
+    "SSM permission must be limited to the Amazon Linux 2023 public AMI parameter",
+)
 check(any(s.get("Sid") == "DenyEc2OutsideSeoul" and s.get("Effect") == "Deny" for s in statements), "Seoul region deny guard is missing")
 
 # SVG must be a real parseable diagram.
@@ -146,5 +178,5 @@ print(f"required_files={len(required)} PASS")
 print(f"cloudformation_resources={len(expected_types)} PASS")
 print("security_group=http80_public+ssh22_parameterized PASS")
 print("ebs=8GiB_gp3_encrypted_delete_on_termination PASS")
-print("iam=no_allow_wildcard+seoul_deny_guard PASS")
+print("iam=action_limited+console_cloudshell_ready+seoul_deny_guard PASS")
 print("B6-1 STATIC VALIDATION: ALL PASS")

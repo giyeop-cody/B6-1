@@ -37,9 +37,18 @@
 - 신규 AWS Free Plan이 예전 12개월 방식과 다를 수 있음을 공식 자료로 확인
 - 계정·IAM·배포·검증·삭제·증거 수집 순서 문서화
 
+## 2026-08-17 — 계정 경로와 IAM 배포 전 점검
+
+- 계정 소유자가 기존 AWS 계정 사용 가능과 단기 비용 가능성을 확인
+- 비밀 키를 공유하지 않는 AWS Console + CloudShell 검증 경로 선택
+- 기존 최소권한 정책에 Console 목록·템플릿 요약과 SSM public AMI 읽기 권한이 빠진 문제 발견
+- GitHub Issue #5로 기록하고 실패하는 자동 검사를 먼저 추가
+- 서울 리전 조건을 유지하며 필요한 Action만 보완
+- CloudShell 파일 upload/download 권한은 제외
+
 ## 남은 작업
 
-- AWS 계정 생성 및 안전 설정
+- 루트·IAM MFA, Plan·크레딧·Budget 실제 화면 확인
 - Docker PC에서 로컬 이미지 실증
 - AWS `validate-template`
 - Stack 생성과 외부 접속

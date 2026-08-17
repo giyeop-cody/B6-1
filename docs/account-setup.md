@@ -1,6 +1,6 @@
 # AWS 계정과 IAM 준비 가이드
 
-> 현재 프로젝트는 AWS 계정이 없어 실제 배포 전 단계다. 아래 작업은 계정 소유자가 직접 수행한다. 비밀번호, Access Key, Secret Key, MFA 코드, `.pem`은 채팅이나 GitHub에 올리지 않는다.
+> 2026-08-17에 계정 소유자가 기존 AWS 계정 사용 가능과 단기 배포 비용 가능성을 확인했다. Console 방식으로 보안 설정을 직접 수행한 뒤 배포한다. 비밀번호, Access Key, Secret Key, MFA 코드, `.pem`은 채팅이나 GitHub에 올리지 않는다.
 
 ## 1. 2026년 신규 계정의 무료 사용 방식 확인
 
@@ -45,7 +45,7 @@ b6-1-learner
 5. 사용자의 MFA도 설정한다.
 6. IAM 사용자용 로그인 URL로 다시 로그인한다.
 
-이 정책은 AdministratorAccess가 아니다. CloudFormation과 B6-1에 필요한 EC2 네트워크·인스턴스 작업만 허용하고 서울 리전 밖의 EC2 작업을 거부한다.
+이 정책은 AdministratorAccess가 아니다. CloudFormation과 B6-1에 필요한 EC2 네트워크·인스턴스 작업만 허용하고 서울 리전 밖의 EC2 작업을 거부한다. Console에서 템플릿을 읽고 public Amazon Linux 2023 AMI 값을 가져오는 권한, Access Key 없이 자동 검증을 실행할 CloudShell 최소 권한도 포함한다. CloudShell 파일 upload/download 권한은 포함하지 않는다.
 
 ### 정책의 한계
 
@@ -80,7 +80,7 @@ Key Pair private key는 재다운로드할 수 없다고 생각하고 관리한�
 
 ## 7. 준비 완료 체크
 
-- [ ] AWS 계정 생성
+- [x] 기존 AWS 계정 사용 가능 확인 (2026-08-17, 계정 소유자 응답)
 - [ ] Plan과 크레딧 만료일 확인
 - [ ] 루트 MFA
 - [ ] `b6-1-learner` IAM 사용자
