@@ -1,6 +1,6 @@
 # ISSUE-004: GitHub 인증이 없어 원격 Issue·Branch·PR을 만들 수 없다
 
-- 상태: 인증 차단 해소, PR [#2](https://github.com/giyeop-cody/B6-1/pull/2) 검토·병합 대기
+- 상태: 해결 완료 — PR [#2](https://github.com/giyeop-cody/B6-1/pull/2) 병합
 - 발견일: 2026-08-15
 - 해결일: 2026-08-17
 - 우선순위: 높음
@@ -44,4 +44,4 @@ GitHub 비밀번호나 토큰을 코드·문서에 저장하지 않고 GitHub CL
 - [x] `learning`과 기능 branch가 원격에 존재함
 - [x] `feature/b6-1-aws-foundation` → `main` PR #2 생성
 - [x] 자동 검사 결과가 PR에 기록됨
-- [ ] 검토 후 main 병합
+- [x] 검토 후 main 병합
