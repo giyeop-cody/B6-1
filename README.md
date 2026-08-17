@@ -2,7 +2,7 @@
 
 AWS 서울 리전의 VPC와 EC2에 **Docker Nginx 정적 사이트**를 배포하는 학습 프로젝트다. CloudFormation으로 인프라를 다시 만들 수 있고, 브라우저와 `/health` 응답으로 실제 동작을 검증한다.
 
-> **현재 상태:** 로컬 구현과 인프라 코드 작성 완료 · AWS 계정이 없어 실제 배포/URL/증거는 대기 중<br>
+> **현재 상태:** 코드·GitHub 병합 완료 · 기존 AWS 계정 사용 가능 확인 · IAM·MFA·Budget·Key Pair와 실제 배포/URL/증거는 대기 중<br>
 > 확인하지 않은 AWS 실행 결과를 성공으로 표시하지 않는다.
 
 ## 과제 정보
@@ -132,7 +132,7 @@ OK
 
 ## 2. AWS 배포 순서
 
-현재 AWS 계정이 없으므로 다음 단계를 먼저 수행한다.
+기존 AWS 계정은 사용할 수 있지만 보안·비용 준비 상태는 아직 확인하지 않았다. 계정 소유자가 Console에서 다음 단계를 순서대로 수행한다.
 
 1. [`docs/account-setup.md`](docs/account-setup.md): 계정, MFA, IAM, 예산, Key Pair
 2. [`docs/deployment-guide.md`](docs/deployment-guide.md): CloudFormation 생성과 검증
@@ -145,21 +145,22 @@ CloudFormation 콘솔에서 사용할 파일:
 infra/cloudformation.yml
 ```
 
-AWS CloudShell을 선택적으로 사용한다면:
+이번 실행은 Console에서 Stack을 만들고, 같은 로그인 세션의 AWS CloudShell에서 검증한다.
 
 ```bash
-scripts/deploy-stack.sh b6-1-key 내공인IP/32
+git clone https://github.com/giyeop-cody/B6-1.git
+cd B6-1
 scripts/aws-verify.sh b6-1-learning
-scripts/delete-stack.sh
 ```
 
-위 스크립트는 생성·삭제 전 확인 단어를 요구한다. Access Key를 파일에 저장할 필요가 없다.
+장기 Access Key를 만들거나 파일에 저장하지 않는다. CLI 생성·삭제를 선택할 경우에만 `scripts/deploy-stack.sh`와 `scripts/delete-stack.sh`를 사용하며 두 스크립트는 확인 단어를 요구한다.
 
 ## 3. 보안 선택
 
 - 루트 계정은 최초 IAM 준비 외에 사용하지 않는다.
 - AdministratorAccess를 사용하지 않는다.
-- `infra/deployer-policy.json`은 필요한 CloudFormation·EC2 Action과 서울 리전으로 범위를 줄인다.
+- `infra/deployer-policy.json`은 필요한 CloudFormation·EC2·SSM·CloudShell Action과 서울 리전으로 범위를 줄인다.
+- CloudShell 파일 upload/download 권한은 주지 않는다.
 - HTTP 80만 전체 인터넷에 공개한다.
 - SSH 22는 사용자가 입력한 개인 공인 IP `/32`만 허용한다.
 - EC2 Metadata는 IMDSv2를 필수로 한다.
@@ -196,7 +197,8 @@ scripts/delete-stack.sh
 ## 6. 학습과 문제 기록
 
 - [`LEARNING.md`](LEARNING.md): 용어와 단계별 학습
-- [`docs/decisions/001-deployment-approach.md`](docs/decisions/001-deployment-approach.md): 선택지와 트레이드오프
+- [`docs/decisions/001-deployment-approach.md`](docs/decisions/001-deployment-approach.md): 배포 방식 선택
+- [`docs/decisions/002-console-cloudshell-auth.md`](docs/decisions/002-console-cloudshell-auth.md): 비밀 키 없는 인증·검증 방식 선택
 - [`docs/mentoring/session-001.md`](docs/mentoring/session-001.md): 학습 멘토 토론
 - [`docs/development-log.md`](docs/development-log.md): 순차 구현 기록
 - [`docs/issues/`](docs/issues/): 문제와 차단사항
@@ -204,7 +206,7 @@ scripts/delete-stack.sh
 
 ## 제출 전 완료 조건
 
-- [ ] AWS 계정과 별도 IAM 사용자
+- [ ] 루트·IAM MFA와 최소권한 사용자 실제 확인
 - [ ] 로컬 Docker 실제 검사 PASS
 - [ ] CloudFormation `CREATE_COMPLETE`
 - [ ] 배포 URL에서 사이트 표시
