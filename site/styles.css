@@ -1,0 +1,82 @@
+:root {
+  color-scheme: dark;
+  --bg: #07111f;
+  --panel: #0d1b2d;
+  --line: rgba(255,255,255,.12);
+  --text: #edf7ff;
+  --muted: #a6b8c9;
+  --mint: #87f7d5;
+  --blue: #51a8ff;
+  font-family: Inter, Pretendard, "Noto Sans KR", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--text); }
+a { color: inherit; }
+
+.hero {
+  min-height: 720px;
+  position: relative;
+  overflow: hidden;
+  padding: 0 max(24px, calc((100vw - 1180px) / 2));
+  background:
+    radial-gradient(circle at 78% 40%, rgba(81,168,255,.2), transparent 30%),
+    linear-gradient(135deg, #07111f 5%, #0b1d31 70%, #092b36);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav { height: 88px; display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 3; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 750; letter-spacing: -.02em; }
+.brand-mark { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid rgba(135,247,213,.55); border-radius: 14px; color: var(--mint); }
+.health-link { padding: 10px 15px; border: 1px solid var(--line); border-radius: 999px; text-decoration: none; color: var(--muted); font-size: 14px; }
+.health-link:hover { border-color: var(--mint); color: var(--mint); }
+
+.hero-content { width: min(620px, 58%); padding-top: 100px; position: relative; z-index: 2; }
+.eyebrow, .section-label { margin: 0 0 20px; color: var(--mint); font-size: 12px; letter-spacing: .22em; font-weight: 800; }
+h1 { margin: 0; font-size: clamp(58px, 7vw, 100px); line-height: .96; letter-spacing: -.065em; }
+h1 span { color: transparent; -webkit-text-stroke: 1px rgba(237,247,255,.55); }
+.hero-copy { max-width: 540px; margin: 30px 0; color: var(--muted); font-size: 18px; line-height: 1.8; word-break: keep-all; }
+.status { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 9px; padding: 12px 16px; border-radius: 12px; background: rgba(0,0,0,.22); border: 1px solid var(--line); font-size: 13px; }
+.status-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 16px var(--mint); }
+#checked-at { color: var(--muted); }
+
+.cloud-art { position: absolute; right: max(-70px, calc((100vw - 1320px) / 2)); top: 145px; width: min(52vw, 660px); }
+.orbit { fill: none; stroke: rgba(135,247,213,.2); stroke-width: 1; stroke-dasharray: 7 10; }
+.node rect, .node circle { fill: rgba(13,27,45,.85); stroke: rgba(255,255,255,.2); }
+.node.strong rect { stroke: url(#glow); stroke-width: 2; }
+.node text { fill: #d8e9f8; text-anchor: middle; font-size: 11px; font-family: monospace; letter-spacing: 1px; }
+.arrow { fill: none; stroke: url(#glow); stroke-width: 2; marker-end: none; }
+
+.section { max-width: 1180px; margin: 0 auto; padding: 110px 24px; }
+h2 { margin: 0 0 48px; font-size: clamp(36px, 5vw, 66px); line-height: 1.05; letter-spacing: -.045em; }
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.steps article { min-height: 270px; padding: 28px; background: var(--panel); }
+.steps span { color: var(--mint); font-family: monospace; }
+.steps h3 { margin: 80px 0 12px; font-size: 18px; }
+.steps p { color: var(--muted); line-height: 1.7; font-size: 14px; }
+code { color: var(--mint); }
+
+.proof { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; padding: 100px max(24px, calc((100vw - 1180px) / 2)); background: #eaf4f7; color: #0b1b29; }
+.proof .section-label { color: #147c75; }
+.proof h2 { margin: 0; }
+pre { margin: 0; overflow: auto; padding: 28px; border-radius: 16px; background: #07111f; color: #dceaf5; box-shadow: 0 20px 50px rgba(7,17,31,.18); line-height: 1.8; }
+
+footer { display: flex; justify-content: space-between; gap: 20px; padding: 32px max(24px, calc((100vw - 1180px) / 2)); color: var(--muted); font-size: 12px; border-top: 1px solid var(--line); }
+
+@media (max-width: 840px) {
+  .hero { min-height: auto; padding-bottom: 80px; }
+  .hero-content { width: 100%; padding-top: 60px; }
+  .cloud-art { position: relative; top: auto; right: auto; width: 100%; margin-top: 30px; }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .proof { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 520px) {
+  .nav { height: 72px; }
+  h1 { font-size: 54px; }
+  .steps { grid-template-columns: 1fr; }
+  .steps article { min-height: 220px; }
+  .steps h3 { margin-top: 50px; }
+  footer { flex-direction: column; }
+}

@@ -1,0 +1,14 @@
+.git
+.gitignore
+.env
+.env.*
+*.pem
+*.key
+docs/
+evidence/
+infra/
+scripts/
+QUEST.md
+mission.jpg
+README.md
+LEARNING.md

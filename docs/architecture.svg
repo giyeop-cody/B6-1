@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">B6-1 AWS 아키텍처</title>
+  <desc id="desc">사용자 요청이 인터넷 게이트웨이, 퍼블릭 서브넷, 보안 그룹, EC2, Docker Nginx로 전달되는 구조</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071523"/><stop offset="1" stop-color="#12324a"/></linearGradient>
+    <linearGradient id="mint" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#85f4d0"/><stop offset="1" stop-color="#4ea7ff"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="14" stdDeviation="16" flood-opacity=".22"/></filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#73d9ce"/></marker>
+    <style>
+      .title{font:700 34px system-ui,sans-serif;fill:#eef8ff}.sub{font:15px system-ui,sans-serif;fill:#a9bdca}.label{font:700 17px system-ui,sans-serif;fill:#e9f6ff}.small{font:13px system-ui,sans-serif;fill:#a9bdca}.mono{font:12px ui-monospace,monospace;fill:#85f4d0}.box{fill:#10283b;stroke:#41647a;stroke-width:1.5}.accent{fill:#10283b;stroke:url(#mint);stroke-width:2}.flow{fill:none;stroke:#73d9ce;stroke-width:3;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <circle cx="1070" cy="60" r="210" fill="#4ea7ff" opacity=".08"/>
+  <text x="70" y="72" class="title">B6-1 AWS Deployment Architecture</text>
+  <text x="70" y="104" class="sub">Seoul Region · ap-northeast-2 · CloudFormation managed</text>
+
+  <g filter="url(#shadow)">
+    <rect x="60" y="255" width="150" height="135" rx="25" class="box"/>
+    <circle cx="135" cy="295" r="21" fill="none" stroke="#85f4d0" stroke-width="2"/>
+    <path d="M114 295h42M135 274c10 10 10 32 0 42M135 274c-10 10-10 32 0 42" fill="none" stroke="#85f4d0"/>
+    <text x="135" y="347" text-anchor="middle" class="label">사용자</text>
+    <text x="135" y="372" text-anchor="middle" class="small">HTTP :80</text>
+  </g>
+
+  <path d="M210 322H305" class="flow"/>
+  <g filter="url(#shadow)">
+    <rect x="310" y="255" width="175" height="135" rx="25" class="box"/>
+    <path d="M372 280c-30 3-35 50 0 52h56c26-2 28-39 3-44-8-27-47-29-59-8z" fill="none" stroke="#85f4d0" stroke-width="2"/>
+    <text x="397" y="347" text-anchor="middle" class="label">Internet Gateway</text>
+    <text x="397" y="372" text-anchor="middle" class="mono">0.0.0.0/0</text>
+  </g>
+
+  <path d="M485 322H565" class="flow"/>
+  <rect x="570" y="155" width="560" height="480" rx="35" fill="#0b1e2d" stroke="#4d7992" stroke-width="2" stroke-dasharray="9 8"/>
+  <text x="602" y="196" class="label">VPC</text><text x="662" y="196" class="mono">10.0.0.0/16</text>
+
+  <rect x="610" y="225" width="480" height="360" rx="28" fill="#102b3d" stroke="#5d879c" stroke-width="1.5"/>
+  <text x="642" y="265" class="label">Public Subnet</text><text x="780" y="265" class="mono">10.0.1.0/24</text>
+
+  <g filter="url(#shadow)">
+    <rect x="650" y="300" width="170" height="215" rx="22" class="box"/>
+    <path d="M697 333h76v54c0 30-24 48-38 56-14-8-38-26-38-56z" fill="none" stroke="#85f4d0" stroke-width="2"/>
+    <text x="735" y="363" text-anchor="middle" class="mono">80: 0.0.0.0/0</text>
+    <text x="735" y="384" text-anchor="middle" class="mono">22: MY_IP/32</text>
+    <text x="735" y="475" text-anchor="middle" class="label">Security Group</text>
+    <text x="735" y="499" text-anchor="middle" class="small">필요 포트만 허용</text>
+  </g>
+
+  <path d="M820 408H875" class="flow"/>
+  <g filter="url(#shadow)">
+    <rect x="880" y="300" width="170" height="215" rx="22" class="accent"/>
+    <rect x="914" y="330" width="102" height="62" rx="10" fill="#16384c" stroke="#6ecdd2"/>
+    <circle cx="930" cy="348" r="4" fill="#85f4d0"/><circle cx="945" cy="348" r="4" fill="#4ea7ff"/>
+    <text x="965" y="374" text-anchor="middle" class="mono">EC2 t3.micro</text>
+    <rect x="908" y="410" width="114" height="50" rx="10" fill="#071523" stroke="#85f4d0"/>
+    <text x="965" y="431" text-anchor="middle" class="mono">Docker</text>
+    <text x="965" y="449" text-anchor="middle" class="mono">Nginx :80</text>
+    <text x="965" y="490" text-anchor="middle" class="small">8GiB encrypted gp3</text>
+  </g>
+
+  <rect x="610" y="665" width="480" height="46" rx="14" fill="#0c2333" stroke="#36576c"/>
+  <text x="850" y="694" text-anchor="middle" class="small">Route Table: 0.0.0.0/0 → Internet Gateway · EC2 Public IPv4 enabled</text>
+  <text x="70" y="708" class="sub">삭제 단위: CloudFormation Stack · 별도 확인: Key Pair, Billing, 잔여 EBS/EIP</text>
+</svg>
