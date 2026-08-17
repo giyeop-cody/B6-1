@@ -1,9 +1,26 @@
+# Environment and credentials
 .env
+.env.*
+!.env.example
+.aws/
+*.pem
+*.ppk
+*.key
+id_rsa
+id_ed25519
+
+# Python
 __pycache__/
 *.pyc
-.DS_Store
-node_modules/
-*.db
-*.sqlite
 venv/
 .venv/
+
+# Local data and OS files
+*.db
+*.sqlite
+.DS_Store
+node_modules/
+
+# Local test outputs
+.tmp/
+*.local.log
