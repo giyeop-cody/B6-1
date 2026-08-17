@@ -36,7 +36,7 @@ fatal: could not read Username for 'https://github.com'
 
 ## 해결
 
-GitHub 비밀번호나 토큰을 코드·문서에 저장하지 않고 GitHub CLI Device Login으로 저장소 소유자 계정을 인증했다. 작업 완료 뒤 `gh auth logout`으로 환경의 인증을 제거한다.
+GitHub 비밀번호나 토큰을 코드·문서에 저장하지 않고 GitHub CLI Device Login으로 저장소 소유자 계정을 인증했다. 원격 Issue·branch·PR·main 병합을 완료했으며, 작업 완료 뒤 `gh auth logout`으로 환경의 인증을 제거한다.
 
 ## 완료 조건
 
