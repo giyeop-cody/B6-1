@@ -1,6 +1,6 @@
 # ISSUE-005: Console 배포와 public AMI 조회에 필요한 IAM 권한이 빠져 있다
 
-- 상태: 코드 수정·자동 검사 완료, PR 대기
+- 상태: 코드 수정·자동 검사 완료, PR [#6](https://github.com/giyeop-cody/B6-1/pull/6) 검토·병합 대기
 - 발견일: 2026-08-17
 - 우선순위: 높음
 - 원격 GitHub Issue: [#5](https://github.com/giyeop-cody/B6-1/issues/5)
@@ -33,6 +33,6 @@
 - [x] 정책 수정 후 정적 검사 PASS
 - [x] AdministratorAccess와 전체 `Action: "*"` 없음
 - [x] 선택지와 트레이드오프 기록
-- [ ] GitHub PR 검토·main 병합
+- [ ] GitHub PR #6 검토·main 병합
 - [ ] 실제 IAM Policy 생성 화면 확인
 - [ ] 실제 Stack 생성에서 AccessDenied가 없는지 확인
