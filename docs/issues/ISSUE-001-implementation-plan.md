@@ -1,8 +1,9 @@
 # ISSUE-001: B6-1 구현 파일과 검증 절차가 없다
 
-- 상태: 진행 중
+- 상태: 로컬 코드·정적 검증 완료, 실제 AWS 배포 대기
 - 발견일: 2026-08-15
 - 우선순위: 높음
+- 원격 GitHub Issue: [#1](https://github.com/giyeop-cody/B6-1/issues/1)
 
 ## 현상
 
