@@ -17,6 +17,12 @@
 | 11 | `11-resource-clean.png` | EBS·EIP·NAT·ELB·RDS 잔여 없음 | PENDING |
 | 12 | `12-billing-check.png` | Billing 확인 시각과 결과 | PENDING |
 
+명령 출력 원본은 스크린샷 대신 텍스트로 남긴다. 위 캡처 12종과 함께 아래 결과 파일을 보관한다.
+
+```bash
+scripts/aws-verify.sh b6-1-learning | tee evidence/aws-verification.txt
+```
+
 ## 보안 편집 규칙
 
 공개 저장소에 넣기 전에 다음을 가린다.
