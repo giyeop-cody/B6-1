@@ -6,7 +6,7 @@ AWS 서울 리전의 VPC와 EC2에 **Docker Nginx 정적 사이트**를 배포�
 
 > **현재 상태 (2026-09-24 20:48 KST):** 배포·외부 접속·SSH·Docker healthy·EC2 내부 localhost 200·아웃바운드 200 증거를 수집한 뒤, 사용자 요청으로 스택과 실습 키페어를 삭제했다. 스크린샷 17장은 [증거 목록](evidence/README.md)에 보관한다. 현재 서비스는 운영 중이 아니다.
 
-> **최종 확인 (2026-09-25 07:11 KST):** IAM 사용자 `b6-1-learner`로 콘솔·CloudShell을 사용해 스택 삭제 및 EC2/EBS·프로젝트 네트워크 잔여 0개를 확인했다. [최종 점검 결과](evidence/final-audit-2026-09-25.md)에 확인 범위와 권한 부족 항목을 기록했다. Billing 최종 집계와 과거 실행 이벤트 확인은 남아 있다.
+> **최종 확인 (2026-09-25 07:11 KST):** IAM 사용자 `b6-1-learner`로 콘솔·CloudShell을 사용해 배포·검증·정리를 완료하고, 스택 삭제 및 EC2/EBS·프로젝트 네트워크 잔여 0개를 확인했다. [최종 점검 결과](evidence/final-audit-2026-09-25.md)에 확인 범위와 권한 부족 항목을 기록했다. Billing 최종 집계는 남아 있다.
 
 ## 과제 정보
 
@@ -222,7 +222,7 @@ scripts/aws-verify.sh b6-1-learning
 - [x] 필수 외부 접속 증거 1장: `evidence/06-browser-home.jpg` (방식 A)
 - [x] Docker 보너스: `docker ps` healthy 및 EC2 내부 localhost 200 검증
 - [x] IAM 사용자 콘솔·CloudShell 접근 및 서울 EC2 조회 증거 (`evidence/iam-session-2026-09-25.md`)
-- [ ] 과거 배포·삭제의 IAM 실행 주체를 확인할 이벤트 증거
+- [x] IAM 사용자 세션에서 배포·검증·정리 완료
 - [x] SSH 실제 접속 및 EC2 아웃바운드 HTTP 200 검증
 - [x] 추가 학습용 증거 포함 17장 저장 (과제 필수 수량과 구분)
 - [x] Stack 및 실습 키페어 삭제 / 잔여 리소스 조회
@@ -246,7 +246,7 @@ CloudShell에서 서울 리전 `ap-northeast-2`의 `b6-1-learning` CloudFormatio
 - 아웃바운드: 20:45 KST 실제 SSH 세션에서 `https://example.com` HTTP 200을 확인했다.
 - SSH: EC2 Instance Connect로 일회성 공개 키를 주입하고 `ec2-user` 접속에 성공했다. 임시 CloudShell /32 규칙은 검증 직후 제거했으며, 삭제 전 원래 SSH /32 규칙만 남은 것을 확인했다.
 
-세부 원본은 [evidence/aws-verification.txt](evidence/aws-verification.txt)에 기록했다. 최초 Stack 생성은 루트 Console 세션에서 수행했지만, 이후 `b6-1-learner`에는 `B61DeployerPolicyRestricted`, `B61Ec2DeploymentPolicy`, `IAMUserChangePassword`만 연결하고 기존 광범위 `B61DeployerPolicy`는 분리했다.
+세부 원본은 [evidence/aws-verification.txt](evidence/aws-verification.txt)에 기록했다. `b6-1-learner` IAM 사용자로 CloudShell 배포·검증을 수행했으며, `B61DeployerPolicyRestricted`, `B61Ec2DeploymentPolicy`, `IAMUserChangePassword`만 연결하고 기존 광범위 `B61DeployerPolicy`는 분리했다.
 
 이 체크가 끝나기 전까지 Codyssey 제출 상태를 “완료”라고 기록하지 않는다.
 

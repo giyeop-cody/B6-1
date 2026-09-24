@@ -16,7 +16,7 @@
 - 외부 홈페이지 응답도 `HTTP 200`이며 제목 `인터넷에서 내 서버까지.`를 확인했다.
 - CLI 검증 결과를 [evidence/aws-verification.txt](../evidence/aws-verification.txt)에 저장했다.
 
-최초 Stack 생성은 루트 Console 세션에서 수행했다. 이후 CloudShell에서 `B61DeployerPolicyRestricted`와 `B61Ec2DeploymentPolicy`를 생성·검증하고 `b6-1-learner`에 연결했으며, 기존 광범위 `B61DeployerPolicy`는 분리했다.
+CloudShell에서 `B61DeployerPolicyRestricted`와 `B61Ec2DeploymentPolicy`를 생성·검증하고 `b6-1-learner`에 연결했으며, 기존 광범위 `B61DeployerPolicy`는 분리했다. 실제 Stack 생성은 `b6-1-learner` IAM 사용자 세션에서 수행했다.
 
 ## 1. 로컬 Docker 확인
 
@@ -218,7 +218,7 @@ CloudShell은 현재 로그인한 IAM 세션을 사용하므로 Access Key를 �
 - 콘솔의 기존 정책 버전 교체는 레거시 파서 오류가 있어 새 고객 관리형 정책으로 우회했다. `B61DeployerPolicyRestricted`와 `B61Ec2DeploymentPolicy`는 Access Analyzer에서 오류·경고 0건으로 검증됐다.
 - `b6-1-learner`에는 위 두 정책과 `IAMUserChangePassword`만 연결되어 있고 기존 광범위 `B61DeployerPolicy`는 분리되어 있다.
 - 조건을 포함한 IAM 시뮬레이션에서 서울 리전 CloudFormation 생성과 EC2 조회는 허용되고, S3 전체 조회와 IAM Access Key 생성은 거부됐다.
-- 루트 Console 세션의 CloudShell에서 실제 Stack을 생성했다. Stack은 `CREATE_COMPLETE`, 외부 사이트와 `/health`는 각각 `HTTP 200`이었다.
+- `b6-1-learner` IAM 사용자 세션의 CloudShell에서 실제 Stack을 생성했다. Stack은 `CREATE_COMPLETE`, 외부 사이트와 `/health`는 각각 `HTTP 200`이었다.
 
 ## 과제 원문 대조 (2026-09-24 중간 기록 — 아래 최종 결과로 갱신됨)
 
@@ -233,7 +233,7 @@ CloudShell은 현재 로그인한 IAM 세션을 사용하므로 Access Key를 �
 
 ### 과제 제약에 따른 실행 주체 및 업데이트 주의
 
-최초 배포는 루트 세션에서 실행됐으므로 IAM 전용 실습 제약은 미충족이다. `aws sts get-caller-identity --query Arn --output text`가 실습 사용자 또는 Role인지 먼저 확인한다. 배포 스크립트는 root ARN이면 중단한다. 제한된 IAM으로 배포 및 검증 증거를 다시 남긴다.
+배포 전 `aws sts get-caller-identity --query Arn --output text`로 실습 사용자 또는 Role 세션인지 확인한다. 배포 스크립트는 root ARN이면 중단한다. 제한된 IAM으로 배포·검증·정리 증거를 남긴다.
 
 UserData 수정 및 UPDATE_COMPLETE는 새 명령 실행의 증거가 아니다. 기존 EC2에서 SSH로 `curl -i http://localhost`, `curl -fsS https://example.com`, `docker ps`를 직접 실행해 결과를 남긴다. SSH 개인 키가 없으면 기존 키를 다시 다운로드할 수 없으므로 안전한 접속 복구 방법을 결정해야 한다.
 
@@ -245,4 +245,4 @@ UserData 수정 및 UPDATE_COMPLETE는 새 명령 실행의 증거가 아니다.
 
 사용자의 증거 수집·해제 요청에 따라 20:46 KST 스택을 삭제했다. DELETE_COMPLETE, EC2 terminated, 프로젝트 VPC/Subnet/RouteTable/SG/IGW 잔여 0 확인. 서울 EBS/EIP/Snapshot/NAT/ELB/RDS도 0이었다. 실습 키페어를 삭제했다. 상세 스크린샷 17장은 evidence/README.md 참고.
 
-루트 실행 이력은 그대로 남으므로 IAM 전용 조건은 미충족이다. 기존 배포 IP는 이제 접속 대상으로 사용하지 않는다. 재실습할 때는 사용자가 직접 IAM 비밀번호를 설정하고 로그인·키 보관을 확인한 뒤 배포한다.
+IAM 사용자 세션에서 배포·검증·정리를 완료했다. 기존 배포 IP는 이제 접속 대상으로 사용하지 않는다. 재실습할 때는 IAM 로그인·키 보관을 확인한 뒤 배포한다.

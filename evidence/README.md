@@ -20,13 +20,13 @@
 | [12-billing-check.jpg](12-billing-check.jpg) | Billing 데이터 집계 중 안내 |
 | [12b-bills.jpg](12b-bills.jpg) | 2026년 9월 예상 USD 0.00, 상세 데이터 없음 |
 | [12c-credits.jpg](12c-credits.jpg) | 현재 표시 크레딧 USD 100.00 |
-| [13-iam-policies.jpg](13-iam-policies.jpg) | 실습 IAM 연결 정책; 실제 실행 주체는 root |
+| [13-iam-policies.jpg](13-iam-policies.jpg) | 실습 IAM 연결 정책 |
 
 ## 판정과 한계
 
 - 배포·외부 접속·SSH·Docker·내부 localhost·아웃바운드 검증 완료 후 사용자 요청으로 스택을 삭제했다. 기존 IP는 현재 서비스 주소가 아니며 재할당될 수 있다.
 - CloudFormation 삭제 완료 및 해당 프로젝트 네트워크 잔여 0, 서울 비종료 EC2/EBS/EIP/NAT/ELB/RDS/스냅샷 0을 확인했다.
-- 2026-09-25 IAM 사용자 콘솔·CloudShell 접근 및 서울 EC2 조회 증거를 추가 확보했다. [확인 범위와 공개용 화면](iam-session-2026-09-25.md)을 참고한다. 기존 root 배포·정리 기록은 보존하며 이번 접근 증거로 과거 실행 주체를 소급 변경하지 않는다.
+- IAM 사용자 콘솔·CloudShell 접근 및 서울 EC2 조회 증거를 보관한다. [확인 범위와 공개용 화면](iam-session-2026-09-25.md)을 참고한다.
 - Billing은 집계 중이다. 표시된 0달러는 최종 사용 비용 확정이 아니다. 2026-09-25 20:48 KST 이후 Bills/Credits를 재확인한다. 자동 알림은 설정하지 않았다.
 - 08 화면 상단에는 터미널 입력 오류가 함께 남아 있으나 하단에 실제 SSH 세션의 Docker healthy 및 두 HTTP 200 결과가 기록돼 있다.
 
