@@ -24,3 +24,6 @@ node_modules/
 # Local test outputs
 .tmp/
 *.local.log
+
+# Temporary validation dependencies
+.validation-deps/

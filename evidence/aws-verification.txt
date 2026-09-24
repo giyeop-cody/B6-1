@@ -1,0 +1,66 @@
+B6-1 AWS verification evidence
+Date: 2026-09-24 (Asia/Seoul)
+Account: 000000000000
+Region: ap-northeast-2
+Stack: b6-1-learning
+Stack status: UPDATE_COMPLETE
+Stack ARN: arn:aws:cloudformation:ap-northeast-2:000000000000:stack/b6-1-learning/35f77ae0-b803-11f1-b574-0ac887d3ca55
+
+Outputs:
+WebsiteURL=http://13.125.21.155
+HealthURL=http://13.125.21.155/health
+VpcId=vpc-049d1e236397b35ce
+PublicSubnetId=subnet-0e7b633d4b9df52f1
+InstanceId=i-093226b9e4314ad26
+SecurityGroupId=sg-0417c1207b6378905
+
+External HTTP checks (CloudShell):
+GET /health -> HTTP/1.1 200 OK; body OK
+GET / -> HTTP 200; page marker: 인터넷에서 내 서버까지.
+Updated UserData includes an EC2 outbound check: curl https://example.com. The stack update completed; the check was not independently observed over SSH.
+Browser check: page rendered with status 서비스 응답 정상.
+Browser screenshot: evidence/06-browser-home.jpg
+CloudFormation ValidateTemplate: PASS after UserData update.
+
+CloudFormation events:
+Initial WebInstance CREATE_IN_PROGRESS reason: Received SUCCESS signal with UniqueId i-093226b9e4314ad26
+Initial WebInstance CREATE_COMPLETE
+Template update: WebInstance UPDATE_COMPLETE; stack UPDATE_COMPLETE
+
+EC2:
+state=running
+instanceType=t3.micro
+publicIp=13.125.21.155
+subnet=subnet-0e7b633d4b9df52f1
+securityGroup=sg-0417c1207b6378905
+instance tags include Project=b6-1 and ManagedBy=CloudFormation
+
+Security group ingress:
+tcp/80 from 0.0.0.0/0 (Public HTTP)
+tcp/22 from [SSH_SOURCE_IP]/32 (SSH from learner public IP only)
+
+Route table:
+10.0.0.0/16 -> local (active)
+0.0.0.0/0 -> igw-00b2cc0a2030904bb (active)
+
+IAM policy verification:
+Attached to b6-1-learner: B61DeployerPolicyRestricted, B61Ec2DeploymentPolicy, IAMUserChangePassword
+Detached from b6-1-learner: B61DeployerPolicy
+Access Analyzer findings: [] for both customer managed policies
+IAM simulation with RequestedRegion=ap-northeast-2: cloudformation:CreateStack allowed; ec2:DescribeInstances allowed; s3:ListAllMyBuckets implicitDeny; iam:CreateAccessKey implicitDeny
+
+Limitations:
+- No SSH/Docker CLI screenshot: b6-1-key.pem download was not found locally. Initial CloudFormation ResourceSignal and external HTTP checks confirm the initial internal service path.
+- Stack remains running for the user; follow docs/cleanup-checklist.md after evidence collection.
+
+Stack update (2026-09-24): UPDATE_COMPLETE after adding EC2 outbound connectivity check to UserData.
+SSH verification attempt: EC2 Instance Connect public key injection succeeded, but SSH authentication was not accepted; temporary CloudShell /32 ingress was removed immediately.
+
+Final audit: caller identity was arn:aws:iam::000000000000:root. IAM-only assignment constraint is NOT satisfied by policy attachment alone. Re-run deployment/verification as the learner IAM user or Role. UserData update is not proof of script re-execution.
+Git: restored Git metadata preserving workspace files; fetched and pulled origin/main successfully, already up to date at 6bc1076c4311cc2685b483ca326be8bc7e5f4bb1. Local changes are not pushed.
+
+FINAL UPDATE 2026-09-24 20:48 KST
+SSH succeeded via EC2 Instance Connect ephemeral key as ec2-user. docker ps: b6-1-web:latest, healthy, 80:80. localhost HTTP 200; example.com outbound HTTP 200; internal health OK. Temporary CloudShell /32 ingress revoked and original rules confirmed.
+User authorized evidence capture followed by teardown. Stack DELETE_COMPLETE (all 9 resources), instance terminated, project VPC/Subnet/RouteTable/SG/IGW 0. Seoul EBS/EIP/owned snapshots/active NAT/ELBv2/classic ELB/RDS instances/DB clusters/live EC2 all 0. b6-1-key deleted and query count 0. Ephemeral SSH key files removed.
+Bills estimated USD 0.00 with no detailed usage; billing data still preparing. Credits USD 100.00 displayed. Recheck after 2026-09-25 20:48 KST; no automation scheduled.
+17 screenshots saved locally. IAM-only execution constraint remains unmet: actual caller root. Historical IP must not be treated as a currently owned service address.

@@ -4,11 +4,12 @@
 
 ## 현재 상태
 
-- AWS 계정: 아직 없음
+- AWS 계정: 기존 계정 사용, 루트 MFA와 실습 IAM 사용자 준비 완료
 - 선택한 배포물: Docker로 실행하는 Nginx 정적 사이트
 - 인프라 방식: CloudFormation으로 생성하고 AWS 콘솔에서 직접 검증
 - 리전: 서울 `ap-northeast-2`
 - HTTPS: 사용할 도메인이 없어 HTTP와 Docker를 먼저 완료한 뒤 진행
+- 실제 배포: `b6-1-learning` Stack `UPDATE_COMPLETE`, 외부 `/health` `200 OK`
 
 ## 1. 가장 먼저 알아야 할 낱말
 
@@ -99,11 +100,12 @@ Docker를 쓰지 않고 User Data에서 `dnf install nginx`로 직접 설치하�
 
 ## 6. 아직 배우거나 확인하지 못한 것
 
-- 실제 AWS 계정 화면
-- 실제 서울 리전 Free Tier/크레딧 표시
-- 실제 EC2 Public IP
-- 실제 SSH 접속
-- 실제 외부 HTTP 응답
-- 실제 리소스 삭제 결과와 Billing
+- 서울 리전 Free Tier/크레딧과 Budget 실제 화면
+- Key Pair private key를 사용한 실제 SSH 접속과 `docker ps` 화면
+- Stack 삭제 후 잔여 리소스와 Billing 반영
 
-확인하지 않은 내용을 성공했다고 기록하지 않는다.
+외부 홈페이지와 `/health`는 실제 퍼블릭 IP에서 확인했다. 나머지 항목은 확인 전까지 성공했다고 기록하지 않는다.
+
+## 최종 상태 — 2026-09-24 20:48 KST
+
+배포·SSH·Docker healthy·localhost/아웃바운드 200을 검증하고 증거 17장을 저장했다. 사용자 요청으로 스택·키페어를 삭제했고 해당 프로젝트의 과금 리소스 정리를 확인했다. 원문의 IAM 전용 실행 제약은 루트 사용으로 미충족이다. 현재 서비스는 삭제됐으며 Billing 집계 후 비용 재확인이 남았다.

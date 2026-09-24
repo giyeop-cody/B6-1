@@ -1,72 +1,43 @@
 # AWS 리소스 정리 체크리스트
 
-> 이 문서는 실제 삭제 후 날짜·결과를 기록한다. 기존 AWS 계정 사용은 확인했지만 아직 Stack을 만들지 않아 모든 삭제 항목은 미확인 상태다.
+2026-09-24 사용자 요청으로 증거 수집 후 **정리 완료**했다. 대상은 서울 리전의 b6-1-learning 실습 스택과 b6-1-key 키페어다.
 
-## 실습 정보
-
-| 항목 | 실제 값 |
+| 항목 | 결과 |
 |---|---|
-| AWS Account 마지막 4자리 | PENDING |
-| 리전 | `ap-northeast-2` |
-| Stack | `b6-1-learning` |
-| 시작 시각 | PENDING |
-| 삭제 시각 | PENDING |
-| 확인자 | PENDING |
+| 계정 마지막 4자리 | 4802 |
+| 리전 | ap-northeast-2 |
+| 삭제 요청 시각 | 2026-09-24 20:46:09 KST |
+| 스택 완료 확인 | 2026-09-24 20:46:59 KST |
+| 최종 잔여 확인 | 2026-09-24 20:48:03 KST |
+| 실행 주체 | root (과제 IAM 전용 제약 미충족) |
 
-## 1. Stack 삭제
+## 스택과 과금 리소스
 
-```bash
-scripts/delete-stack.sh
-```
+- [x] b6-1-learning: DELETE_COMPLETE, 구성 리소스 9개 모두 DELETE_COMPLETE
+- [x] EC2 i-093226b9e4314ad26: terminated; 서울 비종료 인스턴스 0
+- [x] EBS vol-087794825c782c6e5 삭제; 서울 EBS 0
+- [x] 프로젝트 Security Group·Public Subnet·Route Table 잔여 0
+- [x] 프로젝트 Internet Gateway·VPC 잔여 0
+- [x] 서울 Elastic IP 0 (추가 해제 대상 없음)
+- [x] 서울 비삭제 NAT Gateway 0
+- [x] 서울 ALB/NLB 및 Classic ELB 0
+- [x] 서울 RDS 인스턴스 및 DB Cluster 0
+- [x] 서울 소유 EBS Snapshot 0
+- [x] 사용 중인 인스턴스가 없음을 확인한 뒤 b6-1-key 삭제, 잔여 0
+- [x] 이번 CloudShell 임시 SSH 키 및 이전 /tmp/b6eic 키 삭제
+- [ ] 개인 PC의 기존 b6-1-key.pem: 이전 다운로드를 찾지 못해 존재·삭제 확인 불가
 
-- [ ] CloudFormation Stack이 `DELETE_COMPLETE` 후 목록에서 제거됨
-- [ ] Stack 삭제 실패 이벤트가 없음
+루트 MFA와 IAM 사용자·정책은 계정 설정으로 유지했다. 다른 리전 및 다른 프로젝트 전체의 무과금 여부를 보증하는 점검은 아니다.
 
-## 2. Stack에 포함된 리소스
+## Billing
 
-- [ ] EC2 인스턴스가 `terminated`
-- [ ] EC2에 연결됐던 8GiB EBS가 삭제됨
-- [ ] Security Group이 삭제됨
-- [ ] Public Subnet이 삭제됨
-- [ ] Route Table이 삭제됨
-- [ ] Internet Gateway가 분리·삭제됨
-- [ ] VPC가 삭제됨
+- [x] Billing Dashboard: 사용량 데이터 준비 중, 최대 24시간 안내 확인
+- [x] 2026년 9월 Bills: 예상 USD 0.00 표시, 세부 사용량 데이터 없음
+- [x] Credits: 잔여 USD 100.00 / 사용 USD 0.00 표시
+- [ ] 집계 반영 후 EC2·EBS·Public IPv4 최종 사용 내역 재확인
 
-## 3. Stack 밖에서 별도로 만든 항목
+재확인 예정: **2026-09-25 20:48 KST 이후**, 계정 소유자가 Bills/Credits에서 확인한다. 자동 알림은 설정하지 않았다. 현재 표시값을 최종 비용 0으로 확정하지 않는다.
 
-- [ ] `b6-1-key` Key Pair가 더 필요하지 않으면 콘솔에서 삭제됨
-- [ ] 로컬 `.pem`도 더 필요하지 않으면 안전하게 삭제됨
-- [ ] Elastic IP가 생성되지 않았음을 확인함
-- [ ] NAT Gateway가 생성되지 않았음을 확인함
-- [ ] Load Balancer가 생성되지 않았음을 확인함
-- [ ] RDS가 생성되지 않았음을 확인함
-- [ ] 사용하지 않는 EBS Volume과 Snapshot이 없음을 확인함
+## 증거
 
-## 4. 비용 확인
-
-- [ ] Billing Dashboard에서 현재 비용 확인
-- [ ] Credits 잔액 확인
-- [ ] Cost Explorer 또는 Bills에서 EC2·EBS·Public IPv4 관련 항목 확인
-- [ ] 24시간 뒤 청구 반영을 다시 확인할 일정 기록
-
-다음 확인 날짜:
-
-```text
-PENDING
-```
-
-## 5. 삭제 증거
-
-| 증거 | 파일 |
-|---|---|
-| Stack 삭제 완료 | `evidence/09-stack-delete-complete.png` |
-| EC2 없음 또는 terminated | `evidence/10-ec2-clean.png` |
-| EBS/EIP 등 잔여 자원 없음 | `evidence/11-resource-clean.png` |
-| Billing 확인 | `evidence/12-billing-check.png` |
-
-## 최종 선언
-
-```text
-[ ] 생성한 과금 가능 리소스를 모두 확인했고 불필요한 리소스를 삭제했다.
-확인 시각: PENDING
-```
+[증거 목록](../evidence/README.md)의 09–12c 스크린샷과 cleanup-session.txt에 결과를 보관했다. 웹사이트는 삭제 전 검증된 기록이며 삭제 후 기존 IP로 접속하지 않는다.

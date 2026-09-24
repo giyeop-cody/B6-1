@@ -5,7 +5,7 @@ Parameters:
   ProjectName:
     Type: String
     Default: b6-1
-    AllowedPattern: '^[a-z0-9-]{3,20}$'
+    AllowedValues: [b6-1]
     Description: Lowercase project tag and resource name prefix
   KeyName:
     Type: AWS::EC2::KeyPair::KeyName
@@ -13,7 +13,7 @@ Parameters:
   AllowedSshCidr:
     Type: String
     Default: 127.0.0.1/32
-    AllowedPattern: '^(?:[0-9]{1,3}\.){3}[0-9]{1,3}/(?:[0-9]|[12][0-9]|3[0-2])$'
+    AllowedPattern: '^(?:[0-9]{1,3}\.){3}[0-9]{1,3}/32$'
     ConstraintDescription: Enter one IPv4 CIDR such as 203.0.113.10/32. Never use 0.0.0.0/0.
     Description: Learner public IPv4 address with /32 for SSH
   InstanceType:
@@ -21,7 +21,6 @@ Parameters:
     Default: t3.micro
     AllowedValues:
       - t3.micro
-      - t3.small
     Description: Check the current account Free Tier or credits before deployment
 
 Rules:
@@ -188,6 +187,8 @@ Resources:
             dnf install -y docker git aws-cfn-bootstrap
             systemctl enable --now docker
             usermod -aG docker ec2-user
+            curl --connect-timeout 10 --max-time 20 -fsS https://example.com -o /tmp/b6-1-egress-check.html
+            grep -q 'Example Domain' /tmp/b6-1-egress-check.html
             rm -rf /opt/b6-1
             git clone --depth 1 https://github.com/giyeop-cody/B6-1.git /opt/b6-1
             cd /opt/b6-1

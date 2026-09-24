@@ -1,9 +1,12 @@
 # B6-1: 내가 만든 웹사이트를 인터넷에 올려 누구나 쓰게 하기
 
+> **2026-09-24 권한 변경:** 기존의 서울 전체 EC2 변경 정책은 사용하지 않는다. [배포 권한 경계](docs/deployment-permissions.md)를 먼저 확인하고, 두 정책을 검증·적용한 뒤 진행한다. AWS 적용·실제 배포 검증 전에는 완료로 표시하지 않는다.
+
 AWS 서울 리전의 VPC와 EC2에 **Docker Nginx 정적 사이트**를 배포하는 학습 프로젝트다. CloudFormation으로 인프라를 다시 만들 수 있고, 브라우저와 `/health` 응답으로 실제 동작을 검증한다.
 
-> **현재 상태:** 코드·GitHub 병합 완료 · 기존 AWS 계정 사용 가능 확인 · IAM·MFA·Budget·Key Pair와 실제 배포/URL/증거는 대기 중<br>
-> 확인하지 않은 AWS 실행 결과를 성공으로 표시하지 않는다.
+> **현재 상태 (2026-09-24 20:48 KST):** 배포·외부 접속·SSH·Docker healthy·EC2 내부 localhost 200·아웃바운드 200 증거를 수집한 뒤, 사용자 요청으로 스택과 실습 키페어를 삭제했다. 스크린샷 17장은 [증거 목록](evidence/README.md)에 보관한다. 현재 서비스는 운영 중이 아니다.
+
+> **과제 적합성:** 기술 동작 및 리소스 정리는 검증했다. 2026-09-25 IAM 사용자 `b6-1-learner`로 콘솔·CloudShell 접근 및 서울 EC2 조회를 확인했다([IAM 사용 증거](evidence/iam-session-2026-09-25.md)). 기존 root 배포·정리 기록과 이번 IAM 접근 증거는 별도로 보존한다. 이번 로그인 증거만으로 과거 모든 작업이 IAM 전용이었다고 판정하지 않는다. Billing 집계 반영 후 비용 확인도 남아 있다.
 
 ## 과제 정보
 
@@ -22,25 +25,27 @@ AWS 서울 리전의 VPC와 EC2에 **Docker Nginx 정적 사이트**를 배포�
 
 | 요구사항 | 구현 | 실제 AWS 검증 |
 |---|---:|---:|
-| 정적 웹사이트 | 완료 | 대기 |
-| `GET /health` → 200 `OK` | 완료 | 대기 |
-| Dockerfile과 container healthcheck | 완료 | Docker 환경 검사 대기 |
-| VPC `10.0.0.0/16` | CloudFormation 완료 | 대기 |
-| Public Subnet `10.0.1.0/24` | CloudFormation 완료 | 대기 |
-| Internet Gateway와 기본 Route | CloudFormation 완료 | 대기 |
-| EC2 t3.micro, 8GiB 암호화 gp3 | CloudFormation 완료 | 대기 |
-| HTTP 80 전체 공개 | CloudFormation 완료 | 대기 |
-| SSH 22 개인 IP `/32` | CloudFormation 완료 | 대기 |
-| SSH `0.0.0.0/0` 거부 | CloudFormation Rule 완료 | 대기 |
-| IAM 최소권한 정책 | 완료 | 계정 생성 후 적용 대기 |
-| 아키텍처 다이어그램 | 완료 | 해당 없음 |
-| 트러블슈팅 기록 | 개발환경 1건 | 실제 AWS 사례 추가 필요 |
-| 리소스 정리 체크리스트 | 완료 | 실제 삭제 증거 대기 |
+| 정적 웹사이트 | 완료 | 외부 HTTP 200 확인 |
+| `GET /health` → 200 `OK` | 완료 | 외부 HTTP 200/OK 확인 |
+| Dockerfile과 container healthcheck | 완료 | CloudFormation 내부 ResourceSignal 통과 |
+| VPC `10.0.0.0/16` | CloudFormation 완료 | 실제 VPC 확인 |
+| Public Subnet `10.0.1.0/24` | CloudFormation 완료 | 실제 Subnet 확인 |
+| Internet Gateway와 기본 Route | CloudFormation 완료 | `0.0.0.0/0 → IGW` 확인 |
+| EC2 t3.micro, 8GiB 암호화 gp3 | CloudFormation 완료 | EC2 running 확인 |
+| HTTP 80 전체 공개 | CloudFormation 완료 | 보안 그룹 확인 |
+| SSH 22 개인 IP `/32` | CloudFormation 완료 | `[SSH_SOURCE_IP]/32` 확인 |
+| SSH `0.0.0.0/0` 거부 | CloudFormation Rule 완료 | 공개 SSH 규칙 없음 확인 |
+| IAM 최소권한 정책 | 완료 | 제한 정책 2개 연결 및 시뮬레이션 확인 |
+| 아키텍처 다이어그램 | 완료 | SVG 원본 + 제출용 PDF |
+| 트러블슈팅 기록 | AWS 사례 1건 | 정책 오류 해결 기록 |
+| 리소스 정리 체크리스트 | 완료 | DELETE_COMPLETE 및 잔여 0 확인 |
 | HTTPS 보너스 | 도메인 없음 | 후속 작업 |
 
 ## 아키텍처
 
 ![B6-1 AWS 아키텍처](docs/architecture.svg)
+
+제출용 파일: [docs/architecture.pdf](docs/architecture.pdf) (과제 최소 규격)
 
 요청 흐름:
 
@@ -89,6 +94,7 @@ Elastic IP, NAT Gateway, Load Balancer, RDS는 만들지 않는다.
 │   └── validate_project.py
 ├── docs/
 │   ├── architecture.svg
+│   ├── architecture.pdf
 │   ├── account-setup.md
 │   ├── deployment-guide.md
 │   ├── troubleshooting.md
@@ -188,7 +194,7 @@ scripts/aws-verify.sh b6-1-learning
 - Docker healthcheck
 - EC2 재부팅 후 자동 시작을 위한 `--restart unless-stopped`
 
-실제 AWS Docker 증거는 배포 후 추가한다.
+실행 이미지 `b6-1-web:latest`, 컨테이너 `b6-1-web`, 포트 `80:80`. 실제 SSH의 Docker healthy, localhost 200은 [08 증거](evidence/08-docker-healthy.jpg), 외부 접속은 [06 증거](evidence/06-browser-home.jpg)에 보관했다. 검증 후 컨테이너와 EC2를 정리했다.
 
 ### HTTPS
 
@@ -206,15 +212,44 @@ scripts/aws-verify.sh b6-1-learning
 
 ## 제출 전 완료 조건
 
-- [ ] 루트·IAM MFA와 최소권한 사용자 실제 확인
+- [x] 루트 MFA와 실습 IAM 사용자 생성 확인 (IAM 사용자 MFA·정책 최소화는 후속)
 - [ ] 로컬 Docker 실제 검사 PASS
-- [ ] CloudFormation `CREATE_COMPLETE`
-- [ ] 배포 URL에서 사이트 표시
-- [ ] 외부 `/health` 200
-- [ ] EC2 내부 Docker `healthy`
-- [ ] 실제 AWS 트러블슈팅 1건
-- [ ] 증거 이미지 12종
-- [ ] Stack과 별도 리소스 삭제
-- [ ] Billing 확인
+- [x] CloudFormation `CREATE_COMPLETE`
+- [x] 배포 URL에서 사이트 표시
+- [x] 외부 `/health` 200
+- [x] CloudFormation ResourceSignal로 EC2 내부 헬스체크 통과
+- [x] 실제 AWS 트러블슈팅 1건
+- [x] 필수 외부 접속 증거 1장: `evidence/06-browser-home.jpg` (방식 A)
+- [x] Docker 보너스: `docker ps` healthy 및 EC2 내부 localhost 200 검증
+- [x] IAM 사용자 콘솔·CloudShell 접근 및 서울 EC2 조회 증거 (`evidence/iam-session-2026-09-25.md`)
+- [ ] 과거 배포·삭제의 IAM 실행 주체를 확인할 이벤트 증거
+- [x] SSH 실제 접속 및 EC2 아웃바운드 HTTP 200 검증
+- [x] 추가 학습용 증거 포함 17장 저장 (과제 필수 수량과 구분)
+- [x] Stack 및 실습 키페어 삭제 / 잔여 리소스 조회
+- [x] Billing/Bills/Credits 화면 확인 및 저장
+- [ ] 집계 반영 후 최종 사용 내역 확인 (2026-09-25 20:48 KST 이후)
+
+## 실제 배포 결과 (2026-09-24, 삭제 전 기록)
+
+과제 제출 방식은 **A(브라우저 접속)** 이다. `/health`는 추가 검증이다.
+
+![외부 접속 증거](evidence/06-browser-home.jpg)
+
+CloudShell에서 서울 리전 `ap-northeast-2`의 `b6-1-learning` CloudFormation 스택을 생성했다. 최초 스택은 `CREATE_COMPLETE`, 이후 템플릿 업데이트는 `UPDATE_COMPLETE`이며 EC2 UserData의 내부 `/health` 검사가 SUCCESS 신호를 보낸 뒤 완료됐다.
+
+- 삭제 전 사이트: `http://13.125.21.155` (삭제 후 접속 대상 아님)
+- 삭제 전 Health: `http://13.125.21.155/health` → 외부 `HTTP 200`, 본문 `OK`
+- EC2: `i-093226b9e4314ad26`, `t3.micro`, `running`
+- VPC/Subnet: `vpc-049d1e236397b35ce` / `subnet-0e7b633d4b9df52f1`
+- 보안 그룹: HTTP 80 공개, SSH 22는 배포 당시 `[SSH_SOURCE_IP]/32`만 허용
+- 라우팅: `0.0.0.0/0 → igw-00b2cc0a2030904bb`
+- 아웃바운드: 20:45 KST 실제 SSH 세션에서 `https://example.com` HTTP 200을 확인했다.
+- SSH: EC2 Instance Connect로 일회성 공개 키를 주입하고 `ec2-user` 접속에 성공했다. 임시 CloudShell /32 규칙은 검증 직후 제거했으며, 삭제 전 원래 SSH /32 규칙만 남은 것을 확인했다.
+
+세부 원본은 [evidence/aws-verification.txt](evidence/aws-verification.txt)에 기록했다. 최초 Stack 생성은 루트 Console 세션에서 수행했지만, 이후 `b6-1-learner`에는 `B61DeployerPolicyRestricted`, `B61Ec2DeploymentPolicy`, `IAMUserChangePassword`만 연결하고 기존 광범위 `B61DeployerPolicy`는 분리했다.
 
 이 체크가 끝나기 전까지 Codyssey 제출 상태를 “완료”라고 기록하지 않는다.
+
+## 공개 저장소의 계정 값
+
+정책 JSON과 기록의 `000000000000`은 계정 ID 대체값이다. 정책을 실제 적용하기 전에 본인 AWS 계정 ID로 바꾼다. `[SSH_SOURCE_IP]` 역시 비공개 처리한 기록용 표식이다. 기존 스크린샷 17장과 IAM 증거 1장의 공개용 사본을 제공하며 원본은 로컬에 보존한다.
