@@ -43,3 +43,7 @@
 
 - [15-iam-sts-ec2-public.png](15-iam-sts-ec2-public.png): IAM 사용자 ARN, 서울 리전, 비종료 EC2 0
 - [iam-session-2026-09-25.md](iam-session-2026-09-25.md): 시각·명령·확인 범위
+
+## IAM 세션 최종 재확인
+
+[2026-09-25 최종 점검 결과](final-audit-2026-09-25.md): 스택 삭제와 잔여 리소스를 IAM 세션에서 재확인했다. 조회 거부 항목과 기존 9월 24일 기록을 구분한다.

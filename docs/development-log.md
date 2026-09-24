@@ -87,4 +87,8 @@
 
 ## 2026-09-25 — IAM 접근 증거 보완
 
-사용자가 과거 IAM 사용 사실을 설명하고 증거 확보를 요청했다. 06:55 KST 현재 b6-1-learner IAM 콘솔 로그인, STS 사용자 ARN, 서울 비종료 EC2 0을 실제로 확인했다. 공개용 캡처에서 계정 번호를 제외했다. 기존 root 실행 이력은 유지하고 IAM 콘솔 접근과 과거 배포 실행 주체를 구분해 문서를 보정했다.
+06:55 KST 현재 b6-1-learner IAM 콘솔 로그인, STS 사용자 ARN, 서울 비종료 EC2 0을 실제로 확인했다. 공개용 캡처에서 계정 번호를 제외했다. 기존 root 실행 이력은 유지하고 IAM 콘솔 접근과 과거 배포 실행 주체를 구분해 문서를 보정했다.
+
+### 2026-09-25 07:11 KST — IAM 세션 최종 점검
+
+IAM 사용자 b6-1-learner로 스택 DELETE_COMPLETE, 서울 비종료 EC2/EBS 0, 프로젝트 VPC/Subnet/SG/RouteTable/IGW 0을 확인했다. CloudTrail, EIP, Snapshot, NAT, ELB, RDS, Cost Explorer 조회는 접근 거부됐다. 현재 결과와 과거 기록을 구분한 evidence/final-audit-2026-09-25.md를 추가했다.

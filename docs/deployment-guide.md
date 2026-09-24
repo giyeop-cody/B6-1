@@ -1,5 +1,7 @@
 # B6-1 배포와 검증 가이드
 
+> **최신 상태 (2026-09-25):** IAM 사용자 콘솔·CloudShell 사용 및 스택 삭제/리소스 정리 재확인을 완료했다. 아래 9월 24일 내용은 당시 기록이며, 현재 판정은 [최종 점검 결과](../evidence/final-audit-2026-09-25.md)를 기준으로 확인한다.
+
 > **2026-09-24 권한 변경:** 기존의 서울 전체 EC2 변경 정책은 사용하지 않는다. [배포 권한 경계](deployment-permissions.md)를 먼저 확인하고, 두 정책을 검증·적용한 뒤 진행한다. AWS 적용·실제 배포 검증 전에는 완료로 표시하지 않는다.
 
 ## 0. 현재 진행 상태
@@ -218,7 +220,7 @@ CloudShell은 현재 로그인한 IAM 세션을 사용하므로 Access Key를 �
 - 조건을 포함한 IAM 시뮬레이션에서 서울 리전 CloudFormation 생성과 EC2 조회는 허용되고, S3 전체 조회와 IAM Access Key 생성은 거부됐다.
 - 루트 Console 세션의 CloudShell에서 실제 Stack을 생성했다. Stack은 `CREATE_COMPLETE`, 외부 사이트와 `/health`는 각각 `HTTP 200`이었다.
 
-## 과제 원문 대조 (2026-09-24)
+## 과제 원문 대조 (2026-09-24 중간 기록 — 아래 최종 결과로 갱신됨)
 
 - 아키텍처 제출 규격: `docs/architecture.pdf`를 추가했고, SVG 원본도 유지한다.
 - 외부 접속 증빙: README에 B 방식(`/health`) URL을 기록했고 CloudShell에서 `HTTP 200`과 `OK`를 확인했다. 화면 캡처는 아직 추가하지 않았다.
