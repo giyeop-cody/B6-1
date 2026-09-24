@@ -12,8 +12,8 @@
 | 서울 비종료 EC2 / EBS | 각각 0 | 17-final-audit-dom.txt |
 | 프로젝트 VPC / Subnet / SG / Route Table / IGW | 각각 0 | 17-final-audit-dom.txt |
 | 프로젝트 키페어 | 0 (07:08 KST 조회) | 16-cleanup-recheck-2026-09-25.txt |
-| EIP / Snapshot / NAT / ELB / RDS | 현재 IAM 조회 권한 부족; 9월 24일 0 확인 기록 보존 | 11 캡처 및 이번 조회 로그 |
-| 최종 비용 | Cost Explorer 조회 권한 부족; 이전 Billing은 집계 중 | 12–12c 캡처 및 이번 조회 로그 |
+| EIP / Snapshot / NAT / ALB·NLB / Classic ELB / RDS 인스턴스·클러스터 | root CloudShell 재조회 결과 모두 0 | 2026-09-25 root CloudShell 조회 |
+| 최종 비용 | 2026-09 청구서에서 CloudFormation·Data Transfer·EC2·KMS·VPC가 각각 USD 0.00, 총 세금 USD 0.00 | 2026-09-25 Billing 화면 |
 | 배포·검증·정리 실행 주체 | b6-1-learner IAM 사용자 | 15-iam-sts-ec2-public.png |
 
 ## 현재 상태
@@ -22,10 +22,8 @@
 
 IAM 사용자 `b6-1-learner`로 콘솔과 CloudShell을 사용해 배포·검증·정리를 수행했다. 현재 리소스 조회와 배포·정리 증거를 함께 보관한다.
 
-## 남은 확인
+## 남은 작업
 
-- EIP·Snapshot·NAT·ELB·RDS 조회 권한이 있는 세션에서 잔여 리소스 재확인.
-- Billing 집계 후 최종 사용 내역 확인. 기존 USD 0.00을 최종 확정 금액으로 표시하지 않는다.
 - GitHub 원격 업로드. 로컬 커밋과 원격 push 성공을 구분한다.
 
 ## 검증 자료

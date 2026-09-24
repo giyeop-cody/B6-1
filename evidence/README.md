@@ -47,3 +47,8 @@
 ## IAM 세션 최종 재확인
 
 [2026-09-25 최종 점검 결과](final-audit-2026-09-25.md): 스택 삭제와 잔여 리소스를 IAM 세션에서 재확인했다. 조회 거부 항목과 기존 9월 24일 기록을 구분한다.
+
+## Billing 최종 확인
+
+- [18-billing-final-2026-09-25.png](18-billing-final-2026-09-25.png): 2026년 9월 청구서의 CloudFormation, Data Transfer, EC2, KMS, VPC가 모두 USD 0.00으로 표시됨
+- [18-billing-final-2026-09-25.txt](18-billing-final-2026-09-25.txt): 청구서 화면 텍스트 원본(계정 식별 정보 제외)

@@ -1,0 +1,409 @@
+- banner:
+  - 'img "계정 색상: 설정 해제"'
+  - navigation "글로벌":
+    - link "AWS 콘솔 홈":
+      - /url: https://us-east-1.console.aws.amazon.com/console/home?region=us-east-1
+    - link "기본 콘텐츠로 건너뛰기":
+      - /url: "#c"
+    - button "Amazon Q":
+    - button "서비스":
+    - img "검색":
+    - searchbox
+    - combobox "검색"
+    - button "Amazon Q에게 질문하기":
+    - generic: "[알트+S]"
+    - status
+    - link "CloudShell":
+      - /url: https://us-east-1.console.aws.amazon.com/cloudshell/home?region=us-east-1
+    - button "알림(사용 가능한 알림 없음)":
+      - img "알림":
+    - img "알림":
+    - list:
+      - button "도움말 및 지원":
+        - img "지원":
+      - button "설정":
+      - combobox "Regions (글로벌)":
+        - generic: 글로벌
+      - button "ACCOUNT_NAME_REDACTED":
+        - 'generic "계정 색상: 설정 해제"':
+          - generic: ACCOUNT_NAME_REDACTED (ACCOUNT_ID_REDACTED)
+        - generic: ACCOUNT_NAME_REDACTED
+  - list
+- button "측면 탐색 열기" [expanded]:
+- navigation:
+  - list:
+    - link "과금 정보 및 비용 관리":
+      - /url: /costmanagement/home#/
+      - generic: 과금 정보 및 비용 관리
+    - link "청구서" [disabled]:
+      - generic: 청구서
+  - list:
+    - link:
+      - /url: /costmanagement/home#/
+      - generic: 과금 정보 및 비용 관리
+    - generic: 청구서
+- region "드로어":
+  - toolbar "드로어":
+    - button "도움말 창 열기":
+- navigation "측면 탐색":
+  - button "측면 탐색 닫기":
+  - heading "과금 정보 및 비용 관리" [level=2]:
+    - link "과금 정보 및 비용 관리":
+      - /url: /costmanagement/home#/
+      - generic: 과금 정보 및 비용 관리
+  - list:
+    - link "홈":
+      - /url: /costmanagement/home#/home
+      - generic: 홈
+    - link "시작":
+      - /url: /costmanagement/home#/getting-started
+      - generic: 시작
+    - link "FinOps 에이전트":
+      - /url: https://us-east-1.console.aws.amazon.com/finops-agent/home?region=us-east-1
+      - generic: FinOps 에이전트
+    - button "Preview":
+      - generic: Preview
+    - heading "청구 및 결제" [level=3]:
+      - generic: 청구 및 결제
+    - list:
+      - link "청구서":
+        - /url: "#/bills"
+        - generic: 청구서
+      - link "결제":
+        - /url: "#/paymentsoverview"
+        - generic: 결제
+      - link "크레딧":
+        - /url: /costmanagement/home#/credits
+        - generic: 크레딧
+      - link "구매 주문":
+        - /url: /costmanagement/home#/purchaseorders
+        - generic: 구매 주문
+    - heading "비용 및 사용량 분석" [level=3]:
+      - generic: 비용 및 사용량 분석
+    - list:
+      - link "Cost Explorer":
+        - /url: /costmanagement/home#/cost-explorer
+        - generic: Cost Explorer
+      - link "Cost Explorer에서 저장한 보고서":
+        - /url: /costmanagement/home#/reports/overview
+        - generic: Cost Explorer에서 저장한 보고서
+      - link "비용 이상 징후 감지":
+        - /url: /costmanagement/home#/anomaly-detection
+        - generic: 비용 이상 징후 감지
+      - link "프리 티어":
+        - /url: /costmanagement/home#/freetier
+        - generic: 프리 티어
+      - link "데이터 내보내기":
+        - /url: /costmanagement/home#/bcm-data-exports
+        - generic: 데이터 내보내기
+      - link "고객 탄소 발자국 도구":
+        - /url: /costmanagement/home#/customer-carbon-footprint-tool
+        - generic: 고객 탄소 발자국 도구
+    - heading "비용 조직" [level=3]:
+      - generic: 비용 조직
+    - list:
+      - link "Cost Categories":
+        - /url: /costmanagement/home#/costcategories
+        - generic: Cost Categories
+      - link "비용 할당 태그":
+        - /url: /costmanagement/home#/tags
+        - generic: 비용 할당 태그
+      - link "Billing Conductor새 탭에서 열기":
+        - /url: /billingconductor/home
+        - generic: Billing Conductor
+        - img "새 탭에서 열기":
+    - heading "예산 및 계획" [level=3]:
+      - generic: 예산 및 계획
+    - list:
+      - link "예산":
+        - /url: /costmanagement/home#/budgets
+        - generic: 예산
+      - link "예산 보고서":
+        - /url: "#/budgets/reports"
+        - generic: 예산 보고서
+    - heading "할인 및 약정" [level=3]:
+      - generic: 할인 및 약정
+    - list:
+      - link "비용 최적화 허브":
+        - /url: /costmanagement/home#/cost-optimization-hub
+        - generic: 비용 최적화 허브
+      - button "절감형 플랜" [expanded]:
+        - generic: 절감형 플랜
+      - group "절감형 플랜":
+        - list:
+          - link "개요":
+            - /url: /costmanagement/home#/savings-plans/overview
+            - generic: 개요
+          - link "인벤토리":
+            - /url: /costmanagement/home#/savings-plans/inventory
+            - generic: 인벤토리
+          - link "권장 사항":
+            - /url: /costmanagement/home#/savings-plans/recommendations
+            - generic: 권장 사항
+          - link "사용률 보고서":
+            - /url: /costmanagement/home#/savings-plans/utilization
+            - generic: 사용률 보고서
+          - link "충당률 보고서":
+            - /url: /costmanagement/home#/savings-plans/coverage
+            - generic: 충당률 보고서
+          - link "Savings Plans 구매":
+            - /url: /costmanagement/home#/savings-plans/purchase
+            - generic: Savings Plans 구매
+          - link "장바구니":
+            - /url: /costmanagement/home#/savings-plans/cart
+            - generic: 장바구니
+          - generic: "0"
+      - button "예약" [expanded]:
+        - generic: 예약
+      - group "예약":
+        - list:
+          - link "개요":
+            - /url: /costmanagement/home#/ri/dashboard
+            - generic: 개요
+          - link "권장 사항":
+            - /url: /costmanagement/home#/ri/recommendations
+            - generic: 권장 사항
+          - link "사용률 보고서":
+            - /url: /costmanagement/home#/ri/utilization
+            - generic: 사용률 보고서
+          - link "충당률 보고서":
+            - /url: /costmanagement/home#/ri/coverage
+            - generic: 충당률 보고서
+  - separator
+  - list:
+    - heading "기본 설정 및 설정" [level=3]:
+      - generic: 기본 설정 및 설정
+    - list:
+      - link "결제 기본 설정":
+        - /url: "#/paymentpreferences"
+        - generic: 결제 기본 설정
+      - link "빌링 기본 설정":
+        - /url: /costmanagement/home#/preferences
+        - generic: 빌링 기본 설정
+      - link "비용 관리 기본 설정":
+        - /url: /costmanagement/home#/settings
+        - generic: 비용 관리 기본 설정
+      - link "세금 설정":
+        - /url: /costmanagement/home#/tax-settings
+        - generic: 세금 설정
+      - link "세금 설정":
+        - /url: /costmanagement/home#/tax-settings
+        - generic: 세금 설정
+      - link "인보이스 구성":
+        - /url: /costmanagement/home#/invoice-management
+        - generic: 인보이스 구성
+      - link "Fapiao 관리":
+        - /url: "#/tax"
+        - generic: Fapiao 관리
+  - separator
+  - list:
+    - button "레거시 페이지":
+      - generic: 레거시 페이지
+- main:
+  - region "알림"
+  - main:
+    - region "알림":
+      - img "정보":
+      - generic: 무료 플랜 계정에는 요금이 청구되지 않음
+      - text: 크레딧은 무료 플랜 비용을 충당합니다. 무료 플랜 기간이 만료되거나 크레딧이 모두 소진되면 AWS 서비스 무료 이용이 종료됩니다.
+      - button "세부 정보 보기"
+      - link "업그레이드 계획":
+        - /url: /billing/home?#/freetier/upgrade
+      - list "알림"
+    - heading "청구서" [level=1]
+    - button "정보 청구서": 정보
+    - button "CSV로 모두 다운로드":
+      - text: CSV로 모두 다운로드
+    - button "인쇄"
+    - button "결제 기간 선택":
+      - text: "결제 기간: 2026년 9월"
+    - button "청구서 페이지 기본 설정":
+    - paragraph:
+      - strong: "페이지 새로 고침 시간:"
+      - text: 2026년 9월 25일 금요일 오전 7시 40분 11초 GMT+9
+    - heading "AWS 예상 청구서 요약" [level=2]
+    - button "정보 AWS 예상 청구서 요약": 정보
+    - button "기본 설정":
+    - paragraph: 총 요금 및 결제 정보
+    - generic: 계정 ID
+    - heading "ACCOUNT_ID_REDACTED" [level=3]
+    - text: 결제 기간
+    - button "정보"
+    - heading "9월 1일 - 2026년 9월 30일" [level=3]
+    - text: 결제 상태
+    - button "정보"
+    - heading "대기 중" [level=3]:
+      - text: 대기 중
+    - generic: 서비스 제공업체
+    - heading "Amazon Web Services Korea LLC" [level=3]:
+      - strong: Amazon Web Services Korea LLC
+    - generic: 합계 USD
+    - heading "USD 0.00" [level=3]:
+      - strong: USD 0.00
+    - heading "예상 총합계:" [level=1]
+    - button "USD 0.00":
+      - heading "USD 0.00" [level=1]
+    - heading "결제 정보" [level=2]:
+      - button "결제 정보":
+        - text: 결제 정보
+    - button "정보 결제 정보": 정보
+    - heading "서비스 공급업체별 예상 최고 비용" [level=2]
+    - button "정보 서비스 공급업체별 예상 최고 비용": 정보
+    - button "Amazon Web Services Korea LLC":
+      - generic: Amazon Web Services Korea LLC
+    - button "기본 설정":
+    - paragraph: 보기 Amazon Web Services Korea LLC
+    - generic: 가장 높은 서비스 지출
+    - heading "USD 0.00" [level=3]
+    - generic: 이전 달과 비교한 추세
+    - generic: 표시할 데이터가 없습니다.
+    - generic: 서비스 이름
+    - generic: Virtual Private Cloud
+    - generic: 가장 높은 AWS 리전 지출
+    - heading "USD 0.02" [level=3]
+    - generic: 이전 달과 비교한 추세
+    - generic: 표시할 데이터가 없습니다.
+    - generic: 리전 이름
+    - generic: Asia Pacific (Seoul)
+    - tablist:
+      - tab "서비스별 요금" [selected]:
+        - generic: 서비스별 요금
+      - tab "계정별 요금":
+        - generic: 계정별 요금
+      - tab "인보이스":
+        - generic: 인보이스
+      - tab "절감액":
+        - generic: 절감액
+      - tab "서비스별 세금":
+        - generic: 서비스별 세금
+    - tabpanel "서비스별 요금":
+      - heading "Amazon Web Services Korea LLC 서비스별 요금" [level=2]
+      - button "정보 Amazon Web Services Korea LLC 서비스별 요금": 정보
+      - button "모두 확장":
+        - text: 모두 확장
+      - button "기본 설정":
+      - generic: 총 활성 서비스
+      - generic: "5"
+      - generic: 다음의 총 세전 서비스 요금 USD
+      - button "USD 0.00":
+        - generic: USD 0.00
+      - combobox "서비스 이름 또는 리전 이름으로 필터링"
+      - list "페이지 매김":
+        - button "이전 페이지" [disabled]:
+        - button "전체 페이지 중 1페이지": "1"
+        - button "다음 페이지" [disabled]:
+      - table:
+        - rowgroup:
+          - row:
+            - columnheader:
+              - button:
+                - generic: 설명
+              - button
+              - slider
+            - columnheader:
+              - generic: 사용량 수량
+              - button
+              - slider
+            - columnheader:
+              - button:
+                - generic: 의 금액 USD
+              - button
+              - slider
+      - table:
+        - rowgroup:
+          - row "설명 사용량 수량 의 금액 USD":
+            - columnheader "설명":
+              - button "설명":
+                - generic: 설명
+              - button "설명"
+              - slider
+            - columnheader "사용량 수량":
+              - generic: 사용량 수량
+              - button "사용량 수량"
+              - slider
+            - columnheader "의 금액 USD":
+              - button "의 금액 USD":
+                - generic: 의 금액 USD
+              - button "의 금액 USD"
+              - slider
+        - rowgroup:
+          - row "항목 확장 CloudFormation USD 0.00":
+            - cell "항목 확장 CloudFormation":
+              - button "항목 확장":
+              - generic: CloudFormation
+            - cell
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "항목 확장 Data Transfer USD 0.00":
+            - cell "항목 확장 Data Transfer":
+              - button "항목 확장":
+              - generic: Data Transfer
+            - cell
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "항목 확장 Elastic Compute Cloud USD 0.00":
+            - cell "항목 확장 Elastic Compute Cloud":
+              - button "항목 확장":
+              - generic: Elastic Compute Cloud
+            - cell
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "항목 확장 Key Management Service USD 0.00":
+            - cell "항목 확장 Key Management Service":
+              - button "항목 확장":
+              - generic: Key Management Service
+            - cell
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "항목 확장 Virtual Private Cloud USD 0.00":
+            - cell "항목 확장 Virtual Private Cloud":
+              - button "항목 확장":
+              - generic: Virtual Private Cloud
+            - cell
+            - cell "USD 0.00":
+              - generic: USD 0.00
+      - heading "총 세금" [level=2]
+      - heading "USD 0.00" [level=2]
+    - generic: 본 청구서 기간 동안의 사용 요금 및 반복 청구 요금은 다음 결제 일자에 청구됩니다. 이 페이지 또는 귀하에게 전송된 알림에 표시된 예상 요금은 본 청구서 기간 동안의 실제 요금과 다를 수 있습니다. 이 페이지에 나와 있는 예상 요금에는 귀하가 이 페이지를 확인한 후 본 청구서 기간 동안 발생한 사용 요금은 포함되어 있지 않기 때문입니다. 또한 알림을 통해 귀하에게 제공된 예상 요금 정보에는 알림을 보낸 이후 본 청구서 기간 동안 발생한 사용 요금은 포함되어 있지 않습니다. 일회성 요금 및 구독 요금은 사용 요금 및 반복 청구 요금과는 별도로 발생일을 기준으로 산정됩니다. 이 페이지의 요금은 별도 항목으로 나열되어있지 않는 한 세금을 제외한 금액입니다. 세금 정보에 액세스하려면 담당 AWS Organization 관리 책임자에게 문의하세요.
+- contentinfo:
+  - region "CloudShell":
+    - slider "CloudShell 크기 조정":
+    - button "닫기 CloudShell":
+    - iframe [active] [id="NP4JrrPEkPSeMoCohosvo"]:
+      - alert
+      - main:
+        - list "알림"
+        - heading "CloudShell" [level=3]:
+          - generic: CloudShell
+        - button "CloudShell 작업":
+          - text: 작업
+        - generic "새 브라우저 탭에서 열기":
+          - link:
+            - /url: https://us-east-1.console.aws.amazon.com/cloudshell/home/?region=us-east-1
+        - generic "기본 설정":
+          - button "기본 설정":
+        - group "Pane 1":
+          - list:
+            - group "Terminal f922bb1e-b2ac-4ed0-9e1e-2819f93cdae0 tab":
+              - button "us-east-1" [pressed]
+              - text: ×
+          - text: 
+          - button "새로운 탭 추가":
+        - group "Terminal f922bb1e-b2ac-4ed0-9e1e-2819f93cdae0 tab":
+          - generic: CloudShell 터미널 입력
+          - textbox "CloudShell 터미널 입력"
+          - generic: ~ $
+  - button "CloudShell":
+    - generic: CloudShell
+  - button "AWS용 에이전트 툴킷":
+    - text: AWS용 에이전트 툴킷
+  - button "의견"
+  - button "Console 모바일 앱":
+    - generic: Console 모바일 앱
+  - generic: © 2026, Amazon Web Services, Inc. 또는 계열사.
+  - list:
+    - link "개인 정보 보호":
+      - /url: https://aws.amazon.com/privacy/
+    - link "약관":
+      - /url: https://aws.amazon.com/terms/
+    - button "쿠키 기본 설정"
