@@ -13,8 +13,8 @@
 | 프로젝트 VPC / Subnet / SG / Route Table / IGW | 각각 0 | 17-final-audit-dom.txt |
 | 프로젝트 키페어 | 0 (07:08 KST 조회) | 16-cleanup-recheck-2026-09-25.txt |
 | EIP / Snapshot / NAT / ALB·NLB / Classic ELB / RDS 인스턴스·클러스터 | root CloudShell 재조회 결과 모두 0 | 2026-09-25 root CloudShell 조회 |
-| 최종 비용 | 2026-09 청구서에서 CloudFormation·Data Transfer·EC2·KMS·VPC가 각각 USD 0.00, 총 세금 USD 0.00 | 2026-09-25 Billing 화면 |
-| 배포·검증·정리 실행 주체 | b6-1-learner IAM 사용자 | 15-iam-sts-ec2-public.png |
+| Billing 재확인 | EC2 USD 0.02 + Public IPv4 USD 0.01, 크레딧 상계 후 예상 총합계 USD 0.00 (월중 예상) | [최신 Billing 캡처](billing-review-2026-09-25.md) |
+| 배포·검증·정리 실행 주체 | b6-1-learner IAM 사용자 (2026-09-25 사용자 확인) | 15번 화면은 IAM 접근·조회 증거; 과거 배포 이벤트 조회는 권한 부족 |
 
 ## 현재 상태
 

@@ -27,7 +27,7 @@
 - 배포·외부 접속·SSH·Docker·내부 localhost·아웃바운드 검증 완료 후 사용자 요청으로 스택을 삭제했다. 기존 IP는 현재 서비스 주소가 아니며 재할당될 수 있다.
 - CloudFormation 삭제 완료 및 해당 프로젝트 네트워크 잔여 0, 서울 비종료 EC2/EBS/EIP/NAT/ELB/RDS/스냅샷 0을 확인했다.
 - IAM 사용자 콘솔·CloudShell 접근 및 서울 EC2 조회 증거를 보관한다. [확인 범위와 공개용 화면](iam-session-2026-09-25.md)을 참고한다.
-- Billing은 집계 중이다. 표시된 0달러는 최종 사용 비용 확정이 아니다. 2026-09-25 20:48 KST 이후 Bills/Credits를 재확인한다. 자동 알림은 설정하지 않았다.
+- Billing 상세 사용량과 크레딧 반영은 2026-09-25 16:48 KST 재확인했다. EC2·Public IPv4 합계 표시 USD 0.03, 동일 금액 크레딧 적용 후 예상 USD 0.00. 월말 확정 금액은 아니다. [최신 캡처 및 상세 내역](billing-review-2026-09-25.md).
 - 08 화면 상단에는 터미널 입력 오류가 함께 남아 있으나 하단에 실제 SSH 세션의 Docker healthy 및 두 HTTP 200 결과가 기록돼 있다.
 
 ## 공개용 로그
@@ -52,3 +52,8 @@
 
 - [18-billing-final-2026-09-25.png](18-billing-final-2026-09-25.png): 2026년 9월 청구서의 CloudFormation, Data Transfer, EC2, KMS, VPC가 모두 USD 0.00으로 표시됨
 - [18-billing-final-2026-09-25.txt](18-billing-final-2026-09-25.txt): 청구서 화면 텍스트 원본(계정 식별 정보 제외)
+
+## 최신 증거 및 기록 정정
+
+- [Billing 상세 재확인 및 19a–19d 캡처](billing-review-2026-09-25.md)
+- IAM 배포 실행 주체는 2026-09-25 사용자 확인에 따라 b6-1-learner로 정리했다. 트러블슈팅의 문구 불일치는 정정 완료. 과거 CloudTrail 조회 제한은 원래 로그대로 보존한다.
