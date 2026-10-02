@@ -251,9 +251,3 @@ CloudShell에서 서울 리전 `ap-northeast-2`의 `b6-1-learning` CloudFormatio
 - SSH: EC2 Instance Connect로 일회성 공개 키를 주입하고 `ec2-user` 접속에 성공했다. 임시 CloudShell /32 규칙은 검증 직후 제거했으며, 삭제 전 원래 SSH /32 규칙만 남은 것을 확인했다.
 
 세부 원본은 [evidence/aws-verification.txt](evidence/aws-verification.txt)에 기록했다. `b6-1-learner` IAM 사용자로 CloudShell 배포·검증을 수행했으며, `B61DeployerPolicyRestricted`, `B61Ec2DeploymentPolicy`, `IAMUserChangePassword`만 연결하고 기존 광범위 `B61DeployerPolicy`는 분리했다.
-
-이 체크가 끝나기 전까지 Codyssey 제출 상태를 “완료”라고 기록하지 않는다.
-
-## 공개 저장소의 계정 값
-
-정책 JSON과 기록의 `000000000000`은 계정 ID 대체값이다. 정책을 실제 적용하기 전에 본인 AWS 계정 ID로 바꾼다. `[SSH_SOURCE_IP]` 역시 비공개 처리한 기록용 표식이다. 기존 스크린샷 17장과 IAM 증거 1장의 공개용 사본을 제공하며 원본은 로컬에 보존한다.
