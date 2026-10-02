@@ -217,7 +217,7 @@ scripts/aws-verify.sh b6-1-learning
 ## 제출 전 완료 조건
 
 - [x] 루트 MFA와 실습 IAM 사용자 생성 확인 (IAM 사용자 MFA·정책 최소화는 후속)
-- [ ] 로컬 Docker 실제 검사 PASS
+- [x] 로컬 Docker 실제 검사 PASS
 - [x] CloudFormation `CREATE_COMPLETE`
 - [x] 배포 URL에서 사이트 표시
 - [x] 외부 `/health` 200
