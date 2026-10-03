@@ -1,0 +1,49 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 842 595] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Length 1646 >>
+stream
+0.95 0.98 1 rg 0 0 842 595 re f
+0.05 0.12 0.20 rg BT /F1 22 Tf 48 550 Td (B6-1 AWS Deployment Architecture) Tj ET
+0.25 0.38 0.48 rg BT /F1 11 Tf 48 532 Td (Seoul Region ap-northeast-2 - CloudFormation managed) Tj ET
+0.10 0.20 0.28 rg 0.85 0.92 0.96 rg 45 260 120 110 re f 0.10 0.20 0.28 RG 1 w 45 260 120 110 re S
+0.05 0.12 0.20 rg BT /F1 14 Tf 70 315 Td (User) Tj ET BT /F1 10 Tf 70 295 Td (HTTP :80) Tj ET
+0.85 0.92 0.96 rg 205 260 150 110 re f 0.10 0.20 0.28 RG 1 w 205 260 150 110 re S
+0.05 0.12 0.20 rg BT /F1 13 Tf 222 315 Td (Internet Gateway) Tj ET BT /F1 10 Tf 238 295 Td (0.0.0.0/0) Tj ET
+0.90 0.95 0.98 rg 390 120 405 330 re f 0.15 0.30 0.40 RG 2 w 390 120 405 330 re S
+0.05 0.12 0.20 rg BT /F1 16 Tf 415 425 Td (VPC 10.0.0.0/16) Tj ET
+0.86 0.94 0.97 rg 420 165 345 230 re f 0.20 0.40 0.50 RG 1 w 420 165 345 230 re S
+0.05 0.12 0.20 rg BT /F1 14 Tf 440 365 Td (Public Subnet 10.0.1.0/24) Tj ET
+0.95 0.98 1 rg 445 205 130 120 re f 0.10 0.20 0.28 RG 1 w 445 205 130 120 re S
+0.05 0.12 0.20 rg BT /F1 12 Tf 462 275 Td (Security Group) Tj ET BT /F1 9 Tf 455 255 Td (80 public) Tj ET BT /F1 9 Tf 455 238 Td (22 learner /32) Tj ET
+0.95 0.98 1 rg 620 205 125 120 re f 0.10 0.20 0.28 RG 1 w 620 205 125 120 re S
+0.05 0.12 0.20 rg BT /F1 13 Tf 646 275 Td (EC2 t3.micro) Tj ET BT /F1 10 Tf 657 255 Td (Docker) Tj ET BT /F1 10 Tf 650 238 Td (Nginx :80) Tj ET
+0.10 0.20 0.28 RG 2 w 165 315 m 205 315 l S 355 315 m 390 315 l S 575 265 m 620 265 l S
+0.25 0.60 0.70 rg BT /F1 10 Tf 440 145 Td (Route: 0.0.0.0/0 -> Internet Gateway) Tj ET
+0.25 0.38 0.48 rg BT /F1 10 Tf 48 75 Td (Encrypted 8 GiB gp3, IMDSv2 required, SSH limited to learner IP) Tj ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+2008
+%%EOF
