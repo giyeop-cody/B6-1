@@ -1,0 +1,30 @@
+Sat Oct  3 08:56:44 UTC 2026
+NAME="Amazon Linux"
+VERSION="2023"
+ID="amzn"
+ID_LIKE="fedora"
+VERSION_ID="2023"
+PLATFORM_ID="platform:al2023"
+PRETTY_NAME="Amazon Linux 2023.12.20260930"
+ANSI_COLOR="0;33"
+CPE_NAME="cpe:2.3:o:amazon:amazon_linux:2023"
+HOME_URL="https://aws.amazon.com/linux/amazon-linux-2023/"
+DOCUMENTATION_URL="https://docs.aws.amazon.com/linux/"
+SUPPORT_URL="https://aws.amazon.com/premiumsupport/"
+BUG_REPORT_URL="https://github.com/amazonlinux/amazon-linux-2023"
+VENDOR_NAME="AWS"
+VENDOR_URL="https://aws.amazon.com/"
+SUPPORT_END="2029-06-30"
+b6-1-web Up 8 minutes (healthy) 0.0.0.0:80->80/tcp, :::80->80/tcp
+6bc1076c4311cc2685b483ca326be8bc7e5f4bb1
+HTTP/1.1 200 OK
+Server: nginx/1.28.3
+Date: Sat, 03 Oct 2026 08:56:44 GMT
+Content-Type: text/plain
+Content-Length: 3
+Connection: keep-alive
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Referrer-Policy: no-referrer
+
+OK

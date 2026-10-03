@@ -1,45 +1,31 @@
-# AWS 리소스 정리 체크리스트
+# AWS 실습 리소스 정리 결과
 
-> **최신 상태 (2026-09-25):** IAM 사용자 콘솔·CloudShell 사용 및 스택 삭제/리소스 정리 재확인을 완료했다. 아래 9월 24일 내용은 당시 기록이며, 현재 판정은 [최종 점검 결과](../evidence/final-audit-2026-09-25.md)를 기준으로 확인한다.
+2026-10-03 사용자 명시 승인 후 IAM b6-1-learner로 실행. 최초 삭제18:56:22 KST, 권한 보정 후 재시도19:17:06 KST, 스택 DELETE_COMPLETE19:17:09 KST. 실제 잔여 조회19:17:42 KST. 서울 ap-northeast-2.
 
-2026-09-24 사용자 요청으로 증거 수집 후 **정리 완료**했다. 대상은 서울 리전의 b6-1-learning 실습 스택과 b6-1-key 키페어다.
+| 대상 | 결과 | 증거 |
+|---|---|---|
+| b6-1-learning 스택 | DELETE_COMPLETE, 활성 스택0개 | 44·45 |
+| EC2 i-0c37f462250fceaba | terminated | 44 |
+| EBS vol-07e8c8fa7733e89bb | 삭제, 서울 볼륨0개 | 44 |
+| 키페어 b6-1-key | IAM DeleteKeyPair 성공, 키페어0개 | 43·44 |
+| LT lt-03da8c5fb9551abf8 | DELETE_COMPLETE, 시작 템플릿0개 | 44 |
+| VPC vpc-03ff56fac0f3f4aa5 | 삭제, 조회0개 | 37·44 |
+| Subnet subnet-0500b041bfa685be6 | 삭제, 해당 VPC 조회0개 | 37·44 |
+| SG sg-07d5aa052361be676 | 삭제, 해당 VPC 조회0개 | 37·44 |
+| RouteTable rtb-048e2cf96a90714d5 및 연결·기본 경로 | 삭제 | 37·44 |
+| IGW igw-00647fac7637690a3 | 분리·삭제, 조회0개 | 37·44 |
+| 해당 VPC ENI | 0개 | 44 |
+| Elastic IP | 미생성, 서울 실제 조회0개. Release 해당 없음 | 44 |
+| NAT Gateway | 미생성, 서울 실제 조회0개 | 44 |
+| ALB/ELBv2 | 미생성, 서울 실제 조회0개 | 44 |
+| RDS DB 인스턴스 | 미생성, 서울 실제 조회0개 | 44 |
+| 소유 EBS 스냅샷 | 서울 실제 조회0개 | 44 |
+| 전체 삭제 후 Bills·Billing 홈 | IAM 조회 성공, 10월 예상USD0.00, 상세 데이터 없음 | 46·47 |
 
-| 항목 | 결과 |
-|---|---|
-| 계정 마지막 4자리 | 4802 |
-| 리전 | ap-northeast-2 |
-| 삭제 요청 시각 | 2026-09-24 20:46:09 KST |
-| 스택 완료 확인 | 2026-09-24 20:46:59 KST |
-| 최종 잔여 확인 | 2026-09-24 20:48:03 KST |
-| 실행 주체 | b6-1-learner IAM 사용자 |
+최초 LT·키페어 권한 거부37·40은 실패 이력으로 보존한다. 루트 준비42에서 정확한 두 리소스 삭제와 잔여 조회 권한을 추가한 뒤 실제 삭제43·44는 IAM으로 수행했다.
 
-## 스택과 과금 리소스
+생성한 실습 과금 자원의 종료·삭제를 확인했다. 서울에서 확인한 목록 밖의 전 리전·전 서비스 자원이 없다는 주장은 하지 않는다. 기본 VPC와 IAM 사용자/정책, 로컬 개인 키는 보존했다. 로컬 키 내용은 증거에 기록하지 않았다.
 
-- [x] b6-1-learning: DELETE_COMPLETE, 구성 리소스 9개 모두 DELETE_COMPLETE
-- [x] EC2 i-093226b9e4314ad26: terminated; 서울 비종료 인스턴스 0
-- [x] EBS vol-087794825c782c6e5 삭제; 서울 EBS 0
-- [x] 프로젝트 Security Group·Public Subnet·Route Table 잔여 0
-- [x] 프로젝트 Internet Gateway·VPC 잔여 0
-- [x] 서울 Elastic IP 0 (추가 해제 대상 없음)
-- [x] 서울 비삭제 NAT Gateway 0
-- [x] 서울 ALB/NLB 및 Classic ELB 0
-- [x] 서울 RDS 인스턴스 및 DB Cluster 0
-- [x] 서울 소유 EBS Snapshot 0
-- [x] 사용 중인 인스턴스가 없음을 확인한 뒤 b6-1-key 삭제, 잔여 0
-- [x] 이번 CloudShell 임시 SSH 키 및 이전 /tmp/b6eic 키 삭제
-- [ ] 개인 PC의 기존 b6-1-key.pem: 이전 다운로드를 찾지 못해 존재·삭제 확인 불가
+후속 비용 확인 예정: 2026-10-04 19:30 KST. 자동 예약은 하지 않았다. 지금의 예상0.00은 최종 청구액 확정이 아니며 청구 반영 이후 다시 확인한다.
 
-루트 MFA와 IAM 사용자·정책은 계정 설정으로 유지했다. 다른 리전 및 다른 프로젝트 전체의 무과금 여부를 보증하는 점검은 아니다.
-
-## Billing
-
-- [x] Billing Dashboard: 사용량 데이터 준비 중, 최대 24시간 안내 확인
-- [x] 2026년 9월 Bills: 예상 USD 0.00 표시, 세부 사용량 데이터 없음
-- [x] Credits: 잔여 USD 100.00 / 사용 USD 0.00 표시
-- [x] 2026-09-25 16:48 KST EC2·EBS·Public IPv4 사용량과 크레딧 반영 재확인. [상세 증거](../evidence/billing-review-2026-09-25.md)
-
-재확인 완료: **2026-09-25 16:48 KST**, 상세 사용량과 Free Tier 크레딧 반영을 확인했다. EC2 USD 0.02 + Public IPv4 USD 0.01, 상계 후 예상 USD 0.00이다. 월말 확정 청구액으로 표현하지 않는다.
-
-## 증거
-
-[증거 목록](../evidence/README.md)의 09–12c 스크린샷과 cleanup-session.txt에 결과를 보관했다. 웹사이트는 삭제 전 검증된 기록이며 삭제 후 기존 IP로 접속하지 않는다.
+증거 경로: evidence/2026-10-03/. 평가 설명과 화면 선택은 evaluation-evidence-guide-2026-10-03.md 참고.

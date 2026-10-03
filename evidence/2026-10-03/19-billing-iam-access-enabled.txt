@@ -1,0 +1,10 @@
+heading "결제 정보에 대한 IAM 사용자 및 역할 액세스" [level=2]
+    - 'button "정보: IAM 사용자 역할 액세스"': 정보
+    - button "IAM 액세스 편집": 편집
+    - generic: 결제 정보에 대한 IAM 사용자/역할 액세스
+    - text: 활성화됨
+    - heading "예약형 인스턴스 마켓플레이스 설정" [level=2]
+    - generic: 예약형 인스턴스 Marketplace를 통해 예약형 인스턴스의 남은 개월 수를 판매할 수 있습니다. 다음 옵션을 사용하여 예약형 인스턴스 Marketplace 지불 및 세금 정보를 관리하세요.
+    - link "판매자 및 은행 계좌 정보 관리":
+      - /url: https://portal.aws.amazon.com/ec2/ri/seller_registration
+    -

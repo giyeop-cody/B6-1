@@ -1,0 +1,18 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "UseOnlyActualB61LaunchTemplateThroughCloudFormation",
+      "Effect": "Allow",
+      "Action": "ec2:RunInstances",
+      "Resource": "arn:aws:ec2:ap-northeast-2:171180524802:launch-template/lt-03da8c5fb9551abf8",
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestedRegion": "ap-northeast-2",
+          "aws:CalledViaFirst": "cloudformation.amazonaws.com",
+          "aws:ResourceTag/Project": "b6-1"
+        }
+      }
+    }
+  ]
+}

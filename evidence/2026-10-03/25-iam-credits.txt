@@ -1,0 +1,401 @@
+- navigation:
+  - 'img "계정 색상: 설정 해제"'
+  - navigation "글로벌":
+    - link "기본 콘텐츠로 건너뛰기":
+      - /url: "#c"
+    - link "AWS 콘솔 홈":
+      - /url: https://us-east-1.console.aws.amazon.com/console/home?region=us-east-1
+    - button "Amazon Q":
+    - button "서비스":
+    - img "검색":
+    - searchbox
+    - combobox "검색"
+    - button "Amazon Q에게 질문하기":
+    - generic: "[알트+S]"
+    - status
+    - link "CloudShell":
+      - /url: https://us-east-1.console.aws.amazon.com/cloudshell/home?region=us-east-1
+    - button "알림(사용 가능한 알림 없음)":
+      - img "알림":
+    - img "알림":
+    - list:
+      - button "도움말 및 지원":
+        - img "지원":
+      - button "설정":
+      - combobox "Regions (글로벌)":
+        - generic: 글로벌
+      - button "b6-1-learner @ 1711-8052-4802":
+        - 'generic "계정 색상: 설정 해제"':
+          - generic: cody-giyeop (ACCOUNT_REDACTED)
+        - generic: b6-1-learner
+  - list
+- button "측면 탐색 열기" [expanded]:
+- navigation "Breadcrumbs":
+  - list:
+    - link "과금 정보 및 비용 관리":
+      - /url: /costmanagement/home#/
+      - generic: 과금 정보 및 비용 관리
+    - link "크레딧" [disabled]:
+      - generic: 크레딧
+  - list:
+    - link:
+      - /url: /costmanagement/home#/
+      - generic: 과금 정보 및 비용 관리
+    - generic: 크레딧
+- region "드로어":
+  - toolbar "드로어":
+    - button "도움말 창 열기":
+- navigation "측면 탐색":
+  - button "측면 탐색 닫기":
+  - heading "과금 정보 및 비용 관리" [level=2]:
+    - link "과금 정보 및 비용 관리":
+      - /url: /costmanagement/home#/
+      - generic: 과금 정보 및 비용 관리
+  - checkbox "빌링 보기"
+  - generic: 빌링 보기
+  - button "신규":
+    - generic: 신규
+  - separator
+  - list:
+    - link "홈":
+      - /url: "#/home"
+      - generic: 홈
+    - link "시작":
+      - /url: "#/getting-started"
+      - generic: 시작
+    - link "대시보드":
+      - /url: "#/dashboards"
+      - generic: 대시보드
+    - button "신규":
+      - generic: 신규
+    - link "FinOps 에이전트":
+      - /url: https://us-east-1.console.aws.amazon.com/finops-agent/home?region=us-east-1
+      - generic: FinOps 에이전트
+    - button "Preview":
+      - generic: Preview
+    - heading "청구 및 결제" [level=3]:
+      - generic: 청구 및 결제
+    - list:
+      - link "청구서":
+        - /url: /billing/home#/bills
+        - generic: 청구서
+      - link "결제":
+        - /url: "#/paymentsoverview"
+        - generic: 결제
+      - link "크레딧":
+        - /url: "#/credits"
+        - generic: 크레딧
+      - link "구매 주문":
+        - /url: "#/purchaseorders"
+        - generic: 구매 주문
+    - heading "비용 및 사용량 분석" [level=3]:
+      - generic: 비용 및 사용량 분석
+    - list:
+      - link "Cost Explorer":
+        - /url: "#/cost-explorer"
+        - generic: Cost Explorer
+      - link "Cost Explorer에서 저장한 보고서":
+        - /url: "#/reports/overview"
+        - generic: Cost Explorer에서 저장한 보고서
+      - link "비용 이상 징후 감지":
+        - /url: "#/anomaly-detection"
+        - generic: 비용 이상 징후 감지
+      - link "프리 티어":
+        - /url: "#/freetier"
+        - generic: 프리 티어
+      - link "데이터 내보내기":
+        - /url: "#/bcm-data-exports"
+        - generic: 데이터 내보내기
+      - link "Carbon Emissions":
+        - /url: "#/customer-carbon-footprint-tool"
+        - generic: Carbon Emissions
+    - heading "비용 조직" [level=3]:
+      - generic: 비용 조직
+    - list:
+      - link "Cost Categories":
+        - /url: "#/costcategories"
+        - generic: Cost Categories
+      - link "비용 할당 태그":
+        - /url: "#/tags"
+        - generic: 비용 할당 태그
+      - link "Billing Conductor새 탭에서 열기":
+        - /url: /billingconductor/home
+        - generic: Billing Conductor
+        - img "새 탭에서 열기":
+    - heading "예산 및 계획" [level=3]:
+      - generic: 예산 및 계획
+    - list:
+      - link "예산":
+        - /url: "#/budgets"
+        - generic: 예산
+      - button "신규":
+        - generic: 신규
+      - link "예산 보고서":
+        - /url: "#/budgets/reports"
+        - generic: 예산 보고서
+      - link "요금 계산기":
+        - /url: "#/pricing-calculator"
+        - generic: 요금 계산기
+      - button "신규":
+        - generic: 신규
+    - heading "할인 및 약정" [level=3]:
+      - generic: 할인 및 약정
+    - list:
+      - link "비용 최적화 허브":
+        - /url: "#/cost-optimization-hub"
+        - generic: 비용 최적화 허브
+      - button "신규":
+        - generic: 신규
+      - button "절감형 플랜" [expanded]:
+        - generic: 절감형 플랜
+      - group "절감형 플랜":
+        - list:
+          - link "개요":
+            - /url: "#/savings-plans/overview"
+            - generic: 개요
+          - link "인벤토리":
+            - /url: "#/savings-plans/inventory"
+            - generic: 인벤토리
+          - link "권장 사항":
+            - /url: "#/savings-plans/recommendations"
+            - generic: 권장 사항
+          - link "구매 분석기":
+            - /url: "#/savings-plans/purchase-analyzer"
+            - generic: 구매 분석기
+          - button "신규":
+            - generic: 신규
+          - link "사용률 보고서":
+            - /url: "#/savings-plans/utilization"
+            - generic: 사용률 보고서
+          - link "충당률 보고서":
+            - /url: "#/savings-plans/coverage"
+            - generic: 충당률 보고서
+          - link "Savings Plans 구매":
+            - /url: "#/savings-plans/purchase"
+            - generic: Savings Plans 구매
+          - link "장바구니":
+            - /url: "#/savings-plans/cart"
+            - generic: 장바구니
+          - generic: "0"
+      - button "예약" [expanded]:
+        - generic: 예약
+      - group "예약":
+        - list:
+          - link "개요":
+            - /url: "#/ri/dashboard"
+            - generic: 개요
+          - link "권장 사항":
+            - /url: "#/ri/recommendations"
+            - generic: 권장 사항
+          - button "신규":
+            - generic: 신규
+          - link "사용률 보고서":
+            - /url: "#/ri/utilization"
+            - generic: 사용률 보고서
+          - link "충당률 보고서":
+            - /url: "#/ri/coverage"
+            - generic: 충당률 보고서
+  - separator
+  - list:
+    - heading "기본 설정 및 설정" [level=3]:
+      - generic: 기본 설정 및 설정
+    - list:
+      - link "결제 기본 설정":
+        - /url: /billing/home#/paymentpreferences
+        - generic: 결제 기본 설정
+      - link "빌링 기본 설정":
+        - /url: "#/preferences"
+        - generic: 빌링 기본 설정
+      - link "비용 관리 기본 설정":
+        - /url: "#/settings"
+        - generic: 비용 관리 기본 설정
+      - button "신규":
+        - generic: 신규
+      - link "세금 설정":
+        - /url: "#/tax-settings"
+        - generic: 세금 설정
+      - link "인보이스 구성":
+        - /url: "#/invoice-management"
+        - generic: 인보이스 구성
+      - link "Fapiao 관리":
+        - /url: /billing/home#/tax
+        - generic: Fapiao 관리
+      - link "빌링 이체":
+        - /url: "#/transferbilling"
+        - generic: 빌링 이체
+      - button "신규":
+        - generic: 신규
+  - separator
+  - list:
+    - button "레거시 페이지":
+      - generic: 레거시 페이지
+- main:
+  - region "알림"
+  - heading "크레딧" [level=1]
+  - link "정보 크레딧":
+    - /url: javascript:void(0);
+    - text: 정보
+  - link "크레딧 사용" [disabled]
+  - tablist:
+    - tab "크레딧" [selected]:
+      - generic: 크레딧
+    - tab "지난 6개월 동안 비활성 크레딧":
+      - generic: 지난 6개월 동안 비활성 크레딧
+  - tabpanel "크레딧":
+    - heading "요약" [level=2]
+    - paragraph: Estimated amounts update approximately every 24 hours; total amounts update when your monthly invoice is finalized.
+    - generic: 남은 총 금액
+    - text: US$119.97
+    - generic: 사용된 총 금액
+    - text: US$0.03
+    - generic: 총 예상 잔여 금액
+    - text: US$119.97
+    - generic: 총 예상 사용 금액
+    - text: US$0.03
+    - heading "활성 크레딧 (2)" [level=2]:
+      - text: 활성 크레딧
+      - generic: (2)
+    - button "정보 활성 크레딧": 정보
+    - searchbox "text filter"
+    - list "Table pagination":
+      - button "Previous page" [disabled]:
+      - button "Page 1": "1"
+      - button "Next page" [disabled]:
+    - button "기본 설정":
+    - table:
+      - rowgroup:
+        - row:
+          - columnheader:
+            - button:
+              - generic: 크레딧 ID
+          - columnheader:
+            - button:
+              - generic: 크레딧 이름
+          - columnheader:
+            - button:
+              - generic: 발행된 크레딧 금액
+          - columnheader:
+            - button:
+              - generic: 시작 날짜
+          - columnheader:
+            - button:
+              - generic: 만료 날짜
+          - columnheader:
+            - button:
+              - generic: 상태
+          - columnheader:
+            - button:
+              - generic: 사용한 금액
+          - columnheader:
+            - button:
+              - generic: 남은 금액
+          - columnheader:
+            - button:
+              - generic: _Credits_Estimated_Used_
+          - columnheader:
+            - button:
+              - generic: 예상 잔여 금액
+          - columnheader:
+            - button:
+              - generic: 적용 가능 제품
+    - region "활성 크레딧":
+      - table "활성 크레딧":
+        - rowgroup:
+          - row "크레딧 ID 크레딧 이름 발행된 크레딧 금액 시작 날짜 만료 날짜 상태 사용한 금액 남은 금액 _Credits_Estimated_Used_ 예상 잔여 금액 적용 가능 제품":
+            - columnheader "크레딧 ID":
+              - button "크레딧 ID":
+                - generic: 크레딧 ID
+            - columnheader "크레딧 이름":
+              - button "크레딧 이름":
+                - generic: 크레딧 이름
+            - columnheader "발행된 크레딧 금액":
+              - button "발행된 크레딧 금액":
+                - generic: 발행된 크레딧 금액
+            - columnheader "시작 날짜":
+              - button "시작 날짜":
+                - generic: 시작 날짜
+            - columnheader "만료 날짜":
+              - button "만료 날짜":
+                - generic: 만료 날짜
+            - columnheader "상태":
+              - button "상태":
+                - generic: 상태
+            - columnheader "사용한 금액":
+              - button "사용한 금액":
+                - generic: 사용한 금액
+            - columnheader "남은 금액":
+              - button "남은 금액":
+                - generic: 남은 금액
+            - columnheader "_Credits_Estimated_Used_":
+              - button "_Credits_Estimated_Used_":
+                - generic: _Credits_Estimated_Used_
+            - columnheader "예상 잔여 금액":
+              - button "예상 잔여 금액":
+                - generic: 예상 잔여 금액
+            - columnheader "적용 가능 제품":
+              - button "적용 가능 제품":
+                - generic: 적용 가능 제품
+        - rowgroup:
+          - 'row "10067749052 Explore AWS: Launch an instance using EC2 US$20.00 2026. 09. 24. 2027. 08. 17. Active US$0.00 US$20.00 US$0.00 US$20.00 전체 서비스 목록 보기"':
+            - cell "10067749052":
+              - link "10067749052":
+                - /url: "#/credits/10067749052"
+            - 'cell "Explore AWS: Launch an instance using EC2"':
+              - generic: "Explore AWS: Launch an instance using EC2"
+            - cell "US$20.00":
+              - generic: US$20.00
+            - cell "2026. 09. 24.":
+              - generic: 2026. 09. 24.
+            - cell "2027. 08. 17.":
+              - generic: 2027. 08. 17.
+            - cell "Active":
+              - text: Active
+            - cell "US$0.00":
+              - generic: US$0.00
+            - cell "US$20.00":
+              - generic: US$20.00
+            - cell "US$0.00":
+              - generic: US$0.00
+            - cell "US$20.00":
+              - generic: US$20.00
+            - cell "전체 서비스 목록 보기":
+              - button "전체 서비스 목록 보기"
+          - row "10065946867 AWS Free Tier US$100.00 2026. 08. 17. 2027. 08. 17. Active US$0.03 US$99.97 US$0.03 US$99.97 전체 서비스 목록 보기":
+            - cell "10065946867":
+              - link "10065946867":
+                - /url: "#/credits/10065946867"
+            - cell "AWS Free Tier":
+              - generic: AWS Free Tier
+            - cell "US$100.00":
+              - generic: US$100.00
+            - cell "2026. 08. 17.":
+              - generic: 2026. 08. 17.
+            - cell "2027. 08. 17.":
+              - generic: 2027. 08. 17.
+            - cell "Active":
+              - text: Active
+            - cell "US$0.03":
+              - generic: US$0.03
+            - cell "US$99.97":
+              - generic: US$99.97
+            - cell "US$0.03":
+              - generic: US$0.03
+            - cell "US$99.97":
+              - generic: US$99.97
+            - cell "전체 서비스 목록 보기":
+              - button "전체 서비스 목록 보기"
+- contentinfo:
+  - button "CloudShell":
+    - generic: CloudShell
+  - button "AWS용 에이전트 툴킷":
+    - text: AWS용 에이전트 툴킷
+  - button "의견"
+  - button "Console 모바일 앱":
+    - generic: Console 모바일 앱
+  - generic: © 2026, Amazon Web Services, Inc. 또는 계열사.
+  - list:
+    - link "개인 정보 보호":
+      - /url: https://aws.amazon.com/privacy/
+    - link "약관":
+      - /url: https://aws.amazon.com/terms/
+    - button "쿠키 기본 설정"

@@ -8,9 +8,13 @@
 
 AWS 서울 리전의 VPC와 EC2에 **Docker Nginx 정적 사이트**를 배포하는 학습 프로젝트다. CloudFormation으로 인프라를 다시 만들 수 있고, 브라우저와 `/health` 응답으로 실제 동작을 검증한다.
 
-> **현재 상태 (2026-09-24 20:48 KST):** 배포·외부 접속·SSH·Docker healthy·EC2 내부 localhost 200·아웃바운드 200 증거를 수집한 뒤, 사용자 요청으로 스택과 실습 키페어를 삭제했다. 스크린샷 17장은 [증거 목록](evidence/README.md)에 보관한다. 현재 서비스는 운영 중이 아니다.
+> **현재 상태:** 2026-10-03 19:17 KST IAM으로 실습 리소스 정리 완료. 스택 DELETE_COMPLETE, EC2 terminated, EBS·키페어·시작 템플릿·해당 네트워크 삭제 확인. 서울 EIP/NAT/ALB/RDS/스냅샷0개. 최종 IAM Billing 조회 완료. [평가 항목별 설명·증거 안내](docs/evaluation-evidence-guide-2026-10-03.md).
 
-> **최종 확인 (2026-09-25 07:11 KST):** IAM 사용자 `b6-1-learner`로 콘솔·CloudShell을 사용해 배포·검증·정리를 완료하고, 스택 삭제 및 EC2/EBS·프로젝트 네트워크 잔여 0개를 확인했다. [최종 점검 결과](evidence/final-audit-2026-09-25.md)에 확인 범위와 권한 부족 항목을 기록했다. Billing은 2026-09-25 16:48 KST 재확인했다. EC2 USD 0.02와 Public IPv4 USD 0.01에 동일 금액의 크레딧이 적용되어 예상 총합계 USD 0.00이다. [최신 Billing 증거](evidence/billing-review-2026-09-25.md)를 참고한다.
+실행 당시 배포 URL(현재 EC2 종료): [http://52.79.115.167](http://52.79.115.167) · [health](http://52.79.115.167/health)
+
+최신 [IAM 증거 재수집·검수 결과](docs/evidence-review-ready-2026-10-03.md): 2026-10-03 18:25~18:27 KST, IAM Billing 홈 월간 USD 0.00·잔여 크레딧 USD 119.97 확인. 18:42 KST 세부 청구서와 청구 문서도 IAM 조회 성공(예상 USD 0.00, 상세 데이터 없음, 문서 0건). 금액 갱신 지연 및 준비 단계 root 이력을 기록했다. 18:56 KST 승인 후 삭제를 시작하고 권한 보정 후19:17 KST IAM 정리 완료(43~47).
+
+실제 서버 코드: `6bc1076c4311cc2685b483ca326be8bc7e5f4bb1`(첫 배포 기록 전 커밋). 원격 main은 변경하지 않았다. [새 증거 목록](evidence/README.md), [IAM 실행 기록](docs/iam-execution-2026-10-03.md), [재배포 기록](docs/redeployment-2026-10-03.md)에 결과와 준비 단계의 관리자 사용을 구분해 기록했다.
 
 ## 과제 정보
 
@@ -29,20 +33,20 @@ AWS 서울 리전의 VPC와 EC2에 **Docker Nginx 정적 사이트**를 배포�
 
 | 요구사항 | 구현 | 실제 AWS 검증 |
 |---|---:|---:|
-| 정적 웹사이트 | 완료 | 외부 HTTP 200 확인 |
-| `GET /health` → 200 `OK` | 완료 | 외부 HTTP 200/OK 확인 |
-| Dockerfile과 container healthcheck | 완료 | CloudFormation 내부 ResourceSignal 통과 |
-| VPC `10.0.0.0/16` | CloudFormation 완료 | 실제 VPC 확인 |
-| Public Subnet `10.0.1.0/24` | CloudFormation 완료 | 실제 Subnet 확인 |
-| Internet Gateway와 기본 Route | CloudFormation 완료 | `0.0.0.0/0 → IGW` 확인 |
-| EC2 t3.micro, 8GiB 암호화 gp3 | CloudFormation 완료 | EC2 running 확인 |
-| HTTP 80 전체 공개 | CloudFormation 완료 | 보안 그룹 확인 |
-| SSH 22 개인 IP `/32` | CloudFormation 완료 | `[SSH_SOURCE_IP]/32` 확인 |
-| SSH `0.0.0.0/0` 거부 | CloudFormation Rule 완료 | 공개 SSH 규칙 없음 확인 |
-| IAM 최소권한 정책 | 완료 | 제한 정책 2개 연결 및 시뮬레이션 확인 |
-| 아키텍처 다이어그램 | 완료 | SVG 원본 + 제출용 PDF |
-| 트러블슈팅 기록 | AWS 사례 1건 | 정책 오류 해결 기록 |
-| 리소스 정리 체크리스트 | 완료 | DELETE_COMPLETE 및 잔여 0 확인 |
+| 정적 웹사이트 | 완료 | 외부 브라우저 확인 |
+| `GET /health` → 200 `OK` | 완료 | 외부 HTTP 200 |
+| Dockerfile과 container healthcheck | 완료 | EC2 healthy |
+| VPC `10.0.0.0/16` | CloudFormation 완료 | 실제 확인 |
+| Public Subnet `10.0.1.0/24` | CloudFormation 완료 | 실제 확인 |
+| Internet Gateway와 기본 Route | CloudFormation 완료 | active |
+| EC2 t3.micro, 8GiB 암호화 gp3 | CloudFormation 완료 | running / in-use |
+| HTTP 80 전체 공개 | CloudFormation 완료 | 실제 규칙 확인 |
+| SSH 22 개인 IP `/32` | CloudFormation 완료 | SSH 연결 성공 |
+| SSH `0.0.0.0/0` 거부 | CloudFormation Rule 완료 | 전체 인바운드 규칙 확인 |
+| IAM 최소권한 정책 | 제한 정책 및 두 인라인 보정 | IAM 실제 스택 배포 |
+| 아키텍처 다이어그램 | 완료 | 해당 없음 |
+| 트러블슈팅 기록 | 개발환경 및 AWS IAM 2건 | 실패와 수정 후 성공 기록 |
+| 리소스 정리 체크리스트 | 완료 | 별도 요청 전 보존 |
 | HTTPS 보너스 | 도메인 없음 | 후속 작업 |
 
 ## 아키텍처
@@ -185,7 +189,7 @@ scripts/aws-verify.sh b6-1-learning
 - https://aws.amazon.com/free/free-tier-faqs/
 - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-free-tier-usage.html
 
-이 저장소는 리소스를 작게 제한하지만 **비용 0원을 보장하지 않는다.** 증거 수집 후 Stack을 삭제하고 Billing을 확인한다.
+이번 실행 전 무료 플랜 잔여 크레딧 USD 119.97 및 10월 누계 USD 0.00을 화면에서 확인했다. 배포 후 확정 청구액은 확인하지 않았다. t3.micro 1대, standard CPU credits, 암호화 gp3 8GiB를 사용하며 별도 EIP/NAT/ALB/RDS는 만들지 않았다. Budget은 미생성이다. 증거 누락 확인 후 사용자의 별도 삭제 요청이 있을 때만 정리 및 Billing 확인을 진행한다.
 
 ## 5. 보너스 범위
 
@@ -198,7 +202,7 @@ scripts/aws-verify.sh b6-1-learning
 - Docker healthcheck
 - EC2 재부팅 후 자동 시작을 위한 `--restart unless-stopped`
 
-실행 이미지 `b6-1-web:latest`, 컨테이너 `b6-1-web`, 포트 `80:80`. 실제 SSH의 Docker healthy, localhost 200은 [08 증거](evidence/08-docker-healthy.jpg), 외부 접속은 [06 증거](evidence/06-browser-home.jpg)에 보관했다. 검증 후 컨테이너와 EC2를 정리했다.
+실제 EC2의 `docker ps`, healthy, 내부 HTTP 200 및 고정 커밋은 [SSH 원본 출력](evidence/2026-10-03/13-ssh-docker-healthy.txt)에서 확인할 수 있다.
 
 ### HTTPS
 
@@ -216,38 +220,15 @@ scripts/aws-verify.sh b6-1-learning
 
 ## 제출 전 완료 조건
 
-- [x] 루트 MFA와 실습 IAM 사용자 생성 확인 (IAM 사용자 MFA·정책 최소화는 후속)
-- [x] 로컬 Docker 실제 검사 PASS
-- [x] CloudFormation `CREATE_COMPLETE`
+- [x] IAM 실제 배포 사용자 확인(관리자 준비 단계는 별도 기록)
+- [x] CloudFormation `UPDATE_COMPLETE`
 - [x] 배포 URL에서 사이트 표시
 - [x] 외부 `/health` 200
-- [x] CloudFormation ResourceSignal로 EC2 내부 헬스체크 통과
-- [x] 실제 AWS 트러블슈팅 1건
-- [x] 필수 외부 접속 증거 1장: `evidence/06-browser-home.jpg` (방식 A)
-- [x] Docker 보너스: `docker ps` healthy 및 EC2 내부 localhost 200 검증
-- [x] IAM 사용자 콘솔·CloudShell 접근 및 서울 EC2 조회 증거 (`evidence/iam-session-2026-09-25.md`)
-- [x] IAM 사용자 세션에서 배포·검증·정리 완료
-- [x] SSH 실제 접속 및 EC2 아웃바운드 HTTP 200 검증
-- [x] 추가 학습용 증거 포함 17장 저장 (과제 필수 수량과 구분)
-- [x] Stack 및 실습 키페어 삭제 / 잔여 리소스 조회
-- [x] Billing/Bills/Credits 화면 확인 및 저장
-- [x] 삭제 후 Billing 상세 사용량·크레딧 반영 확인 및 캡처 (2026-09-25 16:48 KST, 월중 예상 금액)
+- [x] EC2 내부 Docker `healthy` 및 실제 커밋 확인
+- [x] 실제 AWS 트러블슈팅 기록
+- [x] 이번 배포 증거 파일 존재·내용 대조
+- [x] MFA 확인
+- [x] Stack과 별도 리소스 삭제
+- [x] 삭제 후 Billing 확인(46·47, 예상 금액이며 최종 청구 미확정)
 
-## 실제 배포 결과 (2026-09-24, 삭제 전 기록)
-
-과제 제출 방식은 **A(브라우저 접속)** 이다. `/health`는 추가 검증이다.
-
-![외부 접속 증거](evidence/06-browser-home.jpg)
-
-CloudShell에서 서울 리전 `ap-northeast-2`의 `b6-1-learning` CloudFormation 스택을 생성했다. 최초 스택은 `CREATE_COMPLETE`, 이후 템플릿 업데이트는 `UPDATE_COMPLETE`이며 EC2 UserData의 내부 `/health` 검사가 SUCCESS 신호를 보낸 뒤 완료됐다.
-
-- 삭제 전 사이트: `http://13.125.21.155` (삭제 후 접속 대상 아님)
-- 삭제 전 Health: `http://13.125.21.155/health` → 외부 `HTTP 200`, 본문 `OK`
-- EC2: `i-093226b9e4314ad26`, `t3.micro`, `running`
-- VPC/Subnet: `vpc-049d1e236397b35ce` / `subnet-0e7b633d4b9df52f1`
-- 보안 그룹: HTTP 80 공개, SSH 22는 배포 당시 `[SSH_SOURCE_IP]/32`만 허용
-- 라우팅: `0.0.0.0/0 → igw-00b2cc0a2030904bb`
-- 아웃바운드: 20:45 KST 실제 SSH 세션에서 `https://example.com` HTTP 200을 확인했다.
-- SSH: EC2 Instance Connect로 일회성 공개 키를 주입하고 `ec2-user` 접속에 성공했다. 임시 CloudShell /32 규칙은 검증 직후 제거했으며, 삭제 전 원래 SSH /32 규칙만 남은 것을 확인했다.
-
-세부 원본은 [evidence/aws-verification.txt](evidence/aws-verification.txt)에 기록했다. `b6-1-learner` IAM 사용자로 CloudShell 배포·검증을 수행했으며, `B61DeployerPolicyRestricted`, `B61Ec2DeploymentPolicy`, `IAMUserChangePassword`만 연결하고 기존 광범위 `B61DeployerPolicy`는 분리했다.
+이 체크가 끝나기 전까지 Codyssey 제출 상태를 “완료”라고 기록하지 않는다.

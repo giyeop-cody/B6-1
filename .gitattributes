@@ -1,3 +1,4 @@
+# Preserve captured evidence bytes so manifest hashes survive clone/checkout.
+evidence/2026-10-03/* -text
 *.pdf binary
-*.jpg binary
-*.png binary
+evidence/2026-10-03/*.txt whitespace=cr-at-eol

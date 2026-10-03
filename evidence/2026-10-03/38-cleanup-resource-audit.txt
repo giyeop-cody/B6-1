@@ -1,0 +1,78 @@
+- navigation:
+  - 'img "계정 색상: 설정 해제"'
+  - navigation "글로벌":
+    - link "기본 콘텐츠로 건너뛰기":
+      - /url: "#c"
+    - link "AWS 콘솔 홈":
+      - /url: https://ap-northeast-2.console.aws.amazon.com/console/home?region=ap-northeast-2
+    - button "서비스":
+    - img "검색":
+    - searchbox
+    - combobox "검색"
+    - button "Amazon Q에게 질문하기":
+    - generic: "[알트+S]"
+    - status
+    - link "CloudShell":
+      - /url: https://ap-northeast-2.console.aws.amazon.com/cloudshell/home?region=ap-northeast-2
+    - button "알림(사용 가능한 알림 없음)":
+      - img "알림":
+    - img "알림":
+    - list:
+      - button "도움말 및 지원":
+        - img "지원":
+      - button "설정":
+      - combobox "Regions (아시아 태평양 (서울))":
+        - generic: 아시아 태평양 (서울)
+      - button "b6-1-learner @ 1711-8052-4802":
+        - 'generic "계정 색상: 설정 해제"':
+          - generic: cody-giyeop (171180524802)
+        - generic: b6-1-learner
+  - list
+- alert
+- main:
+  - list
+  - heading "CloudShell" [level=3]:
+    - generic: CloudShell
+  - button "CloudShell 작업":
+    - text: 작업
+  - generic "기본 설정":
+    - button "기본 설정":
+  - group "Pane 1":
+    - list:
+      - group "Terminal 74a9b314-d948-4bdf-ac93-a848c549d413 tab":
+        - button "ap-northeast-2" [pressed]
+        - text: ×
+    - text: 
+    - button "새로운 탭 추가":
+  - group "Terminal 74a9b314-d948-4bdf-ac93-a848c549d413 tab":
+    - generic: CloudShell 터미널 입력
+    - textbox "CloudShell 터미널 입력" [active]: ~ $
+    - generic: EVENT 2026-10-03 08:27:11.925000+00:00 WebInstance DELETE_COMPLETE Delete succeeded for the resources that failed to create.
+    - generic: TIME 2026-10-03T09:57:57.153069+00:00
+    - generic: CALLER arn:aws:iam::171180524802:user/b6-1-learner
+    - generic: EC2 [('i-0c37f462250fceaba', 'terminated')]
+    - generic: EBS []
+    - generic: EIP UNVERIFIED UnauthorizedOperation
+    - generic: NAT UNVERIFIED UnauthorizedOperation
+    - generic: ENI []
+    - generic: "KEY [{'KeyPairId': 'key-019496eb4f525d687', 'KeyType': 'rsa', 'Tags': [], 'CreateTime': datetime.datetime(2026, 10, 3, 7, 56, 22, 537000, tzinfo=tzlocal()), 'KeyName': 'b6-1-key', 'Ke"
+    - generic: "yFingerprint': '4f:b7:de:2c:e2:f9:2e:ff:8e:32:11:a0:57:21:6c:be:3f:52:fb:7c'}]"
+    - generic: "LT [{'LaunchTemplateId': 'lt-03da8c5fb9551abf8', 'LaunchTemplateName': 'LaunchTags_JKHA1XrrITXS', 'CreateTime': datetime.datetime(2026, 10, 3, 8, 7, 37, tzinfo=tzlocal()), 'CreatedBy'"
+    - generic: ": 'arn:aws:iam::171180524802:user/b6-1-learner', 'DefaultVersionNumber': 1, 'LatestVersionNumber': 1, 'Tags': [{'Key': 'Project', 'Value': 'b6-1'}], 'Operator': {'Managed': False}}]"
+    - generic: ALB UNVERIFIED AccessDenied
+    - generic: RDS UNVERIFIED AccessDenied
+    - generic: SNAPSHOTS UNVERIFIED UnauthorizedOperation
+    - generic: ~ $
+- contentinfo:
+  - button "AWS용 에이전트 툴킷":
+    - text: AWS용 에이전트 툴킷
+  - button "의견"
+  - button "Console 모바일 앱":
+    - generic: Console 모바일 앱
+  - generic: © 2026, Amazon Web Services, Inc. 또는 계열사.
+  - list:
+    - link "개인 정보 보호":
+      - /url: https://aws.amazon.com/privacy/
+    - link "약관":
+      - /url: https://aws.amazon.com/terms/
+    - button "쿠키 기본 설정"

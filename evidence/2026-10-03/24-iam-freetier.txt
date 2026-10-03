@@ -1,0 +1,384 @@
+- navigation:
+  - 'img "계정 색상: 설정 해제"'
+  - navigation "글로벌":
+    - link "기본 콘텐츠로 건너뛰기":
+      - /url: "#c"
+    - link "AWS 콘솔 홈":
+      - /url: https://us-east-1.console.aws.amazon.com/console/home?region=us-east-1
+    - button "Amazon Q":
+    - button "서비스":
+    - img "검색":
+    - searchbox
+    - combobox "검색"
+    - button "Amazon Q에게 질문하기":
+    - generic: "[알트+S]"
+    - status
+    - link "CloudShell":
+      - /url: https://us-east-1.console.aws.amazon.com/cloudshell/home?region=us-east-1
+    - button "알림(사용 가능한 알림 없음)":
+      - img "알림":
+    - img "알림":
+    - list:
+      - button "도움말 및 지원":
+        - img "지원":
+      - button "설정":
+      - combobox "Regions (글로벌)":
+        - generic: 글로벌
+      - button "b6-1-learner @ 1711-8052-4802":
+        - 'generic "계정 색상: 설정 해제"':
+          - generic: cody-giyeop (ACCOUNT_REDACTED)
+        - generic: b6-1-learner
+  - list
+- button "측면 탐색 열기" [expanded]:
+- navigation "Breadcrumbs":
+  - list:
+    - link "과금 정보 및 비용 관리":
+      - /url: "#/"
+      - generic: 과금 정보 및 비용 관리
+    - link "프리 티어" [disabled]:
+      - generic: 프리 티어
+  - list:
+    - link:
+      - /url: "#/"
+      - generic: 과금 정보 및 비용 관리
+    - generic: 프리 티어
+- region "드로어":
+  - toolbar "드로어":
+    - button "도움말 패널 열기":
+- navigation "측면 탐색":
+  - button "측면 탐색 닫기":
+  - heading "과금 정보 및 비용 관리" [level=2]:
+    - link "과금 정보 및 비용 관리":
+      - /url: /costmanagement/home#/
+      - generic: 과금 정보 및 비용 관리
+  - checkbox "빌링 보기"
+  - generic: 빌링 보기
+  - button "신규":
+    - generic: 신규
+  - separator
+  - list:
+    - link "홈":
+      - /url: "#/home"
+      - generic: 홈
+    - link "시작":
+      - /url: "#/getting-started"
+      - generic: 시작
+    - link "대시보드":
+      - /url: "#/dashboards"
+      - generic: 대시보드
+    - button "신규":
+      - generic: 신규
+    - link "FinOps 에이전트":
+      - /url: https://us-east-1.console.aws.amazon.com/finops-agent/home?region=us-east-1
+      - generic: FinOps 에이전트
+    - button "Preview":
+      - generic: Preview
+    - heading "청구 및 결제" [level=3]:
+      - generic: 청구 및 결제
+    - list:
+      - link "청구서":
+        - /url: /billing/home#/bills
+        - generic: 청구서
+      - link "결제":
+        - /url: "#/paymentsoverview"
+        - generic: 결제
+      - link "크레딧":
+        - /url: "#/credits"
+        - generic: 크레딧
+      - link "구매 주문":
+        - /url: "#/purchaseorders"
+        - generic: 구매 주문
+    - heading "비용 및 사용량 분석" [level=3]:
+      - generic: 비용 및 사용량 분석
+    - list:
+      - link "Cost Explorer":
+        - /url: "#/cost-explorer"
+        - generic: Cost Explorer
+      - link "Cost Explorer에서 저장한 보고서":
+        - /url: "#/reports/overview"
+        - generic: Cost Explorer에서 저장한 보고서
+      - link "비용 이상 징후 감지":
+        - /url: "#/anomaly-detection"
+        - generic: 비용 이상 징후 감지
+      - link "프리 티어":
+        - /url: "#/freetier"
+        - generic: 프리 티어
+      - link "데이터 내보내기":
+        - /url: "#/bcm-data-exports"
+        - generic: 데이터 내보내기
+      - link "Carbon Emissions":
+        - /url: "#/customer-carbon-footprint-tool"
+        - generic: Carbon Emissions
+    - heading "비용 조직" [level=3]:
+      - generic: 비용 조직
+    - list:
+      - link "Cost Categories":
+        - /url: "#/costcategories"
+        - generic: Cost Categories
+      - link "비용 할당 태그":
+        - /url: "#/tags"
+        - generic: 비용 할당 태그
+      - link "Billing Conductor새 탭에서 열기":
+        - /url: /billingconductor/home
+        - generic: Billing Conductor
+        - img "새 탭에서 열기":
+    - heading "예산 및 계획" [level=3]:
+      - generic: 예산 및 계획
+    - list:
+      - link "예산":
+        - /url: "#/budgets"
+        - generic: 예산
+      - button "신규":
+        - generic: 신규
+      - link "예산 보고서":
+        - /url: "#/budgets/reports"
+        - generic: 예산 보고서
+      - link "요금 계산기":
+        - /url: "#/pricing-calculator"
+        - generic: 요금 계산기
+      - button "신규":
+        - generic: 신규
+    - heading "할인 및 약정" [level=3]:
+      - generic: 할인 및 약정
+    - list:
+      - link "비용 최적화 허브":
+        - /url: "#/cost-optimization-hub"
+        - generic: 비용 최적화 허브
+      - button "신규":
+        - generic: 신규
+      - button "절감형 플랜" [expanded]:
+        - generic: 절감형 플랜
+      - group "절감형 플랜":
+        - list:
+          - link "개요":
+            - /url: "#/savings-plans/overview"
+            - generic: 개요
+          - link "인벤토리":
+            - /url: "#/savings-plans/inventory"
+            - generic: 인벤토리
+          - link "권장 사항":
+            - /url: "#/savings-plans/recommendations"
+            - generic: 권장 사항
+          - link "구매 분석기":
+            - /url: "#/savings-plans/purchase-analyzer"
+            - generic: 구매 분석기
+          - button "신규":
+            - generic: 신규
+          - link "사용률 보고서":
+            - /url: "#/savings-plans/utilization"
+            - generic: 사용률 보고서
+          - link "충당률 보고서":
+            - /url: "#/savings-plans/coverage"
+            - generic: 충당률 보고서
+          - link "Savings Plans 구매":
+            - /url: "#/savings-plans/purchase"
+            - generic: Savings Plans 구매
+          - link "장바구니":
+            - /url: "#/savings-plans/cart"
+            - generic: 장바구니
+          - generic: "0"
+      - button "예약" [expanded]:
+        - generic: 예약
+      - group "예약":
+        - list:
+          - link "개요":
+            - /url: "#/ri/dashboard"
+            - generic: 개요
+          - link "권장 사항":
+            - /url: "#/ri/recommendations"
+            - generic: 권장 사항
+          - button "신규":
+            - generic: 신규
+          - link "사용률 보고서":
+            - /url: "#/ri/utilization"
+            - generic: 사용률 보고서
+          - link "충당률 보고서":
+            - /url: "#/ri/coverage"
+            - generic: 충당률 보고서
+  - separator
+  - list:
+    - heading "기본 설정 및 설정" [level=3]:
+      - generic: 기본 설정 및 설정
+    - list:
+      - link "결제 기본 설정":
+        - /url: /billing/home#/paymentpreferences
+        - generic: 결제 기본 설정
+      - link "빌링 기본 설정":
+        - /url: "#/preferences"
+        - generic: 빌링 기본 설정
+      - link "비용 관리 기본 설정":
+        - /url: "#/settings"
+        - generic: 비용 관리 기본 설정
+      - button "신규":
+        - generic: 신규
+      - link "세금 설정":
+        - /url: "#/tax-settings"
+        - generic: 세금 설정
+      - link "인보이스 구성":
+        - /url: "#/invoice-management"
+        - generic: 인보이스 구성
+      - link "Fapiao 관리":
+        - /url: /billing/home#/tax
+        - generic: Fapiao 관리
+      - link "빌링 이체":
+        - /url: "#/transferbilling"
+        - generic: 빌링 이체
+      - button "신규":
+        - generic: 신규
+  - separator
+  - list:
+    - button "레거시 페이지":
+      - generic: 레거시 페이지
+- main:
+  - region "알림":
+    - list "알림"
+    - img "정보":
+    - generic: 무료 플랜 계정에는 요금이 청구되지 않음
+    - text: 크레딧은 무료 플랜 비용을 충당합니다. 무료 플랜 기간이 만료되거나 크레딧이 모두 소진되면 AWS 서비스 무료 이용이 종료됩니다.
+    - button "세부 정보 보기"
+    - link "업그레이드 계획":
+      - /url: "#/freetier/upgrade"
+  - heading "Free Tier" [level=1]
+  - link "정보 Free Tier":
+    - /url: "#/freetier"
+    - text: 정보
+  - paragraph:
+    - text: 프리 티어를 제공하는 모든 AWS 서비스의 모든 사용량을 추적할 수 있습니다. 프리 티어 이외의 모든 AWS 서비스의 세부 사용량 정보를 보려면
+    - link "청구서":
+      - /url: /billing/home#/bills
+    - text: 을 참조하십시오.
+  - heading "요약" [level=2]
+  - img "month-to-date"
+  - generic: 이번 달 현재까지 사용량
+  - generic: 사용 중인 0 서비스 오퍼
+  - img "service-offerings"
+  - generic: 사용량 한도 이상의 서비스 제공
+  - generic: 0 / 0
+  - text: 프리 티어 한도를 초과하는 사용량은 크레딧 잔고를 사용합니다(
+  - link "$119.97 남음":
+    - /url: /billing/home?#/credits
+    - generic: $119.97 남음
+  - text: )
+  - heading "사용 중인 프리 티어 오퍼 (0)" [level=2]:
+    - text: 사용 중인 프리 티어 오퍼
+    - generic: (0)
+  - searchbox "서비스 이름 찾기"
+  - list "Pagination":
+    - button "이전 페이지" [disabled]:
+    - button "전체 페이지 중 1페이지": "1"
+    - button "다음 페이지" [disabled]:
+  - button "기본 설정":
+  - table:
+    - rowgroup:
+      - row:
+        - columnheader:
+          - button:
+            - generic: 서비스
+          - button
+          - slider
+        - columnheader:
+          - button:
+            - generic: AWS 프리 티어 사용량 제한
+          - button
+          - slider
+        - columnheader:
+          - button:
+            - generic: 현재 사용량
+          - button
+          - slider
+        - columnheader:
+          - button:
+            - generic: 예상 사용량
+          - button
+          - slider
+        - columnheader:
+          - button:
+            - generic: MTD 실제 사용량 %
+          - button
+          - slider
+        - columnheader:
+          - button:
+            - generic: MTD 예상 사용량 %
+          - button
+          - slider
+  - region "사용 중인 프리 티어 오퍼":
+    - table "사용 중인 프리 티어 오퍼":
+      - rowgroup:
+        - row "서비스 AWS 프리 티어 사용량 제한 현재 사용량 예상 사용량 MTD 실제 사용량 % MTD 예상 사용량 %":
+          - columnheader "서비스":
+            - button "서비스":
+              - generic: 서비스
+            - button "서비스"
+            - slider
+          - columnheader "AWS 프리 티어 사용량 제한":
+            - button "AWS 프리 티어 사용량 제한":
+              - generic: AWS 프리 티어 사용량 제한
+            - button "AWS 프리 티어 사용량 제한"
+            - slider
+          - columnheader "현재 사용량":
+            - button "현재 사용량":
+              - generic: 현재 사용량
+            - button "현재 사용량"
+            - slider
+          - columnheader "예상 사용량":
+            - button "예상 사용량":
+              - generic: 예상 사용량
+            - button "예상 사용량"
+            - slider
+          - columnheader "MTD 실제 사용량 %":
+            - button "MTD 실제 사용량 %":
+              - generic: MTD 실제 사용량 %
+            - button "MTD 실제 사용량 %"
+            - slider
+          - columnheader "MTD 예상 사용량 %":
+            - button "MTD 예상 사용량 %":
+              - generic: MTD 예상 사용량 %
+            - button "MTD 예상 사용량 %"
+            - slider
+      - rowgroup:
+        - row "프리 티어 서비스 데이터가 없습니다":
+          - cell "프리 티어 서비스 데이터가 없습니다":
+            - strong: 프리 티어 서비스 데이터가 없습니다
+  - heading "모범 사례" [level=2]
+  - img "best-practice-service-offerings"
+  - heading "어떤 서비스가 적용되는지 파악" [level=3]
+  - generic: 새 리소스를 생성하기 전 AWS 프리 티어의 적용 대상 서비스 오퍼링 목록에 액세스하세요.
+  - link "프리 티어 서비스 오퍼 새 탭에서 열림":
+    - /url: https://aws.amazon.com/ko/free/
+    - text: 프리 티어 서비스 오퍼
+    - img "새 탭에서 열림":
+  - img "best-practice-budgets"
+  - heading "비용 또는 사용량 예산 설정" [level=3]
+  - generic: 비용 또는 사용량이 예산 금액을 초과할 경우 모니터링하고 알림을 받게 됩니다.
+  - link "예산":
+    - /url: "#/budgets"
+  - generic: "|"
+  - link "설명서 새 탭에서 열림":
+    - /url: https://docs.aws.amazon.com/ko_kr/cost-management/latest/userguide/budgets-managing-costs.html
+    - text: 설명서
+    - img "새 탭에서 열림":
+  - img "best-practice-bills"
+  - heading "프리 티어 이외의 세부 사용량 보기" [level=3]
+  - generic: 프리 티어 적용 서비스 및 비적용 서비스 오퍼링의 사용 세부 정보를 보려면 청구서 페이지로 이동하세요. 리소스가 AWS 프리 티어에 포함되어 있더라도 청구서에는 각 적용 리소스의 항목이 표시됩니다.
+  - link "청구서":
+    - /url: /billing/home#/bills
+  - generic: "|"
+  - link "설명서 새 탭에서 열림":
+    - /url: https://docs.aws.amazon.com/ko_kr/awsaccountbilling/latest/aboutv2/getting-viewing-bill.html
+    - text: 설명서
+    - img "새 탭에서 열림":
+- contentinfo:
+  - button "CloudShell":
+    - generic: CloudShell
+  - button "AWS용 에이전트 툴킷":
+    - text: AWS용 에이전트 툴킷
+  - button "의견"
+  - button "Console 모바일 앱":
+    - generic: Console 모바일 앱
+  - generic: © 2026, Amazon Web Services, Inc. 또는 계열사.
+  - list:
+    - link "개인 정보 보호":
+      - /url: https://aws.amazon.com/privacy/
+    - link "약관":
+      - /url: https://aws.amazon.com/terms/
+    - button "쿠키 기본 설정"

@@ -1,0 +1,285 @@
+- navigation:
+  - 'img "계정 색상: 설정 해제"'
+  - navigation "글로벌":
+    - link "기본 콘텐츠로 건너뛰기":
+      - /url: "#c"
+    - link "AWS 콘솔 홈":
+      - /url: https://ap-northeast-2.console.aws.amazon.com/console/home?region=ap-northeast-2
+    - button "Amazon Q":
+    - button "서비스":
+    - img "검색":
+    - searchbox
+    - combobox "검색"
+    - button "Amazon Q에게 질문하기":
+    - generic: "[알트+S]"
+    - status
+    - link "CloudShell":
+      - /url: https://ap-northeast-2.console.aws.amazon.com/cloudshell/home?region=ap-northeast-2
+    - button "알림(사용 가능한 알림 없음)":
+      - img "알림":
+    - img "알림":
+    - list:
+      - button "도움말 및 지원":
+        - img "지원":
+      - button "설정":
+      - combobox "Regions (아시아 태평양 (서울))":
+        - generic: 아시아 태평양 (서울)
+      - button "b6-1-learner @ 1711-8052-4802":
+        - 'generic "계정 색상: 설정 해제"':
+          - generic: cody-giyeop (171180524802)
+        - generic: b6-1-learner
+  - list
+- button "탐색 서랍 열기" [expanded]:
+- navigation "이동 경로":
+  - list:
+    - link "EC2":
+      - /url: "#Home"
+      - generic: EC2
+    - link "키 페어" [disabled]:
+      - generic: 키 페어
+  - list:
+    - link:
+      - /url: "#Home"
+      - generic: EC2
+    - generic: 키 페어
+- region "드로어":
+  - toolbar "드로어":
+    - button "Console-to-Code":
+- navigation "측면 내비게이션":
+  - button "측면 내비게이션 닫기":
+  - heading "EC2" [level=2]:
+    - link "EC2":
+      - /url: "#Overview:"
+      - generic: EC2
+  - list:
+    - link "대시보드":
+      - /url: "#Home:"
+      - generic: 대시보드
+    - link "AWS 글로벌 보기새 탭에서 열림":
+      - /url: /ec2globalview/home
+      - text: AWS 글로벌 보기
+      - img "새 탭에서 열림":
+    - link "이벤트":
+      - /url: "#Events:"
+      - generic: 이벤트
+    - button "인스턴스" [expanded]:
+      - generic: 인스턴스
+    - group "인스턴스":
+      - list:
+        - link "인스턴스":
+          - /url: "#Instances:"
+          - generic: 인스턴스
+        - link "인스턴스 유형":
+          - /url: "#InstanceTypes:"
+          - generic: 인스턴스 유형
+        - link "시작 템플릿":
+          - /url: "#LaunchTemplates:"
+          - generic: 시작 템플릿
+        - link "스팟 요청":
+          - /url: "#SpotInstances:"
+          - generic: 스팟 요청
+        - link "Savings Plans":
+          - /url: "#SavingsPlans:"
+          - generic: Savings Plans
+        - link "예약 인스턴스":
+          - /url: "#ReservedInstances:"
+          - generic: 예약 인스턴스
+        - link "전용 호스트":
+          - /url: "#Hosts:"
+          - generic: 전용 호스트
+        - link "용량 예약":
+          - /url: "#CapacityReservations:"
+          - generic: 용량 예약
+        - link "UltraServer":
+          - /url: "#UltraServers:"
+          - generic: UltraServer
+        - button "신규":
+          - generic: 신규
+        - link "용량 관리자":
+          - /url: "#CapacityManagerHome:"
+          - generic: 용량 관리자
+        - button "신규":
+          - generic: 신규
+    - button "이미지" [expanded]:
+      - generic: 이미지
+    - group "이미지":
+      - list:
+        - link "AMI":
+          - /url: "#Images:"
+          - generic: AMI
+        - link "AMI 카탈로그":
+          - /url: "#AMICatalog:"
+          - generic: AMI 카탈로그
+    - button "Elastic Block Store" [expanded]:
+      - generic: Elastic Block Store
+    - group "Elastic Block Store":
+      - list:
+        - link "볼륨":
+          - /url: "#Volumes:"
+          - generic: 볼륨
+        - link "스냅샷":
+          - /url: "#Snapshots:"
+          - generic: 스냅샷
+        - link "수명 주기 관리자":
+          - /url: "#Lifecycle:"
+          - generic: 수명 주기 관리자
+    - button "네트워크 및 보안" [expanded]:
+      - generic: 네트워크 및 보안
+    - group "네트워크 및 보안":
+      - list:
+        - link "보안 그룹":
+          - /url: "#SecurityGroups:"
+          - generic: 보안 그룹
+        - link "탄력적 IP":
+          - /url: "#Addresses:"
+          - generic: 탄력적 IP
+        - link "배치 그룹":
+          - /url: "#PlacementGroups:"
+          - generic: 배치 그룹
+        - link "키 페어":
+          - /url: "#KeyPairs:"
+          - generic: 키 페어
+        - link "네트워크 인터페이스":
+          - /url: "#NIC:"
+          - generic: 네트워크 인터페이스
+    - button "로드 밸런싱" [expanded]:
+      - generic: 로드 밸런싱
+    - group "로드 밸런싱":
+      - list:
+        - link "로드밸런서":
+          - /url: "#LoadBalancers:"
+          - generic: 로드밸런서
+        - link "대상 그룹":
+          - /url: "#TargetGroups:"
+          - generic: 대상 그룹
+        - link "Trust Store":
+          - /url: "#TrustStores:"
+          - generic: Trust Store
+    - button "Auto Scaling" [expanded]:
+      - generic: Auto Scaling
+    - group "Auto Scaling":
+      - list:
+        - link "Auto Scaling 그룹":
+          - /url: "#AutoScalingGroups:"
+          - generic: Auto Scaling 그룹
+  - separator
+  - list:
+    - link "설정":
+      - /url: "#Settings:"
+      - generic: 설정
+- main:
+  - iframe [id="compute-react-frame"]:
+    - main:
+      - region "알림":
+        - list "알림"
+      - heading "키 페어 (1)" [level=2]:
+        - text: 키 페어
+        - generic: (1)
+      - button "키 페어에 대한 도움말 표시": 정보
+      - button "키 페어 새로 고침":
+      - button "작업":
+        - text: 작업
+      - button "키 페어 생성"
+      - combobox "키 페어 검색"
+      - list "테이블 페이지 매김":
+        - button "이전 페이지" [disabled]:
+        - 'button "{{pageNumber}}페이지"': "1"
+        - button "다음 페이지" [disabled]:
+      - button "기본 설정":
+      - table:
+        - rowgroup:
+          - row:
+            - columnheader:
+              - checkbox
+            - columnheader:
+              - button:
+                - generic: 이름
+              - button
+              - slider
+            - columnheader:
+              - button:
+                - generic: 유형
+              - button
+              - slider
+            - columnheader:
+              - button:
+                - generic: 생성 완료
+              - button
+              - slider
+            - columnheader:
+              - generic: 지문
+              - button
+              - slider
+            - columnheader:
+              - button:
+                - generic: ID
+              - button
+              - slider
+      - table "키 페어":
+        - rowgroup:
+          - row "모든 키 페어 선택 이름 유형 생성 완료 지문 ID":
+            - columnheader "모든 키 페어 선택":
+              - generic "모든 키 페어 선택":
+                - checkbox "모든 키 페어 선택"
+            - columnheader "이름":
+              - button "이름":
+                - generic: 이름
+              - button "이름"
+              - slider
+            - columnheader "유형":
+              - button "유형":
+                - generic: 유형
+              - button "유형"
+              - slider
+            - columnheader "생성 완료":
+              - button "생성 완료":
+                - generic: 생성 완료
+              - button "생성 완료"
+              - slider
+            - columnheader "지문":
+              - generic: 지문
+              - button "지문"
+              - slider
+            - columnheader "ID":
+              - button "ID":
+                - generic: ID
+              - button "ID"
+              - slider
+        - rowgroup:
+          - 'row "다음 키 페어 선택: b6-1-key b6-1-key rsa 2026/10/03 16:56 GMT+9 4f:b7:de:2c:e2:f9:2e:ff:8e:32:11:a0:57:21:6c:be:3f:52:fb:7c key-019496eb4f525d687"':
+            - 'cell "다음 키 페어 선택: b6-1-key"':
+              - 'generic "다음 키 페어 선택: b6-1-key"':
+                - 'checkbox "다음 키 페어 선택: b6-1-key"'
+            - cell "b6-1-key":
+              - generic: b6-1-key
+            - cell "rsa":
+              - generic: rsa
+            - cell "2026/10/03 16:56 GMT+9":
+              - generic: 2026/10/03 16:56 GMT+9
+            - cell "4f:b7:de:2c:e2:f9:2e:ff:8e:32:11:a0:57:21:6c:be:3f:52:fb:7c":
+              - generic: 4f:b7:de:2c:e2:f9:2e:ff:8e:32:11:a0:57:21:6c:be:3f:52:fb:7c
+            - cell "key-019496eb4f525d687":
+              - generic: key-019496eb4f525d687
+      - menu:
+        - menuitem "키 페어 생성"
+        - menuitem "작업 ▶":
+          - generic: 작업 ▶
+          - menu:
+            - menuitem "키 페어 가져오기"
+            - menuitem "삭제" [disabled]
+            - menuitem "태그 관리" [disabled]
+- contentinfo:
+  - button "CloudShell":
+    - generic: CloudShell
+  - button "AWS용 에이전트 툴킷":
+    - text: AWS용 에이전트 툴킷
+  - button "의견"
+  - button "Console 모바일 앱":
+    - generic: Console 모바일 앱
+  - generic: © 2026, Amazon Web Services, Inc. 또는 계열사.
+  - list:
+    - link "개인 정보 보호":
+      - /url: https://aws.amazon.com/privacy/
+    - link "약관":
+      - /url: https://aws.amazon.com/terms/
+    - button "쿠키 기본 설정"
