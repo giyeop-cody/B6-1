@@ -1,0 +1,495 @@
+- banner:
+  - 'img "계정 색상: 설정 해제"'
+  - navigation "글로벌":
+    - link "AWS 콘솔 홈":
+      - /url: https://us-east-1.console.aws.amazon.com/console/home?region=us-east-1
+    - link "기본 콘텐츠로 건너뛰기":
+      - /url: "#c"
+    - button "Amazon Q":
+    - button "서비스":
+    - button "Search":
+    - status
+    - link "CloudShell":
+      - /url: https://us-east-1.console.aws.amazon.com/cloudshell/home?region=us-east-1
+    - button "알림(사용 가능한 알림 없음)":
+      - img "알림":
+    - img "알림":
+    - list:
+      - button "도움말 및 지원":
+        - img "지원":
+      - button "설정":
+      - combobox "Regions (글로벌)":
+        - generic: 글로벌
+      - button "ACCOUNT_NAME_REDACTED":
+        - 'generic "계정 색상: 설정 해제"':
+          - generic: ACCOUNT_NAME_REDACTED (ACCOUNT_ID_REDACTED)
+        - generic: ACCOUNT_NAME_REDACTED
+  - list
+- navigation "측면 탐색":
+  - button "측면 탐색 열기":
+- navigation:
+  - list:
+    - link "과금 정보 및 비용 관리":
+      - /url: /costmanagement/home#/
+      - generic: 과금 정보 및 비용 관리
+    - link "청구서" [disabled]:
+      - generic: 청구서
+  - list:
+    - link:
+      - /url: /costmanagement/home#/
+      - generic: 과금 정보 및 비용 관리
+    - generic: 청구서
+- region "드로어":
+  - toolbar "드로어":
+    - button "도움말 창 열기":
+- main:
+  - region "알림"
+  - main:
+    - region "알림":
+      - img "정보":
+      - generic: 무료 플랜 계정에는 요금이 청구되지 않음
+      - text: 크레딧은 무료 플랜 비용을 충당합니다. 무료 플랜 기간이 만료되거나 크레딧이 모두 소진되면 AWS 서비스 무료 이용이 종료됩니다.
+      - button "세부 정보 보기"
+      - link "업그레이드 계획":
+        - /url: /billing/home?#/freetier/upgrade
+      - list "알림"
+    - heading "청구서" [level=1]
+    - button "정보 청구서": 정보
+    - button "CSV로 모두 다운로드":
+      - text: CSV로 모두 다운로드
+    - button "인쇄"
+    - button "결제 기간 선택":
+      - text: "결제 기간: 2026년 9월"
+    - button "청구서 페이지 기본 설정":
+    - paragraph:
+      - strong: "페이지 새로 고침 시간:"
+      - text: 2026년 9월 25일 금요일 오후 4시 48분 3초 GMT+9
+    - heading "AWS 예상 청구서 요약" [level=2]
+    - button "정보 AWS 예상 청구서 요약": 정보
+    - button "기본 설정":
+    - paragraph: 총 요금 및 결제 정보
+    - generic: 계정 ID
+    - heading "ACCOUNT_ID_REDACTED" [level=3]
+    - text: 결제 기간
+    - button "정보"
+    - heading "9월 1일 - 2026년 9월 30일" [level=3]
+    - text: 결제 상태
+    - button "정보"
+    - heading "대기 중" [level=3]:
+      - text: 대기 중
+    - generic: 서비스 제공업체
+    - heading "Amazon Web Services Korea LLC" [level=3]:
+      - strong: Amazon Web Services Korea LLC
+    - generic: 합계 USD
+    - heading "USD 0.00" [level=3]:
+      - strong: USD 0.00
+    - heading "예상 총합계:" [level=1]
+    - button "USD 0.00":
+      - heading "USD 0.00" [level=1]
+    - heading "결제 정보" [level=2]:
+      - button "결제 정보":
+        - text: 결제 정보
+    - button "정보 결제 정보": 정보
+    - heading "서비스 공급업체별 예상 최고 비용" [level=2]
+    - button "정보 서비스 공급업체별 예상 최고 비용": 정보
+    - button "Amazon Web Services Korea LLC":
+      - generic: Amazon Web Services Korea LLC
+    - button "기본 설정":
+    - paragraph: 보기 Amazon Web Services Korea LLC
+    - generic: 가장 높은 서비스 지출
+    - heading "USD 0.00" [level=3]
+    - generic: 이전 달과 비교한 추세
+    - generic: 표시할 데이터가 없습니다.
+    - generic: 서비스 이름
+    - generic: Virtual Private Cloud
+    - generic: 가장 높은 AWS 리전 지출
+    - heading "USD 0.03" [level=3]
+    - generic: 이전 달과 비교한 추세
+    - generic: 표시할 데이터가 없습니다.
+    - generic: 리전 이름
+    - generic: Asia Pacific (Seoul)
+    - tablist:
+      - tab "서비스별 요금" [selected]:
+        - generic: 서비스별 요금
+      - tab "계정별 요금":
+        - generic: 계정별 요금
+      - tab "인보이스":
+        - generic: 인보이스
+      - tab "절감액":
+        - generic: 절감액
+      - tab "서비스별 세금":
+        - generic: 서비스별 세금
+    - tabpanel "서비스별 요금":
+      - heading "Amazon Web Services Korea LLC 서비스별 요금" [level=2]
+      - button "정보 Amazon Web Services Korea LLC 서비스별 요금": 정보
+      - button "모두 축소" [active]:
+        - text: 모두 축소
+      - button "기본 설정":
+      - generic: 총 활성 서비스
+      - generic: "5"
+      - generic: 다음의 총 세전 서비스 요금 USD
+      - button "USD 0.00":
+        - generic: USD 0.00
+      - combobox "서비스 이름 또는 리전 이름으로 필터링"
+      - list "페이지 매김":
+        - button "이전 페이지" [disabled]:
+        - button "전체 페이지 중 1페이지": "1"
+        - button "다음 페이지" [disabled]:
+      - table:
+        - rowgroup:
+          - row:
+            - columnheader:
+              - button:
+                - generic: 설명
+              - button
+              - slider
+            - columnheader:
+              - generic: 사용량 수량
+              - button
+              - slider
+            - columnheader:
+              - button:
+                - generic: 의 금액 USD
+              - button
+              - slider
+      - table:
+        - rowgroup:
+          - row "설명 사용량 수량 의 금액 USD":
+            - columnheader "설명":
+              - button "설명":
+                - generic: 설명
+              - button "설명"
+              - slider
+            - columnheader "사용량 수량":
+              - generic: 사용량 수량
+              - button "사용량 수량"
+              - slider
+            - columnheader "의 금액 USD":
+              - button "의 금액 USD":
+                - generic: 의 금액 USD
+              - button "의 금액 USD"
+              - slider
+        - rowgroup:
+          - row "항목 축소 CloudFormation USD 0.00":
+            - cell "항목 축소 CloudFormation":
+              - button "항목 축소" [expanded]:
+              - generic: CloudFormation
+            - cell
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "항목 축소 Asia Pacific (Seoul) USD 0.00":
+            - cell "항목 축소 Asia Pacific (Seoul)":
+              - button "항목 축소" [expanded]:
+              - generic: Asia Pacific (Seoul)
+            - cell
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "항목 축소 AWS CloudFormation ProcessResourceHandlers USD 0.00":
+            - cell "항목 축소 AWS CloudFormation ProcessResourceHandlers":
+              - button "항목 축소" [expanded]:
+              - generic: AWS CloudFormation ProcessResourceHandlers
+            - cell
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "USD 0.0 per Operations for Resource-Invocation-Count:ProcessResourceHandlers usage 19 Count USD 0.00":
+            - cell "USD 0.0 per Operations for Resource-Invocation-Count:ProcessResourceHandlers usage":
+              - generic: USD 0.0 per Operations for Resource-Invocation-Count:ProcessResourceHandlers usage
+            - cell "19 Count":
+              - generic: 19 Count
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "항목 축소 Data Transfer USD 0.00":
+            - cell "항목 축소 Data Transfer":
+              - button "항목 축소" [expanded]:
+              - generic: Data Transfer
+            - cell
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "항목 축소 Asia Pacific (Seoul) USD 0.00":
+            - cell "항목 축소 Asia Pacific (Seoul)":
+              - button "항목 축소" [expanded]:
+              - generic: Asia Pacific (Seoul)
+            - cell
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "항목 축소 AWS Data Transfer APN2-APS1-AWS-In-Bytes USD 0.00":
+            - cell "항목 축소 AWS Data Transfer APN2-APS1-AWS-In-Bytes":
+              - button "항목 축소" [expanded]:
+              - generic: AWS Data Transfer APN2-APS1-AWS-In-Bytes
+            - cell
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "$0.00 per GB - Asia Pacific (Seoul) data transfer from Asia Pacific (Singapore) 0 GB USD 0.00":
+            - cell "$0.00 per GB - Asia Pacific (Seoul) data transfer from Asia Pacific (Singapore)":
+              - generic: $0.00 per GB - Asia Pacific (Seoul) data transfer from Asia Pacific (Singapore)
+            - cell "0 GB":
+              - generic: 0 GB
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "항목 축소 AWS Data Transfer APN2-APS1-AWS-Out-Bytes USD 0.00":
+            - cell "항목 축소 AWS Data Transfer APN2-APS1-AWS-Out-Bytes":
+              - button "항목 축소" [expanded]:
+              - generic: AWS Data Transfer APN2-APS1-AWS-Out-Bytes
+            - cell
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "$0.080 per GB - Asia Pacific (Seoul) data transfer to Asia Pacific (Singapore) 0 GB USD 0.00":
+            - cell "$0.080 per GB - Asia Pacific (Seoul) data transfer to Asia Pacific (Singapore)":
+              - generic: $0.080 per GB - Asia Pacific (Seoul) data transfer to Asia Pacific (Singapore)
+            - cell "0 GB":
+              - generic: 0 GB
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "항목 축소 AWS Data Transfer APN2-CloudFront-In-Bytes USD 0.00":
+            - cell "항목 축소 AWS Data Transfer APN2-CloudFront-In-Bytes":
+              - button "항목 축소" [expanded]:
+              - generic: AWS Data Transfer APN2-CloudFront-In-Bytes
+            - cell
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "$0.00 per GB data transfer in to Asia Pacific (Seoul) from CloudFront 0.025 GB USD 0.00":
+            - cell "$0.00 per GB data transfer in to Asia Pacific (Seoul) from CloudFront":
+              - generic: $0.00 per GB data transfer in to Asia Pacific (Seoul) from CloudFront
+            - cell "0.025 GB":
+              - generic: 0.025 GB
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "항목 축소 AWS Data Transfer APN2-CloudFront-Out-Bytes USD 0.00":
+            - cell "항목 축소 AWS Data Transfer APN2-CloudFront-Out-Bytes":
+              - button "항목 축소" [expanded]:
+              - generic: AWS Data Transfer APN2-CloudFront-Out-Bytes
+            - cell
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "$0.00 per GB data transfer out of Asia Pacific (Seoul) to CloudFront 0 GB USD 0.00":
+            - cell "$0.00 per GB data transfer out of Asia Pacific (Seoul) to CloudFront":
+              - generic: $0.00 per GB data transfer out of Asia Pacific (Seoul) to CloudFront
+            - cell "0 GB":
+              - generic: 0 GB
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "항목 축소 AWS Data Transfer APN2-USE1-AWS-In-Bytes USD 0.00":
+            - cell "항목 축소 AWS Data Transfer APN2-USE1-AWS-In-Bytes":
+              - button "항목 축소" [expanded]:
+              - generic: AWS Data Transfer APN2-USE1-AWS-In-Bytes
+            - cell
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "$0.00 per GB - Asia Pacific (Seoul) data transfer from US East (Northern Virginia) 0 GB USD 0.00":
+            - cell "$0.00 per GB - Asia Pacific (Seoul) data transfer from US East (Northern Virginia)":
+              - generic: $0.00 per GB - Asia Pacific (Seoul) data transfer from US East (Northern Virginia)
+            - cell "0 GB":
+              - generic: 0 GB
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "항목 축소 AWS Data Transfer APN2-USE1-AWS-Out-Bytes USD 0.00":
+            - cell "항목 축소 AWS Data Transfer APN2-USE1-AWS-Out-Bytes":
+              - button "항목 축소" [expanded]:
+              - generic: AWS Data Transfer APN2-USE1-AWS-Out-Bytes
+            - cell
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "$0.080 per GB - Asia Pacific (Seoul) data transfer to US East (Northern Virginia) 0.001 GB USD 0.00":
+            - cell "$0.080 per GB - Asia Pacific (Seoul) data transfer to US East (Northern Virginia)":
+              - generic: $0.080 per GB - Asia Pacific (Seoul) data transfer to US East (Northern Virginia)
+            - cell "0.001 GB":
+              - generic: 0.001 GB
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "항목 축소 Bandwidth USD 0.00":
+            - cell "항목 축소 Bandwidth":
+              - button "항목 축소" [expanded]:
+              - generic: Bandwidth
+            - cell
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "$0.00 per GB - regional data transfer - in/out/between EC2 Azs or using elastic IPs or ELB 0.018 GB USD 0.00":
+            - cell "$0.00 per GB - regional data transfer - in/out/between EC2 Azs or using elastic IPs or ELB":
+              - generic: $0.00 per GB - regional data transfer - in/out/between EC2 Azs or using elastic IPs or ELB
+            - cell "0.018 GB":
+              - generic: 0.018 GB
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "$0.00 per GB - regional data transfer - in/out/between EC2 Azs or using elastic IPs or ELB 0.004 GB USD 0.00":
+            - cell "$0.00 per GB - regional data transfer - in/out/between EC2 Azs or using elastic IPs or ELB":
+              - generic: $0.00 per GB - regional data transfer - in/out/between EC2 Azs or using elastic IPs or ELB
+            - cell "0.004 GB":
+              - generic: 0.004 GB
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "$0.000 per GB - data transfer in per month 0 GB USD 0.00":
+            - cell "$0.000 per GB - data transfer in per month":
+              - generic: $0.000 per GB - data transfer in per month
+            - cell "0 GB":
+              - generic: 0 GB
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "$0.000 per GB - data transfer out under the monthly global free tier 0 GB USD 0.00":
+            - cell "$0.000 per GB - data transfer out under the monthly global free tier":
+              - generic: $0.000 per GB - data transfer out under the monthly global free tier
+            - cell "0 GB":
+              - generic: 0 GB
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "$0.000 per GB - regional data transfer under the monthly global free tier 0 GB USD 0.00":
+            - cell "$0.000 per GB - regional data transfer under the monthly global free tier":
+              - generic: $0.000 per GB - regional data transfer under the monthly global free tier
+            - cell "0 GB":
+              - generic: 0 GB
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "항목 축소 Elastic Compute Cloud USD 0.00":
+            - cell "항목 축소 Elastic Compute Cloud":
+              - button "항목 축소" [expanded]:
+              - generic: Elastic Compute Cloud
+            - cell
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "항목 축소 No Region (USD 0.02)":
+            - cell "항목 축소 No Region":
+              - button "항목 축소" [expanded]:
+              - generic: No Region
+            - cell
+            - cell "(USD 0.02)":
+              - generic: (USD 0.02)
+          - row "항목 축소 (USD 0.02)":
+            - cell "항목 축소":
+              - button "항목 축소" [expanded]:
+            - cell
+            - cell "(USD 0.02)":
+              - generic: (USD 0.02)
+          - row "AWS Free Tier 크레딧 (USD 0.02)":
+            - cell "AWS Free Tier":
+              - generic: AWS Free Tier
+            - cell "크레딧":
+              - generic: 크레딧
+            - cell "(USD 0.02)":
+              - generic: (USD 0.02)
+          - row "항목 축소 Asia Pacific (Seoul) USD 0.02":
+            - cell "항목 축소 Asia Pacific (Seoul)":
+              - button "항목 축소" [expanded]:
+              - generic: Asia Pacific (Seoul)
+            - cell
+            - cell "USD 0.02":
+              - generic: USD 0.02
+          - row "항목 축소 Amazon Elastic Compute Cloud running Linux/UNIX USD 0.02":
+            - cell "항목 축소 Amazon Elastic Compute Cloud running Linux/UNIX":
+              - button "항목 축소" [expanded]:
+              - generic: Amazon Elastic Compute Cloud running Linux/UNIX
+            - cell
+            - cell "USD 0.02":
+              - generic: USD 0.02
+          - row "$0.013 per On Demand Linux t3.micro Instance Hour 1.215 Hrs USD 0.02":
+            - cell "$0.013 per On Demand Linux t3.micro Instance Hour":
+              - generic: $0.013 per On Demand Linux t3.micro Instance Hour
+            - cell "1.215 Hrs":
+              - generic: 1.215 Hrs
+            - cell "USD 0.02":
+              - generic: USD 0.02
+          - row "항목 축소 EBS USD 0.00":
+            - cell "항목 축소 EBS":
+              - button "항목 축소" [expanded]:
+              - generic: EBS
+            - cell
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "$0.0912 per GB-month of General Purpose (gp3) provisioned storage - Asia Pacific (Seoul) 0.014 GB-Mo USD 0.00":
+            - cell "$0.0912 per GB-month of General Purpose (gp3) provisioned storage - Asia Pacific (Seoul)":
+              - generic: $0.0912 per GB-month of General Purpose (gp3) provisioned storage - Asia Pacific (Seoul)
+            - cell "0.014 GB-Mo":
+              - generic: 0.014 GB-Mo
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "항목 축소 Key Management Service USD 0.00":
+            - cell "항목 축소 Key Management Service":
+              - button "항목 축소" [expanded]:
+              - generic: Key Management Service
+            - cell
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "항목 축소 Asia Pacific (Seoul) USD 0.00":
+            - cell "항목 축소 Asia Pacific (Seoul)":
+              - button "항목 축소" [expanded]:
+              - generic: Asia Pacific (Seoul)
+            - cell
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "항목 축소 AWS Key Management Service ap-northeast-2-KMS-Requests USD 0.00":
+            - cell "항목 축소 AWS Key Management Service ap-northeast-2-KMS-Requests":
+              - button "항목 축소" [expanded]:
+              - generic: AWS Key Management Service ap-northeast-2-KMS-Requests
+            - cell
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "$0.00 per request - Monthly Global Free Tier for KMS requests 6 Requests USD 0.00":
+            - cell "$0.00 per request - Monthly Global Free Tier for KMS requests":
+              - generic: $0.00 per request - Monthly Global Free Tier for KMS requests
+            - cell "6 Requests":
+              - generic: 6 Requests
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "항목 축소 Virtual Private Cloud USD 0.00":
+            - cell "항목 축소 Virtual Private Cloud":
+              - button "항목 축소" [expanded]:
+              - generic: Virtual Private Cloud
+            - cell
+            - cell "USD 0.00":
+              - generic: USD 0.00
+          - row "항목 축소 No Region (USD 0.01)":
+            - cell "항목 축소 No Region":
+              - button "항목 축소" [expanded]:
+              - generic: No Region
+            - cell
+            - cell "(USD 0.01)":
+              - generic: (USD 0.01)
+          - row "항목 축소 (USD 0.01)":
+            - cell "항목 축소":
+              - button "항목 축소" [expanded]:
+            - cell
+            - cell "(USD 0.01)":
+              - generic: (USD 0.01)
+          - row "AWS Free Tier 크레딧 (USD 0.01)":
+            - cell "AWS Free Tier":
+              - generic: AWS Free Tier
+            - cell "크레딧":
+              - generic: 크레딧
+            - cell "(USD 0.01)":
+              - generic: (USD 0.01)
+          - row "항목 축소 Asia Pacific (Seoul) USD 0.01":
+            - cell "항목 축소 Asia Pacific (Seoul)":
+              - button "항목 축소" [expanded]:
+              - generic: Asia Pacific (Seoul)
+            - cell
+            - cell "USD 0.01":
+              - generic: USD 0.01
+          - row "항목 축소 Amazon Virtual Private Cloud Public IPv4 Addresses USD 0.01":
+            - cell "항목 축소 Amazon Virtual Private Cloud Public IPv4 Addresses":
+              - button "항목 축소" [expanded]:
+              - generic: Amazon Virtual Private Cloud Public IPv4 Addresses
+            - cell
+            - cell "USD 0.01":
+              - generic: USD 0.01
+          - row "$0.005 per In-use public IPv4 address per hour 1.225 Hrs USD 0.01":
+            - cell "$0.005 per In-use public IPv4 address per hour":
+              - generic: $0.005 per In-use public IPv4 address per hour
+            - cell "1.225 Hrs":
+              - generic: 1.225 Hrs
+            - cell "USD 0.01":
+              - generic: USD 0.01
+      - heading "총 세금" [level=2]
+      - heading "USD 0.00" [level=2]
+    - generic: 본 청구서 기간 동안의 사용 요금 및 반복 청구 요금은 다음 결제 일자에 청구됩니다. 이 페이지 또는 귀하에게 전송된 알림에 표시된 예상 요금은 본 청구서 기간 동안의 실제 요금과 다를 수 있습니다. 이 페이지에 나와 있는 예상 요금에는 귀하가 이 페이지를 확인한 후 본 청구서 기간 동안 발생한 사용 요금은 포함되어 있지 않기 때문입니다. 또한 알림을 통해 귀하에게 제공된 예상 요금 정보에는 알림을 보낸 이후 본 청구서 기간 동안 발생한 사용 요금은 포함되어 있지 않습니다. 일회성 요금 및 구독 요금은 사용 요금 및 반복 청구 요금과는 별도로 발생일을 기준으로 산정됩니다. 이 페이지의 요금은 별도 항목으로 나열되어있지 않는 한 세금을 제외한 금액입니다. 세금 정보에 액세스하려면 담당 AWS Organization 관리 책임자에게 문의하세요.
+- contentinfo:
+  - button "열기 CloudShell":
+  - button "AWS용 에이전트 툴킷":
+    - text: AWS용 에이전트 툴킷
+  - button "의견"
+  - button "Console 모바일 앱":
+    - generic: Console 모바일 앱
+  - generic: © 2026, Amazon Web Services, Inc. 또는 계열사.
+  - list:
+    - link "개인 정보 보호":
+      - /url: https://aws.amazon.com/privacy/
+    - link "약관":
+      - /url: https://aws.amazon.com/terms/
+    - button "쿠키 기본 설정"

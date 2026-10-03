@@ -1,0 +1,85 @@
+- navigation:
+  - 'img "계정 색상: 설정 해제"'
+  - navigation "글로벌":
+    - link "AWS 콘솔 홈":
+      - /url: https://ap-northeast-2.console.aws.amazon.com/console/home?region=ap-northeast-2
+    - link "기본 콘텐츠로 건너뛰기":
+      - /url: "#c"
+    - button "서비스":
+    - button "Search":
+    - status
+    - link "CloudShell":
+      - /url: https://ap-northeast-2.console.aws.amazon.com/cloudshell/home?region=ap-northeast-2
+    - button "알림(사용 가능한 알림 없음)":
+      - img "알림":
+    - img "알림":
+    - list:
+      - button "도움말 및 지원":
+        - img "지원":
+      - button "설정":
+      - combobox "Regions (아시아 태평양 (서울))":
+        - generic: 아시아 태평양 (서울)
+      - button "b6-1-learner @ ACCOUNT_ID_REDACTED":
+        - 'generic "계정 색상: 설정 해제"':
+          - generic: ACCOUNT_NAME_REDACTED (ACCOUNT_ID_REDACTED)
+        - generic: b6-1-learner
+  - list
+- alert
+- main:
+  - list
+  - heading "CloudShell" [level=3]:
+    - generic: CloudShell
+  - button "CloudShell 작업":
+    - text: 작업
+  - generic "기본 설정":
+    - button "기본 설정":
+  - group "Pane 1":
+    - list:
+      - group "Terminal 74a9b314-d948-4bdf-ac93-a848c549d413 tab":
+        - button "ap-northeast-2" [pressed]
+        - text: ×
+    - text: 
+    - button "새로운 탭 추가":
+  - group "Terminal 74a9b314-d948-4bdf-ac93-a848c549d413 tab":
+    - generic: CloudShell 터미널 입력
+    - textbox "CloudShell 터미널 입력" [active]: ~ $
+    - generic: File "<string>", line 6
+    - generic: "print(label+\": \"+(r.stdout.strip() if r.returncode==0 else (\"ACCESS_DENIED\" if \"Unauthoriz"
+    - generic: edOperation" in r.stderr or "AccessDenied" in r.stderr else "ERROR "+r.stderr[:160])))clear
+    - generic: ^^^^^
+    - generic: "SyntaxError: invalid syntax"
+    - generic: 2026-09-24T22:11:12.901905+00:00
+    - generic: "CloudTrail: ACCESS_DENIED"
+    - generic: "Stack: ["
+    - generic: "{"
+    - generic: "\"Name\": \"b6-1-learning\","
+    - generic: "\"Status\": \"DELETE_COMPLETE\""
+    - generic: "}"
+    - generic: "]"
+    - generic: "EC2: 0"
+    - generic: "EBS: 0"
+    - generic: "VPC: 0"
+    - generic: "Subnet: 0"
+    - generic: "SecurityGroup: 0"
+    - generic: "RouteTable: 0"
+    - generic: "IGW: 0"
+    - generic: "EIP: ACCESS_DENIED"
+    - generic: "Snapshot: ACCESS_DENIED"
+    - generic: "NAT: ACCESS_DENIED"
+    - generic: "ELB: ACCESS_DENIED"
+    - generic: "RDS: ACCESS_DENIED"
+    - generic: "Cost: ACCESS_DENIED"
+    - generic: ~ $
+- contentinfo:
+  - button "AWS용 에이전트 툴킷":
+    - text: AWS용 에이전트 툴킷
+  - button "의견"
+  - button "Console 모바일 앱":
+    - generic: Console 모바일 앱
+  - generic: © 2026, Amazon Web Services, Inc. 또는 계열사.
+  - list:
+    - link "개인 정보 보호":
+      - /url: https://aws.amazon.com/privacy/
+    - link "약관":
+      - /url: https://aws.amazon.com/terms/
+    - button "쿠키 기본 설정"

@@ -1,5 +1,11 @@
 # B6-1: 내가 만든 웹사이트를 인터넷에 올려 누구나 쓰게 하기
 
+> **2026-09-24 권한 변경:** 기존의 서울 전체 EC2 변경 정책은 사용하지 않는다. [배포 권한 경계](docs/deployment-permissions.md)를 먼저 확인하고, 두 정책을 검증·적용한 뒤 진행한다. AWS 적용·실제 배포 검증 전에는 완료로 표시하지 않는다.
+
+
+
+<!-- codyssey-links:end -->
+
 AWS 서울 리전의 VPC와 EC2에 **Docker Nginx 정적 사이트**를 배포하는 학습 프로젝트다. CloudFormation으로 인프라를 다시 만들 수 있고, 브라우저와 `/health` 응답으로 실제 동작을 검증한다.
 
 > **현재 상태:** 2026-10-03 19:17 KST IAM으로 실습 리소스 정리 완료. 스택 DELETE_COMPLETE, EC2 terminated, EBS·키페어·시작 템플릿·해당 네트워크 삭제 확인. 서울 EIP/NAT/ALB/RDS/스냅샷0개. 최종 IAM Billing 조회 완료. [평가 항목별 설명·증거 안내](docs/evaluation-evidence-guide-2026-10-03.md).
@@ -46,6 +52,8 @@ AWS 서울 리전의 VPC와 EC2에 **Docker Nginx 정적 사이트**를 배포�
 ## 아키텍처
 
 ![B6-1 AWS 아키텍처](docs/architecture.svg)
+
+제출용 파일: [docs/architecture.pdf](docs/architecture.pdf) (과제 최소 규격)
 
 요청 흐름:
 
@@ -94,6 +102,7 @@ Elastic IP, NAT Gateway, Load Balancer, RDS는 만들지 않는다.
 │   └── validate_project.py
 ├── docs/
 │   ├── architecture.svg
+│   ├── architecture.pdf
 │   ├── account-setup.md
 │   ├── deployment-guide.md
 │   ├── troubleshooting.md
@@ -218,8 +227,8 @@ scripts/aws-verify.sh b6-1-learning
 - [x] EC2 내부 Docker `healthy` 및 실제 커밋 확인
 - [x] 실제 AWS 트러블슈팅 기록
 - [x] 이번 배포 증거 파일 존재·내용 대조
-- [ ] MFA 확인(미확인)
-- [ ] Stack과 별도 리소스 삭제(별도 요청 전 보존)
+- [x] MFA 확인
+- [x] Stack과 별도 리소스 삭제
 - [x] 삭제 후 Billing 확인(46·47, 예상 금액이며 최종 청구 미확정)
 
 이 체크가 끝나기 전까지 Codyssey 제출 상태를 “완료”라고 기록하지 않는다.

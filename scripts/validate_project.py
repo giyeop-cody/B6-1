@@ -33,7 +33,9 @@ required = [
     "site/app.js",
     "infra/cloudformation.yml",
     "infra/deployer-policy.json",
+    "infra/ec2-deployment-policy.json",
     "docs/architecture.svg",
+    "docs/architecture.pdf",
     "docs/account-setup.md",
     "docs/deployment-guide.md",
     "docs/troubleshooting.md",
@@ -41,7 +43,7 @@ required = [
     "evidence/README.md",
 ]
 for item in required:
-    read(item)
+    check((ROOT / item).is_file(), f"required file missing: {item}")
 
 # Container and application
 nginx = read("nginx/default.conf")
@@ -106,7 +108,7 @@ user_data = (
     .get("Fn::Base64", {})
     .get("Fn::Sub", "")
 )
-for token in ["dnf install -y docker", "git clone", "docker build", "docker run", "cfn-signal"]:
+for token in ["dnf install -y docker", "curl --connect-timeout 10 --max-time 20 -fsS https://example.com", "git clone", "docker build", "docker run", "cfn-signal"]:
     check(token in user_data, f"UserData missing: {token}")
 
 outputs = template.get("Outputs", {})
@@ -160,13 +162,33 @@ check(
     ),
     "SSM permission must be limited to the Amazon Linux 2023 public AMI parameter",
 )
-check(any(s.get("Sid") == "DenyEc2OutsideSeoul" and s.get("Effect") == "Deny" for s in statements), "Seoul region deny guard is missing")
+# Both attached policies must scope each Allow to Seoul by condition or ARN.
+ec2_policy = json.loads(read("infra/ec2-deployment-policy.json"))
+for statement in statements + ec2_policy.get("Statement", []):
+    if statement.get("Effect") != "Allow":
+        continue
+    region = statement.get("Condition", {}).get("StringEquals", {}).get("aws:RequestedRegion")
+    scoped_resources = statement.get("Resource", [])
+    if isinstance(scoped_resources, str):
+        scoped_resources = [scoped_resources]
+    check(region == "ap-northeast-2" or (bool(scoped_resources) and all(":ap-northeast-2:" in r for r in scoped_resources)), "Allow statement is not scoped to Seoul")
+    actions = statement.get("Action", [])
+    if isinstance(actions, str):
+        actions = [actions]
+    check(all(a.split(":")[0] in {"ec2", "cloudformation", "ssm", "cloudshell"} and "*" not in a for a in actions), "unexpected service or wildcard Allow action")
+for statement in ec2_policy.get("Statement", []):
+    if statement.get("Effect") == "Allow":
+        check(statement.get("Condition", {}).get("StringEquals", {}).get("aws:CalledViaFirst") == "cloudformation.amazonaws.com", "EC2 mutation must be through CloudFormation")
 
 # SVG must be a real parseable diagram.
 try:
     ET.parse(ROOT / "docs/architecture.svg")
 except Exception as exc:
     ERRORS.append(f"architecture SVG parse failed: {exc}")
+
+pdf = ROOT / "docs/architecture.pdf"
+if pdf.is_file():
+    check(pdf.read_bytes().startswith(b"%PDF-"), "architecture PDF must have a PDF header")
 
 if ERRORS:
     for error in ERRORS:
@@ -178,5 +200,5 @@ print(f"required_files={len(required)} PASS")
 print(f"cloudformation_resources={len(expected_types)} PASS")
 print("security_group=http80_public+ssh22_parameterized PASS")
 print("ebs=8GiB_gp3_encrypted_delete_on_termination PASS")
-print("iam=action_limited+console_cloudshell_ready+seoul_deny_guard PASS")
+print("iam=action_limited+console_cloudshell_ready+seoul_scoped PASS")
 print("B6-1 STATIC VALIDATION: ALL PASS")

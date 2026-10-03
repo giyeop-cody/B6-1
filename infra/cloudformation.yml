@@ -215,6 +215,8 @@ Resources:
             dnf install -y docker git aws-cfn-bootstrap
             systemctl enable --now docker
             usermod -aG docker ec2-user
+            curl --connect-timeout 10 --max-time 20 -fsS https://example.com -o /tmp/b6-1-egress-check.html
+            grep -q 'Example Domain' /tmp/b6-1-egress-check.html
             rm -rf /opt/b6-1
             git init /opt/b6-1
             git -C /opt/b6-1 remote add origin https://github.com/giyeop-cody/B6-1.git
