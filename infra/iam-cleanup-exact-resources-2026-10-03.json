@@ -1,0 +1,44 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DeleteOnlyLearningLaunchTemplate",
+      "Effect": "Allow",
+      "Action": "ec2:DeleteLaunchTemplate",
+      "Resource": "arn:aws:ec2:ap-northeast-2:171180524802:launch-template/lt-03da8c5fb9551abf8",
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestedRegion": "ap-northeast-2"
+        }
+      }
+    },
+    {
+      "Sid": "DeleteOnlyLearningKeyPair",
+      "Effect": "Allow",
+      "Action": "ec2:DeleteKeyPair",
+      "Resource": "arn:aws:ec2:ap-northeast-2:171180524802:key-pair/b6-1-key",
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestedRegion": "ap-northeast-2"
+        }
+      }
+    },
+    {
+      "Sid": "ReadRemainingCleanupResourcesInSeoul",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeAddresses",
+        "ec2:DescribeNatGateways",
+        "ec2:DescribeSnapshots",
+        "elasticloadbalancing:DescribeLoadBalancers",
+        "rds:DescribeDBInstances"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestedRegion": "ap-northeast-2"
+        }
+      }
+    }
+  ]
+}

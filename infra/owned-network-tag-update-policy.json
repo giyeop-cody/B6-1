@@ -1,0 +1,23 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "RetagOnlyThreeExistingB61NetworkResourcesThroughCloudFormation",
+      "Effect": "Allow",
+      "Action": "ec2:CreateTags",
+      "Resource": [
+        "arn:aws:ec2:ap-northeast-2:171180524802:internet-gateway/igw-00647fac7637690a3",
+        "arn:aws:ec2:ap-northeast-2:171180524802:route-table/rtb-048e2cf96a90714d5",
+        "arn:aws:ec2:ap-northeast-2:171180524802:security-group/sg-07d5aa052361be676"
+      ],
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestedRegion": "ap-northeast-2",
+          "aws:CalledViaFirst": "cloudformation.amazonaws.com",
+          "aws:ResourceTag/Project": "b6-1",
+          "aws:ResourceTag/aws:cloudformation:stack-name": "b6-1-learning"
+        }
+      }
+    }
+  ]
+}

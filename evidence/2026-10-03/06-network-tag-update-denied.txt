@@ -1,0 +1,87 @@
+- navigation:
+  - 'img "계정 색상: 설정 해제"'
+  - navigation "글로벌":
+    - link "기본 콘텐츠로 건너뛰기":
+      - /url: "#c"
+    - link "AWS 콘솔 홈":
+      - /url: https://ap-northeast-2.console.aws.amazon.com/console/home?region=ap-northeast-2
+    - button "서비스":
+    - img "검색":
+    - searchbox
+    - combobox "검색"
+    - button "Amazon Q에게 질문하기":
+    - generic: "[알트+S]"
+    - status
+    - link "CloudShell":
+      - /url: https://ap-northeast-2.console.aws.amazon.com/cloudshell/home?region=ap-northeast-2
+    - button "알림(사용 가능한 알림 없음)":
+      - img "알림":
+    - img "알림":
+    - list:
+      - button "도움말 및 지원":
+        - img "지원":
+      - button "설정":
+      - combobox "Regions (아시아 태평양 (서울))":
+        - generic: 아시아 태평양 (서울)
+      - button "b6-1-learner @ 1711-8052-4802":
+        - 'generic "계정 색상: 설정 해제"':
+          - generic: cody-giyeop ([ACCOUNT_ID])
+        - generic: b6-1-learner
+  - list
+- alert
+- main:
+  - list
+  - heading "CloudShell" [level=3]:
+    - generic: CloudShell
+  - button "CloudShell 작업":
+    - text: 작업
+  - generic "기본 설정":
+    - button "기본 설정":
+  - group "Pane 1":
+    - list:
+      - group "Terminal 74a9b314-d948-4bdf-ac93-a848c549d413 tab":
+        - button "ap-northeast-2" [pressed]
+        - text: ×
+    - text: 
+    - button "새로운 탭 추가":
+  - group "Terminal 74a9b314-d948-4bdf-ac93-a848c549d413 tab":
+    - generic: CloudShell 터미널 입력
+    - textbox "CloudShell 터미널 입력" [active]: B6-1-redeployment-20261003 $
+    - generic: "]"
+    - generic: "b6-1-learning UPDATE_FAILED The following resource(s) failed to update: [InternetGateway, WebSecurityGroup, PublicRouteTable]."
+    - generic: "WebSecurityGroup UPDATE_FAILED Resource handler returned message: \"You are not authorized to perform this operation. User: arn:aws:iam::[ACCOUNT_ID]:user/b6-1-learner is not"
+    - generic: "authorized to perform: ec2:CreateTags on resource: arn:aws:ec2:ap-northeast-2:[ACCOUNT_ID]:security-group/sg-07d5aa052361be676 because no identity-based policy allows the ec2:CreateTa"
+    - generic: "gs action. Encoded authorization failure message: KNdG45zWf0U40OckWOXqR9Z3sH9cdTZ6mYkU8UQLCEeEdW-CWworhAkx_31HMWDv3GSjcd2htGo4sIn-_ZcwoDUEhivtbtZfKtrCnIrIZf5r4VNYjNiZwswixlD-ZKa_-Yn0X"
+    - generic: XrcxjAWEoBEl_paidREHwI9Pv_gwT-cQLvRFLkIQM8liZS69Ki-GDU1yNsrJ8ZmH_A2whR3wgDlwA23Ll0e7pJblFCtORVNkAXpG6C_m9M7OBwwoDz4rL7nMWXVKNzg-HZansUaFsUphgPEvh0E9JxXdQ1SSToZOK6Ky0ZWtN9tDuKMc4NhvH1L
+    - generic: XGTwI-SLIfjmvkd_73A6JuaIrMA6fyAGv70z7YaydC44DZ4FrzaQUVLLt03Xsb24NcbvOGrC2RPiDM3pwG0OaD3k-6ujfvnAOwtzIElWODvukGAyshZAa-Iq6M8UGJIO6Elc1j6LTXo07Yy8DQumBOf8jG0xz4CpmFjCy0oUwgSzQeAVQcJ2XzT
+    - generic: 3WiAe8WRlPpU61yT61XbYfMymYYI9Me1UYFwgxs4OHOtmzMlK8lB9WZy-um7Djl0VMZ2ZDdHSfD0uSvw5z_dC41pLWoDwWjE7zE_Jnh4WK9RWnYepesxpid3t_2jSUL7xiAAzbC0PNcwH15mMkBy2MqtsPVFObcgEPF2fMJwOhXLmILhA12dOUR
+    - generic: "ha\" (RequestToken: 43e8888d-986b-0799-3d3b-dff8f67dd795, HandlerErrorCode: AccessDenied)"
+    - generic: "PublicRouteTable UPDATE_FAILED Resource handler returned message: \"Encountered a permissions error performing a tagging operation, please add required tag permissions. See ht"
+    - generic: "tps://repost.aws/knowledge-center/cloudformation-tagging-permission-error for how to resolve. Resource handler returned message: \"Unauthorized tagging operation\"\" (RequestToken: 4ac52"
+    - generic: "70c-3990-8652-9f11-c69d69539847, HandlerErrorCode: UnauthorizedTaggingOperation)"
+    - generic: "InternetGateway UPDATE_FAILED Resource handler returned message: \"Encountered a permissions error performing a tagging operation, please add required tag permissions. See https://re"
+    - generic: "post.aws/knowledge-center/cloudformation-tagging-permission-error for how to resolve. Resource handler returned message: \"Unauthorized tagging operation\"\" (RequestToken: 06e2ba7b-072f"
+    - generic: "-d866-4f23-76726125cb13, HandlerErrorCode: UnauthorizedTaggingOperation)"
+    - generic: DefaultPublicRoute rtb-048e2cf96a90714d5|0.0.0.0/0 CREATE_COMPLETE
+    - generic: InternetGateway igw-00647fac7637690a3 UPDATE_FAILED
+    - generic: InternetGatewayAttachment IGW|vpc-03ff56fac0f3f4aa5 CREATE_COMPLETE
+    - generic: LaunchTags lt-03da8c5fb9551abf8 CREATE_COMPLETE
+    - generic: PublicRouteTable rtb-048e2cf96a90714d5 UPDATE_FAILED
+    - generic: PublicSubnet subnet-0500b041bfa685be6 CREATE_COMPLETE
+    - generic: PublicSubnetRouteTableAssociation rtbassoc-0e64a0a5298443af1 CREATE_COMPLETE
+    - generic: Vpc vpc-03ff56fac0f3f4aa5 CREATE_COMPLETE
+    - generic: WebSecurityGroup sg-07d5aa052361be676 UPDATE_FAILED
+    - generic: B6-1-redeployment-20261003 $
+- contentinfo:
+  - button "AWS용 에이전트 툴킷":
+    - text: AWS용 에이전트 툴킷
+  - button "의견"
+  - button "Console 모바일 앱":
+    - generic: Console 모바일 앱
+  - generic: © 2026, Amazon Web Services, Inc. 또는 계열사.
+  - list:
+    - link "개인 정보 보호":
+      - /url: https://aws.amazon.com/privacy/
+    - link "약관":
+      - /url: https://aws.amazon.com/terms/
+    - button "쿠키 기본 설정"

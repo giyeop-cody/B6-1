@@ -1,0 +1,56 @@
+- navigation:
+  - 'img "계정 색상: 설정 해제"'
+  - navigation "글로벌":
+    - link "기본 콘텐츠로 건너뛰기":
+      - /url: "#c"
+    - link "AWS 콘솔 홈":
+      - /url: https://ap-northeast-2.console.aws.amazon.com/console/home?region=ap-northeast-2
+    - button "서비스":
+    - button "Search":
+    - status
+    - link "CloudShell":
+      - /url: https://ap-northeast-2.console.aws.amazon.com/cloudshell/home?region=ap-northeast-2
+    - button "알림(사용 가능한 알림 없음)":
+      - img "알림":
+    - img "알림":
+    - button "더 보기":
+      - text: 더 보기
+  - list
+- alert
+- main:
+  - list
+  - heading "CloudShell" [level=3]:
+    - generic: CloudShell
+  - button "CloudShell 작업":
+    - text: 작업
+  - generic "기본 설정":
+    - button "기본 설정":
+  - group "Pane 1":
+    - list:
+      - group "Terminal 74a9b314-d948-4bdf-ac93-a848c549d413 tab":
+        - button "ap-northeast-2" [pressed]
+        - text: ×
+    - text: 
+    - button "새로운 탭 추가":
+  - group "Terminal 74a9b314-d948-4bdf-ac93-a848c549d413 tab":
+    - generic: CloudShell 터미널 입력
+    - textbox "CloudShell 터미널 입력" [active]: B6-1-redeployment-20261003 $ 진행ㄱ
+    - generic: vol-07e8c8fa7733e89bb 8 gp3 True in-use
+    - generic: vpc-03ff56fac0f3f4aa5 10.0.0.0/16 available
+    - generic: subnet-0500b041bfa685be6 10.0.1.0/24 ap-northeast-2a vpc-03ff56fac0f3
+    - generic: f4aa5
+    - generic: 10.0.0.0/16 local active
+    - generic: 0.0.0.0/0 igw-00647fac7637690a3 active
+    - generic: B6-1-redeployment-20261003 $ 진행ㄱ
+- contentinfo:
+  - button "AWS용 에이전트 툴킷":
+    - text: AWS용 에이전트 툴킷
+  - button "의견"
+  - button:
+  - generic: © 2026, Amazon Web Services, Inc. 또는 계열사.
+  - list:
+    - link "개인 정보 보호":
+      - /url: https://aws.amazon.com/privacy/
+    - link "약관":
+      - /url: https://aws.amazon.com/terms/
+    - button "쿠키 기본 설정"

@@ -1,0 +1,442 @@
+- navigation:
+  - 'img "계정 색상: 설정 해제"'
+  - navigation "글로벌":
+    - link "기본 콘텐츠로 건너뛰기":
+      - /url: "#c"
+    - link "AWS 콘솔 홈":
+      - /url: https://ap-northeast-2.console.aws.amazon.com/console/home?region=ap-northeast-2
+    - button "Amazon Q":
+    - button "서비스":
+    - img "검색":
+    - searchbox
+    - combobox "검색"
+    - button "Amazon Q에게 질문하기":
+    - generic: "[알트+S]"
+    - status
+    - link "CloudShell":
+      - /url: https://ap-northeast-2.console.aws.amazon.com/cloudshell/home?region=ap-northeast-2
+    - button "알림(사용 가능한 알림 없음)":
+      - img "알림":
+    - img "알림":
+    - list:
+      - button "도움말 및 지원":
+        - img "지원":
+      - button "설정":
+      - combobox "Regions (아시아 태평양 (서울))":
+        - generic: 아시아 태평양 (서울)
+      - button "b6-1-learner @ 1711-8052-4802":
+        - 'generic "계정 색상: 설정 해제"':
+          - generic: cody-giyeop (171180524802)
+        - generic: b6-1-learner
+  - list
+- button "Open side navigation" [expanded]:
+- navigation "Breadcrumbs":
+  - list:
+    - link "CloudFormation":
+      - /url: "#/getting-started"
+      - generic: CloudFormation
+    - link "스택":
+      - /url: "#/stacks?filteringStatus=active&filteringText=&stackId=arn%3Aaws%3Acloudformation%3Aap-northeast-2%3A171180524802%3Astack%2Fb6-1-learning%2F7bdf99c0-bf01-11f1-99f8-02e7e30b774b&viewNested=true"
+      - generic: 스택
+    - link "b6-1-learning" [disabled]:
+      - generic: b6-1-learning
+  - list:
+    - link:
+      - /url: "#/getting-started"
+      - generic: CloudFormation
+    - link:
+      - /url: "#/stacks?filteringStatus=active&filteringText=&stackId=arn%3Aaws%3Acloudformation%3Aap-northeast-2%3A171180524802%3Astack%2Fb6-1-learning%2F7bdf99c0-bf01-11f1-99f8-02e7e30b774b&viewNested=true"
+      - generic: 스택
+    - generic: b6-1-learning
+- region "Drawers":
+  - toolbar "Drawers":
+    - button "Open help panel":
+- navigation "Side Navigation":
+  - button "Close side navigation":
+  - heading "CloudFormation" [level=2]:
+    - link "CloudFormation":
+      - /url: "#/getting-started"
+      - generic: CloudFormation
+  - list:
+    - link "스택":
+      - /url: "#/stacks"
+      - generic: 스택
+    - list:
+      - link "스택 세부 정보":
+        - /url: "#/stacks/stackinfo?filteringStatus=active&filteringText=&stackId=arn%3Aaws%3Acloudformation%3Aap-northeast-2%3A171180524802%3Astack%2Fb6-1-learning%2F7bdf99c0-bf01-11f1-99f8-02e7e30b774b&viewNested=true"
+        - generic: 스택 세부 정보
+      - link "드리프트":
+        - /url: "#/stacks/drifts?stackId=arn%3Aaws%3Acloudformation%3Aap-northeast-2%3A171180524802%3Astack%2Fb6-1-learning%2F7bdf99c0-bf01-11f1-99f8-02e7e30b774b"
+        - generic: 드리프트
+    - link "스택 리팩터링":
+      - /url: "#/stack-refactors"
+      - generic: 스택 리팩터링
+    - button "신규":
+      - generic: 신규
+    - link "StackSet":
+      - /url: "#/stacksets"
+      - generic: StackSet
+    - link "내보내기":
+      - /url: "#/exports"
+      - generic: 내보내기
+  - separator
+  - list:
+    - link "IaC 생성기":
+      - /url: "#/iac-generator"
+      - generic: IaC 생성기
+    - link "Template studio":
+      - /url: "#/template-studio?srcConsole=cloudformation"
+      - generic: Template studio
+  - separator
+  - list:
+    - link "후크 개요":
+      - /url: "#/hooks/overview"
+      - generic: 후크 개요
+    - link "간접 호출 요약":
+      - /url: "#/hooks/invocations"
+      - generic: 간접 호출 요약
+    - link "후크":
+      - /url: "#/hooks/list"
+      - generic: 후크
+  - separator
+  - list:
+    - button "레지스트리" [expanded]:
+      - generic: 레지스트리
+    - group "레지스트리":
+      - list:
+        - link "퍼블릭 익스텐션":
+          - /url: "#/registry/public-extensions"
+          - generic: 퍼블릭 익스텐션
+        - link "활성화된 익스텐션":
+          - /url: "#/registry/activated-extensions"
+          - generic: 활성화된 익스텐션
+        - link "게시자":
+          - /url: "#/registry/publisher"
+          - generic: 게시자
+  - separator
+  - list:
+    - link "스포트라이트":
+      - /url: "#/spotlight"
+      - generic: 스포트라이트
+  - list:
+    - button "의견"
+- main:
+  - region "Notifications":
+    - list "알림":
+      - group "info arn:aws:cloudformation:ap-northeast-2:171180524802:stack/b6-1-learning/7bdf99c0-bf01-11f1-99f8-02e7e30b774b 삭제 시작됨":
+        - img "info":
+        - generic: arn:aws:cloudformation:ap-northeast-2:171180524802:stack/b6-1-learning/7bdf99c0-bf01-11f1-99f8-02e7e30b774b 삭제 시작됨
+      - button "Dismiss message:":
+  - heading "스택 (1)" [level=2]:
+    - text: 스택
+    - generic: (1)
+  - 'button "새로 고침: 스택"':
+  - button "Hide stacks":
+  - searchbox "스택 이름으로 검색"
+  - generic: 상태 필터링
+  - button "상태 필터링 Select stack status 활성":
+    - generic: 활성
+  - checkbox "뷰 중첩됨" [checked]
+  - generic: 뷰 중첩됨
+  - list "페이지 매김":
+    - button "이전 페이지" [disabled]:
+    - button "전체 중 1 페이지": "1"
+    - button "다음 페이지" [disabled]:
+  - button "기본 설정":
+  - table:
+    - rowgroup:
+      - row:
+        - columnheader:
+          - generic: 항목 선택
+        - columnheader:
+          - generic: 스택
+          - button
+          - slider
+  - table "스택":
+    - rowgroup:
+      - row "항목 선택 스택":
+        - columnheader "항목 선택":
+          - generic: 항목 선택
+        - columnheader "스택":
+          - generic: 스택
+          - button "스택"
+          - slider
+    - rowgroup:
+      - row "b6-1-learning 선택 b6-1-learning 2026-10-03 17:07:31 UTC+0900 infoDELETE_IN_PROGRESS":
+        - cell "b6-1-learning 선택":
+          - generic "b6-1-learning 선택":
+            - radio "b6-1-learning 선택" [checked]
+        - cell "b6-1-learning 2026-10-03 17:07:31 UTC+0900 infoDELETE_IN_PROGRESS":
+          - text: b6-1-learning
+          - generic: 2026-10-03 17:07:31 UTC+0900
+          - img "info":
+          - text: DELETE_IN_PROGRESS
+  - heading "b6-1-learning" [level=2]:
+    - heading "b6-1-learning" [level=2]
+  - button "스택 삭제" [disabled]
+  - button "스택 업데이트" [disabled]:
+    - text: 스택 업데이트
+  - button "스택 작업":
+    - text: 스택 작업
+  - button "스택 생성":
+    - text: 스택 생성
+  - button "왼쪽으로 스크롤" [disabled]:
+  - tablist "Stacks detail tabs":
+    - tab "스택 정보":
+      - generic: 스택 정보
+    - tab "이벤트" [selected]:
+      - generic: 이벤트
+    - tab "리소스":
+      - generic: 리소스
+    - tab "출력":
+      - generic: 출력
+    - tab "파라미터":
+      - generic: 파라미터
+    - tab "템플릿":
+      - generic: 템플릿
+    - tab "변경 세트":
+      - generic: 변경 세트
+    - tab "Git Sync":
+      - generic: Git Sync
+  - button "오른쪽으로 스크롤":
+  - tabpanel "이벤트":
+    - toolbar "보기 선택":
+      - button "테이블 보기" [pressed]:
+        - generic: 테이블 보기
+      - button "타임라인 보기":
+        - generic: 타임라인 보기
+    - heading "이벤트 (6)" [level=2]:
+      - text: 이벤트
+      - generic: (6)
+    - button "Detect root cause for failed stack" [disabled]:
+      - generic: 근본 원인 보기
+    - 'button "새로 고침: 이벤트"':
+    - searchbox "이벤트 검색" [active]: DELETE
+    - button "지우기":
+    - button "기본 설정":
+    - treegrid:
+      - rowgroup:
+        - row:
+          - columnheader:
+            - generic: 작업 ID
+            - button
+            - slider
+          - columnheader:
+            - button:
+              - generic: 타임스탬프
+            - button
+            - slider
+          - columnheader:
+            - generic: 논리적 ID
+            - button
+            - slider
+          - columnheader:
+            - generic: 상태
+            - button
+            - slider
+          - columnheader:
+            - generic: 세부 상태
+            - button
+            - slider
+          - columnheader:
+            - generic: 상태 사유
+            - button
+            - slider
+          - columnheader:
+            - generic: 후크 호출
+            - button
+            - slider
+    - region "이벤트":
+      - treegrid "이벤트":
+        - rowgroup:
+          - row "작업 ID 타임스탬프 논리적 ID 상태 세부 상태 상태 사유 후크 호출":
+            - columnheader "작업 ID":
+              - generic: 작업 ID
+              - button "작업 ID"
+              - slider
+            - columnheader "타임스탬프":
+              - button "타임스탬프":
+                - generic: 타임스탬프
+              - button "타임스탬프"
+              - slider
+            - columnheader "논리적 ID":
+              - generic: 논리적 ID
+              - button "논리적 ID"
+              - slider
+            - columnheader "상태":
+              - generic: 상태
+              - button "상태"
+              - slider
+            - columnheader "세부 상태":
+              - generic: 세부 상태
+              - button "세부 상태"
+              - slider
+            - columnheader "상태 사유":
+              - generic: 상태 사유
+              - button "상태 사유"
+              - slider
+            - columnheader "후크 호출":
+              - generic: 후크 호출
+              - button "후크 호출"
+              - slider
+        - rowgroup:
+          - row "축소 93a27f1a-2e31-4939-9e0e-615e3caeabd6 - - - - - -" [level=1]:
+            - gridcell "축소 93a27f1a-2e31-4939-9e0e-615e3caeabd6":
+              - button "축소" [expanded]:
+              - link "93a27f1a-2e31-4939-9e0e-615e3caeabd6":
+                - /url: "#/stacks/operations/info?stackId=arn%3Aaws%3Acloudformation%3Aap-northeast-2%3A171180524802%3Astack%2Fb6-1-learning%2F7bdf99c0-bf01-11f1-99f8-02e7e30b774b&operationId=93a27f1a-2e31-4939-9e0e-615e3caeabd6"
+            - gridcell "-":
+              - generic: "-"
+            - gridcell "-":
+              - generic: "-"
+            - gridcell "-":
+              - generic: "-"
+            - gridcell "-":
+              - generic: "-"
+            - gridcell "-":
+              - generic: "-"
+            - gridcell "-":
+              - generic: "-"
+          - row "93a27f1a-2e31-4939-9e0e-615e3caeabd6 2026-10-03 18:56:42 UTC+0900 PublicSubnetRouteTableAssociation successDELETE_COMPLETE - - -" [level=2]:
+            - gridcell "93a27f1a-2e31-4939-9e0e-615e3caeabd6":
+              - link "93a27f1a-2e31-4939-9e0e-615e3caeabd6":
+                - /url: "#/stacks/operations/info?stackId=arn%3Aaws%3Acloudformation%3Aap-northeast-2%3A171180524802%3Astack%2Fb6-1-learning%2F7bdf99c0-bf01-11f1-99f8-02e7e30b774b&operationId=93a27f1a-2e31-4939-9e0e-615e3caeabd6"
+            - gridcell "2026-10-03 18:56:42 UTC+0900":
+              - generic: 2026-10-03 18:56:42 UTC+0900
+            - gridcell "PublicSubnetRouteTableAssociation":
+              - generic: PublicSubnetRouteTableAssociation
+            - gridcell "successDELETE_COMPLETE":
+              - img "success":
+              - text: DELETE_COMPLETE
+            - gridcell "-":
+              - generic: "-"
+            - gridcell "-":
+              - generic: "-"
+            - gridcell "-":
+              - generic: "-"
+          - row "93a27f1a-2e31-4939-9e0e-615e3caeabd6 2026-10-03 18:56:42 UTC+0900 PublicSubnetRouteTableAssociation infoDELETE_IN_PROGRESS successCONFIGURATION_COMPLETE Eventual consistency check initiated -" [level=2]:
+            - gridcell "93a27f1a-2e31-4939-9e0e-615e3caeabd6":
+              - link "93a27f1a-2e31-4939-9e0e-615e3caeabd6":
+                - /url: "#/stacks/operations/info?stackId=arn%3Aaws%3Acloudformation%3Aap-northeast-2%3A171180524802%3Astack%2Fb6-1-learning%2F7bdf99c0-bf01-11f1-99f8-02e7e30b774b&operationId=93a27f1a-2e31-4939-9e0e-615e3caeabd6"
+            - gridcell "2026-10-03 18:56:42 UTC+0900":
+              - generic: 2026-10-03 18:56:42 UTC+0900
+            - gridcell "PublicSubnetRouteTableAssociation":
+              - generic: PublicSubnetRouteTableAssociation
+            - gridcell "infoDELETE_IN_PROGRESS":
+              - img "info":
+              - text: DELETE_IN_PROGRESS
+            - gridcell "successCONFIGURATION_COMPLETE":
+              - img "success":
+              - text: CONFIGURATION_COMPLETE
+            - gridcell "Eventual consistency check initiated":
+              - generic: Eventual consistency check initiated
+            - gridcell "-":
+              - generic: "-"
+          - row "93a27f1a-2e31-4939-9e0e-615e3caeabd6 2026-10-03 18:56:24 UTC+0900 WebInstance 새 탭에서 열립니다. infoDELETE_IN_PROGRESS - - -" [level=2]:
+            - gridcell "93a27f1a-2e31-4939-9e0e-615e3caeabd6":
+              - link "93a27f1a-2e31-4939-9e0e-615e3caeabd6":
+                - /url: "#/stacks/operations/info?stackId=arn%3Aaws%3Acloudformation%3Aap-northeast-2%3A171180524802%3Astack%2Fb6-1-learning%2F7bdf99c0-bf01-11f1-99f8-02e7e30b774b&operationId=93a27f1a-2e31-4939-9e0e-615e3caeabd6"
+            - gridcell "2026-10-03 18:56:24 UTC+0900":
+              - generic: 2026-10-03 18:56:24 UTC+0900
+            - gridcell "WebInstance 새 탭에서 열립니다.":
+              - link "WebInstance 새 탭에서 열립니다.":
+                - /url: https://ap-northeast-2.console.aws.amazon.com/ec2/home?region=ap-northeast-2#Instances:search=i-0c37f462250fceaba
+                - text: WebInstance
+                - img "새 탭에서 열립니다.":
+            - gridcell "infoDELETE_IN_PROGRESS":
+              - img "info":
+              - text: DELETE_IN_PROGRESS
+            - gridcell "-":
+              - generic: "-"
+            - gridcell "-":
+              - generic: "-"
+            - gridcell "-":
+              - generic: "-"
+          - row "93a27f1a-2e31-4939-9e0e-615e3caeabd6 2026-10-03 18:56:24 UTC+0900 PublicSubnetRouteTableAssociation infoDELETE_IN_PROGRESS - - -" [level=2]:
+            - gridcell "93a27f1a-2e31-4939-9e0e-615e3caeabd6":
+              - link "93a27f1a-2e31-4939-9e0e-615e3caeabd6":
+                - /url: "#/stacks/operations/info?stackId=arn%3Aaws%3Acloudformation%3Aap-northeast-2%3A171180524802%3Astack%2Fb6-1-learning%2F7bdf99c0-bf01-11f1-99f8-02e7e30b774b&operationId=93a27f1a-2e31-4939-9e0e-615e3caeabd6"
+            - gridcell "2026-10-03 18:56:24 UTC+0900":
+              - generic: 2026-10-03 18:56:24 UTC+0900
+            - gridcell "PublicSubnetRouteTableAssociation":
+              - generic: PublicSubnetRouteTableAssociation
+            - gridcell "infoDELETE_IN_PROGRESS":
+              - img "info":
+              - text: DELETE_IN_PROGRESS
+            - gridcell "-":
+              - generic: "-"
+            - gridcell "-":
+              - generic: "-"
+            - gridcell "-":
+              - generic: "-"
+          - row "93a27f1a-2e31-4939-9e0e-615e3caeabd6 2026-10-03 18:56:22 UTC+0900 b6-1-learning 새 탭에서 열립니다. infoDELETE_IN_PROGRESS - User Initiated -" [level=2]:
+            - gridcell "93a27f1a-2e31-4939-9e0e-615e3caeabd6":
+              - link "93a27f1a-2e31-4939-9e0e-615e3caeabd6":
+                - /url: "#/stacks/operations/info?stackId=arn%3Aaws%3Acloudformation%3Aap-northeast-2%3A171180524802%3Astack%2Fb6-1-learning%2F7bdf99c0-bf01-11f1-99f8-02e7e30b774b&operationId=93a27f1a-2e31-4939-9e0e-615e3caeabd6"
+            - gridcell "2026-10-03 18:56:22 UTC+0900":
+              - generic: 2026-10-03 18:56:22 UTC+0900
+            - gridcell "b6-1-learning 새 탭에서 열립니다.":
+              - link "b6-1-learning 새 탭에서 열립니다.":
+                - /url: https://ap-northeast-2.console.aws.amazon.com/go/view?arn=arn%3Aaws%3Acloudformation%3Aap-northeast-2%3A171180524802%3Astack%2Fb6-1-learning%2F7bdf99c0-bf01-11f1-99f8-02e7e30b774b&source=cloudformation
+                - text: b6-1-learning
+                - img "새 탭에서 열립니다.":
+            - gridcell "infoDELETE_IN_PROGRESS":
+              - img "info":
+              - text: DELETE_IN_PROGRESS
+            - gridcell "-":
+              - generic: "-"
+            - gridcell "User Initiated":
+              - generic: User Initiated
+            - gridcell "-":
+              - generic: "-"
+          - row "축소 eb7a6470-bf03-11f1-a7c8-064f9dca5c31 - - - - - -" [level=1]:
+            - gridcell "축소 eb7a6470-bf03-11f1-a7c8-064f9dca5c31":
+              - button "축소" [expanded]:
+              - link "eb7a6470-bf03-11f1-a7c8-064f9dca5c31":
+                - /url: "#/stacks/operations/info?stackId=arn%3Aaws%3Acloudformation%3Aap-northeast-2%3A171180524802%3Astack%2Fb6-1-learning%2F7bdf99c0-bf01-11f1-99f8-02e7e30b774b&operationId=eb7a6470-bf03-11f1-a7c8-064f9dca5c31"
+            - gridcell "-":
+              - generic: "-"
+            - gridcell "-":
+              - generic: "-"
+            - gridcell "-":
+              - generic: "-"
+            - gridcell "-":
+              - generic: "-"
+            - gridcell "-":
+              - generic: "-"
+            - gridcell "-":
+              - generic: "-"
+          - row "eb7a6470-bf03-11f1-a7c8-064f9dca5c31 2026-10-03 17:27:11 UTC+0900 WebInstance successDELETE_COMPLETE - Delete succeeded for the resources that failed to create. -" [level=2]:
+            - gridcell "eb7a6470-bf03-11f1-a7c8-064f9dca5c31":
+              - link "eb7a6470-bf03-11f1-a7c8-064f9dca5c31":
+                - /url: "#/stacks/operations/info?stackId=arn%3Aaws%3Acloudformation%3Aap-northeast-2%3A171180524802%3Astack%2Fb6-1-learning%2F7bdf99c0-bf01-11f1-99f8-02e7e30b774b&operationId=eb7a6470-bf03-11f1-a7c8-064f9dca5c31"
+            - gridcell "2026-10-03 17:27:11 UTC+0900":
+              - generic: 2026-10-03 17:27:11 UTC+0900
+            - gridcell "WebInstance":
+              - generic: WebInstance
+            - gridcell "successDELETE_COMPLETE":
+              - img "success":
+              - text: DELETE_COMPLETE
+            - gridcell "-":
+              - generic: "-"
+            - gridcell "Delete succeeded for the resources that failed to create.":
+              - generic: Delete succeeded for the resources that failed to create.
+            - gridcell "-":
+              - generic: "-"
+- contentinfo:
+  - button "CloudShell":
+    - generic: CloudShell
+  - button "AWS용 에이전트 툴킷":
+    - text: AWS용 에이전트 툴킷
+  - button "의견"
+  - button "Console 모바일 앱":
+    - generic: Console 모바일 앱
+  - generic: © 2026, Amazon Web Services, Inc. 또는 계열사.
+  - list:
+    - link "개인 정보 보호":
+      - /url: https://aws.amazon.com/privacy/
+    - link "약관":
+      - /url: https://aws.amazon.com/terms/
+    - button "쿠키 기본 설정"
+- generic: 1개 일치 검색됨
+- generic: 4개 일치 검색됨

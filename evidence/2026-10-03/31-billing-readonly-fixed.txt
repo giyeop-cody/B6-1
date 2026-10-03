@@ -1,0 +1,75 @@
+- navigation:
+  - 'img "계정 색상: 설정 해제"'
+  - navigation "글로벌":
+    - link "기본 콘텐츠로 건너뛰기":
+      - /url: "#c"
+    - link "AWS 콘솔 홈":
+      - /url: https://ap-northeast-2.console.aws.amazon.com/console/home?region=ap-northeast-2
+    - button "서비스":
+    - img "검색":
+    - searchbox
+    - combobox "검색"
+    - button "Amazon Q에게 질문하기":
+    - generic: "[알트+S]"
+    - status
+    - link "CloudShell":
+      - /url: https://ap-northeast-2.console.aws.amazon.com/cloudshell/home?region=ap-northeast-2
+    - button "알림(사용 가능한 알림 없음)":
+      - img "알림":
+    - img "알림":
+    - list:
+      - button "도움말 및 지원":
+        - img "지원":
+      - button "설정":
+      - combobox "Regions (아시아 태평양 (서울))":
+        - generic: 아시아 태평양 (서울)
+      - button "cody-giyeop":
+        - 'generic "계정 색상: 설정 해제"':
+          - generic: cody-giyeop (ACCOUNT_REDACTED)
+        - generic: cody-giyeop
+  - list
+- alert
+- main:
+  - list
+  - heading "CloudShell" [level=3]:
+    - generic: CloudShell
+  - button "CloudShell 작업":
+    - text: 작업
+  - generic "기본 설정":
+    - button "기본 설정":
+  - group "Pane 1":
+    - list:
+      - group "Terminal 24a27c43-142c-4003-b8e2-0b8b9da64067 tab":
+        - button "ap-northeast-2" [pressed]
+        - text: ×
+    - text: 
+    - button "새로운 탭 추가":
+  - group "Terminal 24a27c43-142c-4003-b8e2-0b8b9da64067 tab":
+    - generic: CloudShell 터미널 입력
+    - textbox "CloudShell 터미널 입력" [active]: ~ $
+    - generic: DcmVhdGlvbicsJ0VmZmVjdCc6J0FsbG93JywnQWN0aW9uJzonZWMyOkNyZWF0ZVRhZ3MnLCdSZXNvdXJjZSc6Zidhcm46YXdzOmVjMjphcC1ub3J0aGVhc3QtMjp7YWNjb3VudH06a2V5LXBhaXIvYjYtMS1rZXkn
+    - generic: account:GetAccountInformation allowed
+    - generic: billing:GetBillingData allowed
+    - generic: billing:GetBillingDetails allowed
+    - generic: billing:GetCredits allowed
+    - generic: invoicing:ListInvoiceSummaries allowed
+    - generic: invoicing:GetInvoicePDF allowed
+    - generic: payments:GetPaymentStatus allowed
+    - generic: consolidatedbilling:GetAccountBillingRole allowed
+    - generic: iam:AttachUserPolicy implicitDeny
+    - generic: payments:MakePayment implicitDeny
+    - generic: billing:UpdateBillingPreferences implicitDeny
+    - generic: ~ $
+- contentinfo:
+  - button "AWS용 에이전트 툴킷":
+    - text: AWS용 에이전트 툴킷
+  - button "의견"
+  - button "Console 모바일 앱":
+    - generic: Console 모바일 앱
+  - generic: © 2026, Amazon Web Services, Inc. 또는 계열사.
+  - list:
+    - link "개인 정보 보호":
+      - /url: https://aws.amazon.com/privacy/
+    - link "약관":
+      - /url: https://aws.amazon.com/terms/
+    - button "쿠키 기본 설정"

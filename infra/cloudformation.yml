@@ -5,7 +5,7 @@ Parameters:
   ProjectName:
     Type: String
     Default: b6-1
-    AllowedPattern: '^[a-z0-9-]{3,20}$'
+    AllowedValues: [b6-1]
     Description: Lowercase project tag and resource name prefix
   KeyName:
     Type: AWS::EC2::KeyPair::KeyName
@@ -13,7 +13,7 @@ Parameters:
   AllowedSshCidr:
     Type: String
     Default: 127.0.0.1/32
-    AllowedPattern: '^(?:[0-9]{1,3}\.){3}[0-9]{1,3}/(?:[0-9]|[12][0-9]|3[0-2])$'
+    AllowedPattern: '^(?:[0-9]{1,3}\.){3}[0-9]{1,3}/32$'
     ConstraintDescription: Enter one IPv4 CIDR such as 203.0.113.10/32. Never use 0.0.0.0/0.
     Description: Learner public IPv4 address with /32 for SSH
   InstanceType:
@@ -21,7 +21,6 @@ Parameters:
     Default: t3.micro
     AllowedValues:
       - t3.micro
-      - t3.small
     Description: Check the current account Free Tier or credits before deployment
 
 Rules:
@@ -148,14 +147,42 @@ Resources:
           Value:
             Ref: ProjectName
 
+  LaunchTags:
+    Type: AWS::EC2::LaunchTemplate
+    Properties:
+      TagSpecifications:
+        - ResourceType: launch-template
+          Tags:
+            - Key: Project
+              Value: b6-1
+      LaunchTemplateData:
+        TagSpecifications:
+          - ResourceType: volume
+            Tags:
+              - Key: Project
+                Value: b6-1
+          - ResourceType: network-interface
+            Tags:
+              - Key: Project
+                Value: b6-1
+
   WebInstance:
     Type: AWS::EC2::Instance
+    Metadata:
+      DeploymentAttempt: 2026-10-03-retry-2
     DependsOn: DefaultPublicRoute
     CreationPolicy:
       ResourceSignal:
         Count: 1
         Timeout: PT15M
     Properties:
+      LaunchTemplate:
+        LaunchTemplateId:
+          Ref: LaunchTags
+        Version:
+          Fn::GetAtt: [LaunchTags, LatestVersionNumber]
+      CreditSpecification:
+        CPUCredits: standard
       ImageId: '{{resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64}}'
       InstanceType:
         Ref: InstanceType
@@ -189,7 +216,11 @@ Resources:
             systemctl enable --now docker
             usermod -aG docker ec2-user
             rm -rf /opt/b6-1
-            git clone --depth 1 https://github.com/giyeop-cody/B6-1.git /opt/b6-1
+            git init /opt/b6-1
+            git -C /opt/b6-1 remote add origin https://github.com/giyeop-cody/B6-1.git
+            git -C /opt/b6-1 fetch --depth 1 origin 6bc1076c4311cc2685b483ca326be8bc7e5f4bb1
+            git -C /opt/b6-1 checkout --detach FETCH_HEAD
+            git -C /opt/b6-1 rev-parse HEAD > /opt/b6-1-deployed-commit.txt
             cd /opt/b6-1
             docker build -t b6-1-web:latest .
             docker rm -f b6-1-web 2>/dev/null || true

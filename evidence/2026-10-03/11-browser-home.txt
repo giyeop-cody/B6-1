@@ -1,0 +1,57 @@
+URL: http://52.79.115.167
+- banner:
+  - navigation "주요 메뉴":
+    - link "B6-1 홈":
+      - /url: "#top"
+      - generic: B6
+      - generic: Cloud Lab
+    - link "Health check":
+      - /url: /health
+  - paragraph: AWS · Docker · Nginx
+  - heading "인터넷에서 내 서버까지." [level=1]:
+    - text: 인터넷에서
+    - text: 내 서버까지.
+  - paragraph: VPC 안의 EC2에서 Docker 컨테이너를 실행하고, 꼭 필요한 포트만 열어 제공하는 작은 웹 서비스입니다.
+  - status:
+    - strong: 서비스 응답 정상
+    - generic: 2026. 10. 3. 오후 5:49:03 KST
+  - img "AWS 요청 흐름 그림 인터넷 요청이 보안 그룹과 EC2를 지나 Docker Nginx에 도착하는 흐름":
+    - generic: USER
+    - generic: 🌐
+    - generic: SECURITY
+    - generic: GROUP :80
+    - generic: EC2
+    - generic: DOCKER
+    - generic: NGINX
+- main:
+  - region "요청이 지나오는 네 단계":
+    - paragraph: REQUEST FLOW
+    - heading "요청이 지나오는 네 단계" [level=2]
+    - article:
+      - text: "01"
+      - heading "Public subnet" [level=3]
+      - paragraph: Internet Gateway와 Route Table을 통해 외부 요청을 받습니다.
+    - article:
+      - text: "02"
+      - heading "Security group" [level=3]
+      - paragraph: HTTP 80은 공개하고 SSH 22는 학습자의 IP만 허용합니다.
+    - article:
+      - text: "03"
+      - heading "EC2" [level=3]
+      - paragraph: 서울 리전의 작은 가상 서버 한 대가 Docker를 실행합니다.
+    - article:
+      - text: "04"
+      - heading "Nginx" [level=3]
+      - paragraph:
+        - text: 정적 페이지와
+        - code: /health
+        - text: 상태 확인 응답을 제공합니다.
+  - region "설명이 아니라 응답으로 확인합니다.":
+    - paragraph: VERIFIABLE BY DESIGN
+    - heading "설명이 아니라 응답으로 확인합니다." [level=2]:
+      - text: 설명이 아니라
+      - text: 응답으로 확인합니다.
+    - code: $ curl http://PUBLIC_IP/health OK $ docker ps b6-1-web Up (healthy)
+- contentinfo:
+  - paragraph: B6-1 · AI/SW Basic · Seoul Region
+  - paragraph: 재현 가능한 작은 클라우드 실습

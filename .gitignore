@@ -24,3 +24,7 @@ node_modules/
 # Local test outputs
 .tmp/
 *.local.log
+
+# Local authentication handoff and SSH trust cache
+password-reset-handoff.jpg
+evidence/**/ssh-known-hosts

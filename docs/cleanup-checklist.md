@@ -1,72 +1,31 @@
-# AWS 리소스 정리 체크리스트
+# AWS 실습 리소스 정리 결과
 
-> 이 문서는 실제 삭제 후 날짜·결과를 기록한다. 기존 AWS 계정 사용은 확인했지만 아직 Stack을 만들지 않아 모든 삭제 항목은 미확인 상태다.
+2026-10-03 사용자 명시 승인 후 IAM b6-1-learner로 실행. 최초 삭제18:56:22 KST, 권한 보정 후 재시도19:17:06 KST, 스택 DELETE_COMPLETE19:17:09 KST. 실제 잔여 조회19:17:42 KST. 서울 ap-northeast-2.
 
-## 실습 정보
+| 대상 | 결과 | 증거 |
+|---|---|---|
+| b6-1-learning 스택 | DELETE_COMPLETE, 활성 스택0개 | 44·45 |
+| EC2 i-0c37f462250fceaba | terminated | 44 |
+| EBS vol-07e8c8fa7733e89bb | 삭제, 서울 볼륨0개 | 44 |
+| 키페어 b6-1-key | IAM DeleteKeyPair 성공, 키페어0개 | 43·44 |
+| LT lt-03da8c5fb9551abf8 | DELETE_COMPLETE, 시작 템플릿0개 | 44 |
+| VPC vpc-03ff56fac0f3f4aa5 | 삭제, 조회0개 | 37·44 |
+| Subnet subnet-0500b041bfa685be6 | 삭제, 해당 VPC 조회0개 | 37·44 |
+| SG sg-07d5aa052361be676 | 삭제, 해당 VPC 조회0개 | 37·44 |
+| RouteTable rtb-048e2cf96a90714d5 및 연결·기본 경로 | 삭제 | 37·44 |
+| IGW igw-00647fac7637690a3 | 분리·삭제, 조회0개 | 37·44 |
+| 해당 VPC ENI | 0개 | 44 |
+| Elastic IP | 미생성, 서울 실제 조회0개. Release 해당 없음 | 44 |
+| NAT Gateway | 미생성, 서울 실제 조회0개 | 44 |
+| ALB/ELBv2 | 미생성, 서울 실제 조회0개 | 44 |
+| RDS DB 인스턴스 | 미생성, 서울 실제 조회0개 | 44 |
+| 소유 EBS 스냅샷 | 서울 실제 조회0개 | 44 |
+| 전체 삭제 후 Bills·Billing 홈 | IAM 조회 성공, 10월 예상USD0.00, 상세 데이터 없음 | 46·47 |
 
-| 항목 | 실제 값 |
-|---|---|
-| AWS Account 마지막 4자리 | PENDING |
-| 리전 | `ap-northeast-2` |
-| Stack | `b6-1-learning` |
-| 시작 시각 | PENDING |
-| 삭제 시각 | PENDING |
-| 확인자 | PENDING |
+최초 LT·키페어 권한 거부37·40은 실패 이력으로 보존한다. 루트 준비42에서 정확한 두 리소스 삭제와 잔여 조회 권한을 추가한 뒤 실제 삭제43·44는 IAM으로 수행했다.
 
-## 1. Stack 삭제
+생성한 실습 과금 자원의 종료·삭제를 확인했다. 서울에서 확인한 목록 밖의 전 리전·전 서비스 자원이 없다는 주장은 하지 않는다. 기본 VPC와 IAM 사용자/정책, 로컬 개인 키는 보존했다. 로컬 키 내용은 증거에 기록하지 않았다.
 
-```bash
-scripts/delete-stack.sh
-```
+후속 비용 확인 예정: 2026-10-04 19:30 KST. 자동 예약은 하지 않았다. 지금의 예상0.00은 최종 청구액 확정이 아니며 청구 반영 이후 다시 확인한다.
 
-- [ ] CloudFormation Stack이 `DELETE_COMPLETE` 후 목록에서 제거됨
-- [ ] Stack 삭제 실패 이벤트가 없음
-
-## 2. Stack에 포함된 리소스
-
-- [ ] EC2 인스턴스가 `terminated`
-- [ ] EC2에 연결됐던 8GiB EBS가 삭제됨
-- [ ] Security Group이 삭제됨
-- [ ] Public Subnet이 삭제됨
-- [ ] Route Table이 삭제됨
-- [ ] Internet Gateway가 분리·삭제됨
-- [ ] VPC가 삭제됨
-
-## 3. Stack 밖에서 별도로 만든 항목
-
-- [ ] `b6-1-key` Key Pair가 더 필요하지 않으면 콘솔에서 삭제됨
-- [ ] 로컬 `.pem`도 더 필요하지 않으면 안전하게 삭제됨
-- [ ] Elastic IP가 생성되지 않았음을 확인함
-- [ ] NAT Gateway가 생성되지 않았음을 확인함
-- [ ] Load Balancer가 생성되지 않았음을 확인함
-- [ ] RDS가 생성되지 않았음을 확인함
-- [ ] 사용하지 않는 EBS Volume과 Snapshot이 없음을 확인함
-
-## 4. 비용 확인
-
-- [ ] Billing Dashboard에서 현재 비용 확인
-- [ ] Credits 잔액 확인
-- [ ] Cost Explorer 또는 Bills에서 EC2·EBS·Public IPv4 관련 항목 확인
-- [ ] 24시간 뒤 청구 반영을 다시 확인할 일정 기록
-
-다음 확인 날짜:
-
-```text
-PENDING
-```
-
-## 5. 삭제 증거
-
-| 증거 | 파일 |
-|---|---|
-| Stack 삭제 완료 | `evidence/09-stack-delete-complete.png` |
-| EC2 없음 또는 terminated | `evidence/10-ec2-clean.png` |
-| EBS/EIP 등 잔여 자원 없음 | `evidence/11-resource-clean.png` |
-| Billing 확인 | `evidence/12-billing-check.png` |
-
-## 최종 선언
-
-```text
-[ ] 생성한 과금 가능 리소스를 모두 확인했고 불필요한 리소스를 삭제했다.
-확인 시각: PENDING
-```
+증거 경로: evidence/2026-10-03/. 평가 설명과 화면 선택은 evaluation-evidence-guide-2026-10-03.md 참고.

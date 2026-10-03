@@ -1,0 +1,433 @@
+- navigation:
+  - 'img "계정 색상: 설정 해제"'
+  - navigation "글로벌":
+    - link "기본 콘텐츠로 건너뛰기":
+      - /url: "#c"
+    - link "AWS 콘솔 홈":
+      - /url: https://us-east-1.console.aws.amazon.com/console/home?region=us-east-1
+    - button "Amazon Q":
+    - button "서비스":
+    - img "검색":
+    - searchbox
+    - combobox "검색"
+    - button "Amazon Q에게 질문하기":
+    - generic: "[알트+S]"
+    - status
+    - link "CloudShell":
+      - /url: https://us-east-1.console.aws.amazon.com/cloudshell/home?region=us-east-1
+    - button "알림(사용 가능한 알림 없음)":
+      - img "알림":
+    - img "알림":
+    - list:
+      - button "도움말 및 지원":
+        - img "지원":
+      - button "설정":
+      - combobox "Regions (글로벌)":
+        - generic: 글로벌
+      - button "b6-1-learner @ 1711-8052-4802":
+        - 'generic "계정 색상: 설정 해제"':
+          - generic: cody-giyeop (171180524802)
+        - generic: b6-1-learner
+  - list
+- button "사이드 탐색 열기" [expanded]:
+- region "드로어":
+  - toolbar "드로어":
+    - button "도움말 패널 열기":
+- navigation "사이드 탐색":
+  - button "사이드 탐색 닫기":
+  - heading "과금 정보 및 비용 관리" [level=2]:
+    - link "과금 정보 및 비용 관리":
+      - /url: /costmanagement/home#/
+      - generic: 과금 정보 및 비용 관리
+  - checkbox "빌링 보기"
+  - generic: 빌링 보기
+  - button "신규":
+    - generic: 신규
+  - separator
+  - list:
+    - link "홈":
+      - /url: "#/home"
+      - generic: 홈
+    - link "시작":
+      - /url: "#/getting-started"
+      - generic: 시작
+    - link "대시보드":
+      - /url: "#/dashboards"
+      - generic: 대시보드
+    - button "신규":
+      - generic: 신규
+    - link "FinOps 에이전트":
+      - /url: https://us-east-1.console.aws.amazon.com/finops-agent/home?region=us-east-1
+      - generic: FinOps 에이전트
+    - button "Preview":
+      - generic: Preview
+    - heading "청구 및 결제" [level=3]:
+      - generic: 청구 및 결제
+    - list:
+      - link "청구서":
+        - /url: /billing/home#/bills
+        - generic: 청구서
+      - link "결제":
+        - /url: "#/paymentsoverview"
+        - generic: 결제
+      - link "크레딧":
+        - /url: "#/credits"
+        - generic: 크레딧
+      - link "구매 주문":
+        - /url: "#/purchaseorders"
+        - generic: 구매 주문
+    - heading "비용 및 사용량 분석" [level=3]:
+      - generic: 비용 및 사용량 분석
+    - list:
+      - link "Cost Explorer":
+        - /url: "#/cost-explorer"
+        - generic: Cost Explorer
+      - link "Cost Explorer에서 저장한 보고서":
+        - /url: "#/reports/overview"
+        - generic: Cost Explorer에서 저장한 보고서
+      - link "비용 이상 징후 감지":
+        - /url: "#/anomaly-detection"
+        - generic: 비용 이상 징후 감지
+      - link "프리 티어":
+        - /url: "#/freetier"
+        - generic: 프리 티어
+      - link "데이터 내보내기":
+        - /url: "#/bcm-data-exports"
+        - generic: 데이터 내보내기
+      - link "Carbon Emissions":
+        - /url: "#/customer-carbon-footprint-tool"
+        - generic: Carbon Emissions
+    - heading "비용 조직" [level=3]:
+      - generic: 비용 조직
+    - list:
+      - link "Cost Categories":
+        - /url: "#/costcategories"
+        - generic: Cost Categories
+      - link "비용 할당 태그":
+        - /url: "#/tags"
+        - generic: 비용 할당 태그
+      - link "Billing Conductor새 탭에서 열기":
+        - /url: /billingconductor/home
+        - generic: Billing Conductor
+        - img "새 탭에서 열기":
+    - heading "예산 및 계획" [level=3]:
+      - generic: 예산 및 계획
+    - list:
+      - link "예산":
+        - /url: "#/budgets"
+        - generic: 예산
+      - button "신규":
+        - generic: 신규
+      - link "예산 보고서":
+        - /url: "#/budgets/reports"
+        - generic: 예산 보고서
+      - link "요금 계산기":
+        - /url: "#/pricing-calculator"
+        - generic: 요금 계산기
+      - button "신규":
+        - generic: 신규
+    - heading "할인 및 약정" [level=3]:
+      - generic: 할인 및 약정
+    - list:
+      - link "비용 최적화 허브":
+        - /url: "#/cost-optimization-hub"
+        - generic: 비용 최적화 허브
+      - button "신규":
+        - generic: 신규
+      - button "절감형 플랜" [expanded]:
+        - generic: 절감형 플랜
+      - group "절감형 플랜":
+        - list:
+          - link "개요":
+            - /url: "#/savings-plans/overview"
+            - generic: 개요
+          - link "인벤토리":
+            - /url: "#/savings-plans/inventory"
+            - generic: 인벤토리
+          - link "권장 사항":
+            - /url: "#/savings-plans/recommendations"
+            - generic: 권장 사항
+          - link "구매 분석기":
+            - /url: "#/savings-plans/purchase-analyzer"
+            - generic: 구매 분석기
+          - button "신규":
+            - generic: 신규
+          - link "사용률 보고서":
+            - /url: "#/savings-plans/utilization"
+            - generic: 사용률 보고서
+          - link "충당률 보고서":
+            - /url: "#/savings-plans/coverage"
+            - generic: 충당률 보고서
+          - link "Savings Plans 구매":
+            - /url: "#/savings-plans/purchase"
+            - generic: Savings Plans 구매
+          - link "장바구니":
+            - /url: "#/savings-plans/cart"
+            - generic: 장바구니
+          - generic: "0"
+      - button "예약" [expanded]:
+        - generic: 예약
+      - group "예약":
+        - list:
+          - link "개요":
+            - /url: "#/ri/dashboard"
+            - generic: 개요
+          - link "권장 사항":
+            - /url: "#/ri/recommendations"
+            - generic: 권장 사항
+          - button "신규":
+            - generic: 신규
+          - link "사용률 보고서":
+            - /url: "#/ri/utilization"
+            - generic: 사용률 보고서
+          - link "충당률 보고서":
+            - /url: "#/ri/coverage"
+            - generic: 충당률 보고서
+  - separator
+  - list:
+    - heading "기본 설정 및 설정" [level=3]:
+      - generic: 기본 설정 및 설정
+    - list:
+      - link "결제 기본 설정":
+        - /url: /billing/home#/paymentpreferences
+        - generic: 결제 기본 설정
+      - link "빌링 기본 설정":
+        - /url: "#/preferences"
+        - generic: 빌링 기본 설정
+      - link "비용 관리 기본 설정":
+        - /url: "#/settings"
+        - generic: 비용 관리 기본 설정
+      - button "신규":
+        - generic: 신규
+      - link "세금 설정":
+        - /url: "#/tax-settings"
+        - generic: 세금 설정
+      - link "인보이스 구성":
+        - /url: "#/invoice-management"
+        - generic: 인보이스 구성
+      - link "Fapiao 관리":
+        - /url: /billing/home#/tax
+        - generic: Fapiao 관리
+      - link "빌링 이체":
+        - /url: "#/transferbilling"
+        - generic: 빌링 이체
+      - button "신규":
+        - generic: 신규
+  - separator
+  - list:
+    - button "레거시 페이지":
+      - generic: 레거시 페이지
+- main:
+  - region "알림":
+    - list "알림":
+      - alert:
+        - group "flashbar info icon AWS FinOps 에이전트, 이제 퍼블릭 미리 보기로 제공 AWS FinOps 에이전트를 사용하면 고객이 손쉽게 지속적으로 비용을 모니터링하고, 이상 현상을 조사하며, 클라우드 환경 전반에서 최적화 기회를 찾아낼 수 있습니다.":
+          - img "flashbar info icon":
+          - generic: AWS FinOps 에이전트, 이제 퍼블릭 미리 보기로 제공
+          - generic: AWS FinOps 에이전트를 사용하면 고객이 손쉽게 지속적으로 비용을 모니터링하고, 이상 현상을 조사하며, 클라우드 환경 전반에서 최적화 기회를 찾아낼 수 있습니다.
+        - link "Learn more about AWS FinOps Agent":
+          - /url: https://us-east-1.console.aws.amazon.com/finops-agent/home?region=us-east-1#/overview
+          - text: Learn more
+        - button "무시":
+  - heading "과금 정보 및 비용 관리 홈" [level=1]
+  - 'button "Info: Billing and cost management home"': 정보
+  - button "피드백 제공"
+  - button "도움이 필요하세요? 질문하기 Q":
+    - text: 도움이 필요하세요? 질문하기 Q
+  - button "레이아웃 재설정"
+  - paragraph
+  - img "정보":
+  - generic: 무료 플랜 계정에는 요금이 청구되지 않습니다.
+  - generic: 크레딧은 무료 플랜 비용을 충당합니다. 무료 플랜 기간이 만료되거나 크레딧이 모두 소진되면 AWS 서비스 무료 이용이 종료됩니다.
+  - button "View details":
+    - button "View details"
+  - link "Upgrade plan":
+    - /url: /billing/home?#/freetier/upgrade
+  - button "핸들 드래그":
+  - heading "비용 요약" [level=2]
+  - 'button "Info: Cost summary"': 정보
+  - heading "월간 비용 누계" [level=3]
+  - link "US$0.00":
+    - /url: /costmanagement/home?region=us-east-1#/cost-explorer?chartStyle=GROUP&costAggregate=netUnblendedCost&endDate=2026-10-31&excludeForecasting=true&filter=%5B%7B%22dimension%22:%7B%22id%22:%22RecordTypeV2%22,%22displayValue%22:%22Charge%20type%22%7D,%22operator%22:%22EXCLUDES%22,%22values%22:%5B%7B%22value%22:%22Refund%22,%22displayValue%22:%22Refund%22%7D,%7B%22value%22:%22Credit%22,%22displayValue%22:%22Credit%22%7D%5D%7D%5D&futureRelativeRange=CUSTOM&granularity=Monthly&groupBy=%5B%5D&historicalRelativeRange=CUSTOM&isDefault=true&reportName=New%20cost%20and%20usage%20report&showOnlyUncategorized=false&showOnlyUntagged=false&startDate=2026-10-01&usageAggregate=undefined&useNormalizedUnits=false
+  - img "Decrease by":
+  - text: 0%
+  - text: 동일 기간의 지난 달과 비교
+  - heading "동일 기간의 지난 달 비용" [level=3]
+  - link "US$0.00":
+    - /url: /costmanagement/home?region=us-east-1#/cost-explorer?chartStyle=GROUP&costAggregate=netUnblendedCost&endDate=2026-09-03&excludeForecasting=true&filter=%5B%7B%22dimension%22:%7B%22id%22:%22RecordTypeV2%22,%22displayValue%22:%22Charge%20type%22%7D,%22operator%22:%22EXCLUDES%22,%22values%22:%5B%7B%22value%22:%22Refund%22,%22displayValue%22:%22Refund%22%7D,%7B%22value%22:%22Credit%22,%22displayValue%22:%22Credit%22%7D%5D%7D%5D&futureRelativeRange=CUSTOM&granularity=Monthly&groupBy=%5B%5D&historicalRelativeRange=CUSTOM&isDefault=true&reportName=New%20cost%20and%20usage%20report&showOnlyUncategorized=false&showOnlyUntagged=false&startDate=2026-09-01&usageAggregate=undefined&useNormalizedUnits=false
+  - generic: 9월 1일~3일
+  - heading "이번 달의 총 예상 비용" [level=3]
+  - button "액세스 거부됨"
+  - heading "지난 달의 총 비용" [level=3]
+  - link "US$0.02":
+    - /url: /costmanagement/home?region=us-east-1#/cost-explorer?chartStyle=GROUP&costAggregate=netUnblendedCost&excludeForecasting=true&filter=%5B%7B%22dimension%22:%7B%22id%22:%22RecordTypeV2%22,%22displayValue%22:%22Charge%20type%22%7D,%22operator%22:%22EXCLUDES%22,%22values%22:%5B%7B%22value%22:%22Refund%22,%22displayValue%22:%22Refund%22%7D,%7B%22value%22:%22Credit%22,%22displayValue%22:%22Credit%22%7D%5D%7D%5D&futureRelativeRange=CUSTOM&granularity=Monthly&groupBy=%5B%5D&historicalRelativeRange=LAST_MONTH&isDefault=true&reportName=New%20cost%20and%20usage%20report&showOnlyUncategorized=false&showOnlyUntagged=false&usageAggregate=undefined&useNormalizedUnits=false
+  - link "청구서 보기":
+    - /url: /billing/home?region=us-east-1#/bills
+  - button "핸들 크기 조정":
+  - generic: 핸들 드래그
+  - generic: 드래그를 활성화하려면 스페이스 또는 Enter 키를, 이동하려면 화살표 키를, 제출하려면 스페이스 또는 Enter 키를, 취소하려면 Esc 키를 사용합니다.
+  - generic: 핸들 크기 조정
+  - generic: 크기 조정을 활성화하려면 스페이스 또는 Enter 키를, 이동하려면 화살표 키를, 제출하려면 스페이스 또는 Enter 키를, 취소하려면 Esc 키를 사용합니다.
+  - button "핸들 드래그":
+  - heading "비용 모니터링" [level=2]
+  - 'button "Info: Cost monitor"': 정보
+  - heading "예산 상태" [level=3]
+  - img "status-info":
+  - link "설정 필요":
+    - /url: "#/budgets/create"
+  - generic: 예산이 생성되지 않음
+  - heading "비용 이상 항목 상태(MTD)" [level=3]
+  - button "액세스 거부됨"
+  - button "핸들 크기 조정":
+  - generic: 핸들 드래그
+  - generic: 드래그를 활성화하려면 스페이스 또는 Enter 키를, 이동하려면 화살표 키를, 제출하려면 스페이스 또는 Enter 키를, 취소하려면 Esc 키를 사용합니다.
+  - generic: 핸들 크기 조정
+  - generic: 크기 조정을 활성화하려면 스페이스 또는 Enter 키를, 이동하려면 화살표 키를, 제출하려면 스페이스 또는 Enter 키를, 취소하려면 Esc 키를 사용합니다.
+  - button "핸들 드래그":
+  - heading "비용 분석" [level=2]
+  - 'button "Info: Cost breakdown"': 정보
+  - generic: 비용 그룹화 기준
+  - button "비용 그룹화 기준 Service":
+    - generic: Service
+  - generic: 비용(USD)
+  - application "비용 세부 분석":
+    - list:
+      - generic: US$ 0.00
+      - generic: US$ 0.02
+      - generic: US$ 0.04
+    - button
+    - button
+    - button
+    - button
+    - button
+    - button
+    - list:
+      - generic: 2026년 5월
+      - generic: 2026년 7월
+      - generic: 2026년 9월
+  - toolbar "범례":
+    - button "AWS CloudFormation":
+      - generic: AWS CloudFormation
+    - button "AWS CloudShell":
+      - generic: AWS CloudShell
+    - button "AWS Key Management Service":
+      - generic: AWS Key Management Service
+    - button "Amazon Elastic Compute Cloud - Compute":
+      - generic: Amazon Elastic Compute Cloud - Compute
+    - button "Amazon Virtual Private Cloud":
+      - generic: Amazon Virtual Private Cloud
+    - button "Others":
+      - generic: Others
+  - link "Cost Explorer에서 비용 분석":
+    - /url: /costmanagement/home?region=us-east-1#/cost-explorer?groupBy=["Service"]
+  - button "핸들 크기 조정":
+  - generic: 핸들 드래그
+  - generic: 드래그를 활성화하려면 스페이스 또는 Enter 키를, 이동하려면 화살표 키를, 제출하려면 스페이스 또는 Enter 키를, 취소하려면 Esc 키를 사용합니다.
+  - generic: 핸들 크기 조정
+  - generic: 크기 조정을 활성화하려면 스페이스 또는 Enter 키를, 이동하려면 화살표 키를, 제출하려면 스페이스 또는 Enter 키를, 취소하려면 Esc 키를 사용합니다.
+  - button "핸들 드래그":
+  - heading "권장 조치(2)" [level=2]
+  - 'button "Info: Recommended actions"': 정보
+  - list "Recommended actions List":
+    - img "error":
+    - generic: 권장 작업에 대한 권한 업데이트
+    - generic: "권장 작업의 전체 목록을 보려면 새 IAM 권한이 필요합니다: bcm-recommended-actions:ListRecommendedActions"
+    - link "권한 업데이트":
+      - /url: /iam/home?region=us-east-1#/home
+    - img "info":
+    - generic: 시작하기
+    - generic: 비용 예산을 생성하면 비용 및 사용량이 예산 금액을 초과할 때 알림을 받을 수 있습니다.
+    - link "예산 생성":
+      - /url: /billing/home?region=us-east-1#/budgets/create?budgetAmount=1&budgetPeriod=Monthly&budgetPlannerType=FIXED&budgetType=COST&budgetUnit=USD&utcDates=%7B%22inclusiveStartDateUTC%22%3A%222023-06-01T00%3A00%3A00.000Z%22%2C%22inclusiveEndDateUTC%22%3A%222023-06-30T23%3A59%3A59.999Z%22%7D&usageFilterGroup=UsageTypeGroup&usageTypeGroups=%5B%5D&usageTypes=%5B%5D&budgetName=My%20Zero-Spend%20Budget&budgetEffectiveDate=RECURRING&budgetThreshold=&riUtilizationService=%7B%7D&riCoverageService=%7B%7D&budgetCostTypes=%7B%22includeRefund%22%3Afalse%2C%22includeCredit%22%3Afalse%2C%22includeUpfront%22%3Atrue%2C%22includeRecurring%22%3Atrue%2C%22includeOtherSubscription%22%3Atrue%2C%22includeTax%22%3Atrue%2C%22includeSupport%22%3Atrue%2C%22includeDiscount%22%3Atrue%2C%22includeSubscription%22%3Atrue%2C%22useAmortized%22%3Afalse%2C%22useBlended%22%3Afalse%7D&filters=%7B%7D&budgetPlannedLimits=%5B%5D&isBudgetDetailsValid=true&didAutoAdjustChange=false&autoAdjustData=undefined&alerts=%5B%7B%22alertId%22%3A%227e28e45d-9d0c-44b3-8012-5e4fec971203%22%2C%22notificationType%22%3A%22ACTUAL%22%2C%22threshold%22%3A%220.01%22%2C%22thresholdType%22%3A%22ABSOLUTE_VALUE%22%2C%22actions%22%3A%5B%5D%2C%22comparisonOperator%22%3A%22GREATER_THAN%22%2C%22notification%22%3A%7B%22emails%22%3A%5B%5D%7D%7D%5D&removedAlerts=%5B%5D&removedActions=%5B%5D&actionErrors=%5B%5D&budgetSetupType=TEMPLATE&budgetTemplateId=zero-spend-budget
+    - button "Dismiss alert 2":
+  - button "핸들 크기 조정":
+  - generic: 핸들 드래그
+  - generic: 드래그를 활성화하려면 스페이스 또는 Enter 키를, 이동하려면 화살표 키를, 제출하려면 스페이스 또는 Enter 키를, 취소하려면 Esc 키를 사용합니다.
+  - generic: 핸들 크기 조정
+  - generic: 크기 조정을 활성화하려면 스페이스 또는 Enter 키를, 이동하려면 화살표 키를, 제출하려면 스페이스 또는 Enter 키를, 취소하려면 Esc 키를 사용합니다.
+  - button "핸들 드래그":
+  - heading "Top trends (8)" [level=2]:
+    - generic: Top trends (8)
+  - 'button "Info: Top trends"': 정보
+  - generic: 그룹화 기준
+  - button "그룹화 기준 서비스":
+    - generic: 서비스
+  - heading "시간 범위" [level=3]
+  - generic: 2026년 8월 vs 2026년 9월
+  - link "US$0.00에 의한 Data Transfer 비용 감소":
+    - /url: "?region=us-east-1#/cost-explorer?historicalRelativeRange=CUSTOM&futureRelativeRange=CUSTOM&groupBy=%5B%22UsageType%22%5D&filter=%5B%7B%22dimension%22:%7B%22id%22:%22Service%22%7D,%22values%22:%5B%7B%22value%22:%22AWS%20Data%20Transfer%22%7D%5D,%22operator%22:%22INCLUDES%22%7D%5D&costAggregate=unBlendedCost&showOnlyUntagged=false&showOnlyUncategorized=false&useNormalizedUnits=false&reportMode=COMPARE&compareRelativeRange=MONTH_OVER_MONTH&entryPoint=Geordi_Poseidon"
+    - generic: US$0.00에 의한 Data Transfer 비용 감소
+  - link "US$0.00에 의한 CloudShell 비용 증가":
+    - /url: "?region=us-east-1#/cost-explorer?historicalRelativeRange=CUSTOM&futureRelativeRange=CUSTOM&groupBy=%5B%22UsageType%22%5D&filter=%5B%7B%22dimension%22:%7B%22id%22:%22Service%22%7D,%22values%22:%5B%7B%22value%22:%22AWS%20CloudShell%22%7D%5D,%22operator%22:%22INCLUDES%22%7D%5D&costAggregate=unBlendedCost&showOnlyUntagged=false&showOnlyUncategorized=false&useNormalizedUnits=false&reportMode=COMPARE&compareRelativeRange=MONTH_OVER_MONTH&entryPoint=Geordi_Poseidon"
+    - generic: US$0.00에 의한 CloudShell 비용 증가
+  - link "US$0.00에 의한 EC2 - Other 비용 증가":
+    - /url: "?region=us-east-1#/cost-explorer?historicalRelativeRange=CUSTOM&futureRelativeRange=CUSTOM&groupBy=%5B%22UsageType%22%5D&filter=%5B%7B%22dimension%22:%7B%22id%22:%22Service%22%7D,%22values%22:%5B%7B%22value%22:%22EC2%20-%20Other%22%7D%5D,%22operator%22:%22INCLUDES%22%7D%5D&costAggregate=unBlendedCost&showOnlyUntagged=false&showOnlyUncategorized=false&useNormalizedUnits=false&reportMode=COMPARE&compareRelativeRange=MONTH_OVER_MONTH&entryPoint=Geordi_Poseidon"
+    - generic: US$0.00에 의한 EC2 - Other 비용 증가
+  - link "US$0.00에 의한 VPC (Virtual Private Cloud) 비용 감소":
+    - /url: "?region=us-east-1#/cost-explorer?historicalRelativeRange=CUSTOM&futureRelativeRange=CUSTOM&groupBy=%5B%22UsageType%22%5D&filter=%5B%7B%22dimension%22:%7B%22id%22:%22Service%22%7D,%22values%22:%5B%7B%22value%22:%22Amazon%20Virtual%20Private%20Cloud%22%7D%5D,%22operator%22:%22INCLUDES%22%7D%5D&costAggregate=unBlendedCost&showOnlyUntagged=false&showOnlyUncategorized=false&useNormalizedUnits=false&reportMode=COMPARE&compareRelativeRange=MONTH_OVER_MONTH&entryPoint=Geordi_Poseidon"
+    - generic: US$0.00에 의한 VPC (Virtual Private Cloud) 비용 감소
+  - link "US$0.00에 의한 CloudFormation 비용 감소":
+    - /url: "?region=us-east-1#/cost-explorer?historicalRelativeRange=CUSTOM&futureRelativeRange=CUSTOM&groupBy=%5B%22UsageType%22%5D&filter=%5B%7B%22dimension%22:%7B%22id%22:%22Service%22%7D,%22values%22:%5B%7B%22value%22:%22AWS%20CloudFormation%22%7D%5D,%22operator%22:%22INCLUDES%22%7D%5D&costAggregate=unBlendedCost&showOnlyUntagged=false&showOnlyUncategorized=false&useNormalizedUnits=false&reportMode=COMPARE&compareRelativeRange=MONTH_OVER_MONTH&entryPoint=Geordi_Poseidon"
+    - generic: US$0.00에 의한 CloudFormation 비용 감소
+  - link "US$0.00에 의한 Key Management Service 비용 감소":
+    - /url: "?region=us-east-1#/cost-explorer?historicalRelativeRange=CUSTOM&futureRelativeRange=CUSTOM&groupBy=%5B%22UsageType%22%5D&filter=%5B%7B%22dimension%22:%7B%22id%22:%22Service%22%7D,%22values%22:%5B%7B%22value%22:%22AWS%20Key%20Management%20Service%22%7D%5D,%22operator%22:%22INCLUDES%22%7D%5D&costAggregate=unBlendedCost&showOnlyUntagged=false&showOnlyUncategorized=false&useNormalizedUnits=false&reportMode=COMPARE&compareRelativeRange=MONTH_OVER_MONTH&entryPoint=Geordi_Poseidon"
+    - generic: US$0.00에 의한 Key Management Service 비용 감소
+  - link "US$0.00에 의한 EC2-인스턴스 (Elastic Compute Cloud - Compute) 비용 감소":
+    - /url: "?region=us-east-1#/cost-explorer?historicalRelativeRange=CUSTOM&futureRelativeRange=CUSTOM&groupBy=%5B%22UsageType%22%5D&filter=%5B%7B%22dimension%22:%7B%22id%22:%22Service%22%7D,%22values%22:%5B%7B%22value%22:%22Amazon%20Elastic%20Compute%20Cloud%20-%20Compute%22%7D%5D,%22operator%22:%22INCLUDES%22%7D%5D&costAggregate=unBlendedCost&showOnlyUntagged=false&showOnlyUncategorized=false&useNormalizedUnits=false&reportMode=COMPARE&compareRelativeRange=MONTH_OVER_MONTH&entryPoint=Geordi_Poseidon"
+    - generic: US$0.00에 의한 EC2-인스턴스 (Elastic Compute Cloud - Compute) 비용 감소
+  - link "US$0.00에 의한 Tax 비용 감소":
+    - /url: "?region=us-east-1#/cost-explorer?historicalRelativeRange=CUSTOM&futureRelativeRange=CUSTOM&groupBy=%5B%22UsageType%22%5D&filter=%5B%7B%22dimension%22:%7B%22id%22:%22Service%22%7D,%22values%22:%5B%7B%22value%22:%22Tax%22%7D%5D,%22operator%22:%22INCLUDES%22%7D%5D&costAggregate=unBlendedCost&showOnlyUntagged=false&showOnlyUncategorized=false&useNormalizedUnits=false&reportMode=COMPARE&compareRelativeRange=MONTH_OVER_MONTH&entryPoint=Geordi_Poseidon"
+    - generic: US$0.00에 의한 Tax 비용 감소
+  - link "Cost Explorer에서 비용 추세 보기":
+    - /url: /costmanagement/home?region=us-east-1#/cost-explorer?historicalRelativeRange=CUSTOM&futureRelativeRange=CUSTOM&groupBy=%5B%22Service%22%5D&costAggregate=unBlendedCost&useNormalizedUnits=false&reportMode=COMPARE&compareRelativeRange=MONTH_OVER_MONTH&entryPoint=Geordi_Poseidon
+  - button "핸들 크기 조정":
+  - generic: 핸들 드래그
+  - generic: 드래그를 활성화하려면 스페이스 또는 Enter 키를, 이동하려면 화살표 키를, 제출하려면 스페이스 또는 Enter 키를, 취소하려면 Esc 키를 사용합니다.
+  - generic: 핸들 크기 조정
+  - generic: 크기 조정을 활성화하려면 스페이스 또는 Enter 키를, 이동하려면 화살표 키를, 제출하려면 스페이스 또는 Enter 키를, 취소하려면 Esc 키를 사용합니다.
+  - button "핸들 드래그":
+  - heading "비용 할당 적용 범위" [level=2]
+  - 'button "Info: Cost allocation coverage"': 정보
+  - button "Preferences":
+  - generic: 할당 적용 범위 표시 기준
+  - button "할당 적용 범위 표시 기준 비용 할당 태그":
+    - generic: 비용 할당 태그
+  - generic: "-"
+  - img "차트 비용 할당 범위 없음"
+  - heading [level=3]
+  - text: 비용 할당 태그 또는 비용 범주를 생성하지 않았습니다. 이 태그 또는 범주를 사용하여 팀, 애플리케이션 또는 환경에 비용을 할당할 수 있습니다.
+  - link "자세히 알아보기":
+    - /url: https://docs.aws.amazon.com/ko_kr/awsaccountbilling/latest/aboutv2/manage-cost-categories.html?region=us-east-1
+  - link "비용 할당 태그를 사용하여 비용 할당":
+    - /url: /billing/home?region=us-east-1#/tags
+  - button "핸들 크기 조정":
+  - generic: 핸들 드래그
+  - generic: 드래그를 활성화하려면 스페이스 또는 Enter 키를, 이동하려면 화살표 키를, 제출하려면 스페이스 또는 Enter 키를, 취소하려면 Esc 키를 사용합니다.
+  - generic: 핸들 크기 조정
+  - generic: 크기 조정을 활성화하려면 스페이스 또는 Enter 키를, 이동하려면 화살표 키를, 제출하려면 스페이스 또는 Enter 키를, 취소하려면 Esc 키를 사용합니다.
+  - button "핸들 드래그":
+  - heading "절감 기회" [level=2]
+  - 'button "Info: Savings opportunities"': 정보
+  - button "액세스 거부됨"
+  - link "Cost Optimization 허브에서 세부 정보 보기":
+    - /url: /costmanagement/home?region=us-east-1#/cost-optimization-hub?groupBy=ActionType
+  - button "핸들 크기 조정":
+  - generic: 핸들 드래그
+  - generic: 드래그를 활성화하려면 스페이스 또는 Enter 키를, 이동하려면 화살표 키를, 제출하려면 스페이스 또는 Enter 키를, 취소하려면 Esc 키를 사용합니다.
+  - generic: 핸들 크기 조정
+  - generic: 크기 조정을 활성화하려면 스페이스 또는 Enter 키를, 이동하려면 화살표 키를, 제출하려면 스페이스 또는 Enter 키를, 취소하려면 Esc 키를 사용합니다.
+- contentinfo:
+  - button "CloudShell":
+    - generic: CloudShell
+  - button "AWS용 에이전트 툴킷":
+    - text: AWS용 에이전트 툴킷
+  - button "의견"
+  - button "Console 모바일 앱":
+    - generic: Console 모바일 앱
+  - generic: © 2026, Amazon Web Services, Inc. 또는 계열사.
+  - list:
+    - link "개인 정보 보호":
+      - /url: https://aws.amazon.com/privacy/
+    - link "약관":
+      - /url: https://aws.amazon.com/terms/
+    - button "쿠키 기본 설정"

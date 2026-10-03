@@ -1,0 +1,437 @@
+{
+  "checkedAt": "2026-10-03T10:20:21.569Z",
+  "deploymentUrl": "http://52.79.115.167 (historical; EC2 terminated)",
+  "scope": "IAM cleanup complete: stack DELETE_COMPLETE, EC2 terminated, learning network/volumes/key/template absent. Seoul EIP/NAT/ELBv2/RDS DB instances/self snapshots empty. IAM post-cleanup Bills and Billing home collected. Root preparation history retained; final billing amounts not confirmed.",
+  "files": [
+    {
+      "name": "01-predeployment-check.jpg",
+      "bytes": 45120,
+      "sha256": "727778175a541492166ef55d35038cf9d14da623637ede22336bd2e9bb7f41c4"
+    },
+    {
+      "name": "01-predeployment-check.txt",
+      "bytes": 2171,
+      "sha256": "45b218942d17abc816e49bfac899928feaeec6be20041a78ec040f9d8dcf2471"
+    },
+    {
+      "name": "02-keypair-created.jpg",
+      "bytes": 37957,
+      "sha256": "8fc4dd2f3d29f77ed2686a2b2355fb3538abde744b900cf3cf158566c827f305"
+    },
+    {
+      "name": "03-deploy-review.jpg",
+      "bytes": 38410,
+      "sha256": "c1d5d32621d67744462ef68f8ebcc1a7db14cb59fba4136d197077ddc1adc11d"
+    },
+    {
+      "name": "04-launch-template-denied.jpg",
+      "bytes": 79809,
+      "sha256": "eee4754c11d9aa232aff027522a763bcd4a5044c5e80afb04a4046fbf16fe094"
+    },
+    {
+      "name": "04-launch-template-denied.txt",
+      "bytes": 3173,
+      "sha256": "6d4dd50da3183cc79cd60b1c76cf762256098950ee71e078550d14f0f67913f4"
+    },
+    {
+      "name": "05-policy-fix-verified.jpg",
+      "bytes": 25509,
+      "sha256": "b0469d15e3bb319e9959759f6c8af809ffd773cdf2ad5438fda18f03dc936685"
+    },
+    {
+      "name": "05-policy-fix-verified.txt",
+      "bytes": 1815,
+      "sha256": "3d21ee272dc1057b0dc5e88431c3f42ade24c574089dad585c8c4f87d20e071b"
+    },
+    {
+      "name": "06-network-tag-update-denied.jpg",
+      "bytes": 178899,
+      "sha256": "02e34adc1cffbd794e0917abb7f4e37ca71aaff1a2b5fed16df1b964e4c2f8f3"
+    },
+    {
+      "name": "06-network-tag-update-denied.txt",
+      "bytes": 5248,
+      "sha256": "31327a798fac5adfdd9b3b2c3fb643be03257754dcf2abeb23727f1aacff4d40"
+    },
+    {
+      "name": "07-network-tags-verified.jpg",
+      "bytes": 41310,
+      "sha256": "8acc36a0bee6b1435e6dadcca2db7fea8140ad13fef2eb11729a53914ec50648"
+    },
+    {
+      "name": "07-network-tags-verified.txt",
+      "bytes": 309,
+      "sha256": "c112bba1e96568a88fcbc0bbd69712f329bb85a310c8ce40e0ea807bc5188765"
+    },
+    {
+      "name": "08-tag-policy-and-launch-audit.jpg",
+      "bytes": 99039,
+      "sha256": "2538c484ae488aed0d14ccfed65f445426d8425af289a4cf6d04d23081049c70"
+    },
+    {
+      "name": "08-tag-policy-and-launch-audit.txt",
+      "bytes": 3632,
+      "sha256": "e61590dc88b8279ffe38ac11057a6db0ca97b209c0511f7f86295b0474f9d91f"
+    },
+    {
+      "name": "09-iam-ec2-security-group.jpg",
+      "bytes": 34763,
+      "sha256": "4be139a6621206a4b0d008aab2f7537ec19ada77cf39474721e303d95701cbb7"
+    },
+    {
+      "name": "09-iam-ec2-security-group.txt",
+      "bytes": 2332,
+      "sha256": "8162c9a161233f2259c8203db70445aff94815ee6ab9937705c020a6b4d0144a"
+    },
+    {
+      "name": "10-ebs-vpc-route.jpg",
+      "bytes": 30905,
+      "sha256": "f29d3fc043c1224c87685fe7b44355b3fd755e4052a269edfd29ab83478d8b35"
+    },
+    {
+      "name": "10-ebs-vpc-route.txt",
+      "bytes": 1979,
+      "sha256": "960d1ff9a9247eefa03f148602aac7b1281eafc8e51a1ab79add716795069f7c"
+    },
+    {
+      "name": "11-browser-home.jpg",
+      "bytes": 121897,
+      "sha256": "cd541e29960a0ed1c005551a29c9ff4ada5eba220251ac5dc8cd2e73c1eb3c63"
+    },
+    {
+      "name": "11-browser-home.txt",
+      "bytes": 2188,
+      "sha256": "16d51da5878527ae4401707432bdee3aee534481efdae7e1a070f7dd9fef23b4"
+    },
+    {
+      "name": "12-external-health-200.txt",
+      "bytes": 237,
+      "sha256": "fd83942d0ffd3f6522ccd3389b41d5df1c9aabc9524b769993b6ccf2d1924431"
+    },
+    {
+      "name": "13-ssh-docker-healthy.jpg",
+      "bytes": 60173,
+      "sha256": "15f5326ff0b18c89be6b355322ed51f9f421c2cb80823a7cd016fdbc1b00a994"
+    },
+    {
+      "name": "13-ssh-docker-healthy.txt",
+      "bytes": 777,
+      "sha256": "02be6afdf52f1e1a034b19d08986f514fc329d6234e55cb5fb826ec003578ab1"
+    },
+    {
+      "name": "14-stack-update-complete.jpg",
+      "bytes": 45874,
+      "sha256": "a469d3719987781d8b90f2a10f37a81208aa40ea368f1802f3b20b75b376a865"
+    },
+    {
+      "name": "14-stack-update-complete.txt",
+      "bytes": 2287,
+      "sha256": "c49523a8e7594aafd91f62a8c95f2ae7ed627c3f85078f3489b8f8ca4dd167d5"
+    },
+    {
+      "name": "15-os-docker-reaudit.txt",
+      "bytes": 923,
+      "sha256": "ca913c8de7975aae023d1d65b91032da2bdbfac603bd46e47d72fcfb53214a2f"
+    },
+    {
+      "name": "16-live-iam-resource-reaudit.jpg",
+      "bytes": 35007,
+      "sha256": "6dd3b9b244037dcf2e2e6c1174cd3f4662e0afeef8bc087ddae0cbbe6ae1c23b"
+    },
+    {
+      "name": "16-live-iam-resource-reaudit.txt",
+      "bytes": 1978,
+      "sha256": "fd1a0adeb3bafcdfb8f20e525428007da4cba74649ec07edee56fef79b154af2"
+    },
+    {
+      "name": "17-billing-access-denied.jpg",
+      "bytes": 77480,
+      "sha256": "3dee19d303260fdd46ccc931e597173072d5ff90753251f66e033ab2bbca4186"
+    },
+    {
+      "name": "17-billing-access-denied.txt",
+      "bytes": 8917,
+      "sha256": "679b017042efdf8e39457379f7d4d130ace6605370cdbefd39956f27ad6b1181"
+    },
+    {
+      "name": "18-network-ebs-reaudit.jpg",
+      "bytes": 28940,
+      "sha256": "9871e37bed123a31154bb9f96cd6089e8480a9931172a96c62919f4d231601b4"
+    },
+    {
+      "name": "18-network-ebs-reaudit.txt",
+      "bytes": 1870,
+      "sha256": "22fb243401d2cffc46b4e229c091462d8b997eb275971fdc0c3dc24e0adb8f4e"
+    },
+    {
+      "name": "19-billing-iam-access-enabled.txt",
+      "bytes": 734,
+      "sha256": "b74fb6569c388964c9150487f36451f669d0727a5199276c0b57586be19a3c19"
+    },
+    {
+      "name": "20-minimum-permissions-prepared.jpg",
+      "bytes": 40322,
+      "sha256": "32c66e69e6e9ce3f2a7c32b8d1bfe9ca69aaf87713091e15d26482eb2c44bb77"
+    },
+    {
+      "name": "20-minimum-permissions-prepared.txt",
+      "bytes": 2523,
+      "sha256": "d8e4003be78732e2b65930d7b553b3df238d6fcf3726fc99e6310f83375845a2"
+    },
+    {
+      "name": "22-iam-billing-home.jpg",
+      "bytes": 112161,
+      "sha256": "3a762bce419372cc9e7f4941627f6daa9b620ddd6d278ea3f70facae36c90815"
+    },
+    {
+      "name": "22-iam-billing-home.txt",
+      "bytes": 26360,
+      "sha256": "6042ed1e84e0b7ce46570e2127ecc3ee4ba9fd7863d57cd4432df8a1e477e328"
+    },
+    {
+      "name": "23-iam-policy-key-dryrun.jpg",
+      "bytes": 44682,
+      "sha256": "71ed4193b5c31f76e766d9e4dade03e4730595a3d837768a5c2371b4a25fa440"
+    },
+    {
+      "name": "23-iam-policy-key-dryrun.txt",
+      "bytes": 2574,
+      "sha256": "ae5259a749cd02dea50cbcda42238c71f375cdb34cc85f02beaccaf57560b747"
+    },
+    {
+      "name": "24-iam-freetier.jpg",
+      "bytes": 93330,
+      "sha256": "833f9eed77105ef27a3f5a723a871192fde60477a93bb5b176b63b8d088eca45"
+    },
+    {
+      "name": "24-iam-freetier.txt",
+      "bytes": 14022,
+      "sha256": "e6d6ece8dc8e4ee6c49e11f8e5a4c558fd9ee3a99845f46b6f1da911e6c50be4"
+    },
+    {
+      "name": "25-iam-credits.jpg",
+      "bytes": 93256,
+      "sha256": "e53bd7e81d340ac094650ea3d3468e2d6ac72d331f49c1d81ec5206abaa79fd9"
+    },
+    {
+      "name": "25-iam-credits.txt",
+      "bytes": 14308,
+      "sha256": "c3ac423a0b029f4754e0d1ebc01b83bb330d0f8e9502c13ed415dd36ddef608e"
+    },
+    {
+      "name": "26-iam-resources.jpg",
+      "bytes": 32469,
+      "sha256": "05abcfb9f3bdd6719bca8e8d9cc5b3fcd1a4838beda35fa92c67e7f905d9baad"
+    },
+    {
+      "name": "26-iam-resources.txt",
+      "bytes": 2266,
+      "sha256": "cc02a38fc3abfcdaac6a3d78584b6e8e2fb2d70be822421e2a9fe1c39e010b22"
+    },
+    {
+      "name": "27-iam-network-health.jpg",
+      "bytes": 46986,
+      "sha256": "a1e1a8813b5389e9e15ced31e909ba51dc2b2f8190da981384d2b22a22835d33"
+    },
+    {
+      "name": "27-iam-network-health.txt",
+      "bytes": 2728,
+      "sha256": "9151e8390706e96c201bd4368e68ab8ecb0981bcd026ed0047988ce5b79074b1"
+    },
+    {
+      "name": "28-iam-bills-limitation.jpg",
+      "bytes": 78317,
+      "sha256": "0183394fad34fd30a9cb9c216eef0a1a5b825b93a2a00b5a1c7b1f2c3fc03bf5"
+    },
+    {
+      "name": "28-iam-bills-limitation.txt",
+      "bytes": 9981,
+      "sha256": "0e1d2adde24d439c10cea53c2f535e95a39aeb411ed88314225a89edf834a63b"
+    },
+    {
+      "name": "29-current-ssh-docker.txt",
+      "bytes": 1158,
+      "sha256": "9e26bcc62c83891cd41d69c9eba4395cd274cca9e12e3a0e3414a9539d806b36"
+    },
+    {
+      "name": "30-current-browser-home.jpg",
+      "bytes": 121881,
+      "sha256": "e6e86b2f822740eb301cb4831c1bce184a3a821f7c62a7c205b27bfff16eb024"
+    },
+    {
+      "name": "30-current-browser-home.txt",
+      "bytes": 2188,
+      "sha256": "37ec5b0664c43f3f7cc4d960b7e102003c58933dcb6e8477bf61ee0700756423"
+    },
+    {
+      "name": "31-billing-readonly-fixed.jpg",
+      "bytes": 67892,
+      "sha256": "5ed978d22002a2933ddc2559092c8bdd44b7ddc4c540a034b43736c23f011264"
+    },
+    {
+      "name": "31-billing-readonly-fixed.txt",
+      "bytes": 2826,
+      "sha256": "d8cd19d503194bcd038c9873812480badb007bbbfee7a1c450e2ce720e506608"
+    },
+    {
+      "name": "32-iam-bills-success.jpg",
+      "bytes": 137926,
+      "sha256": "13f26cc532063eac9ef6e025155fcdef5e07b54b1599200acfe5d6349f1f90da"
+    },
+    {
+      "name": "32-iam-bills-success.txt",
+      "bytes": 13998,
+      "sha256": "72dc7ffd029199f4ab8702c5adc544e1db8e877b6109d402af851763c988ecb3"
+    },
+    {
+      "name": "33-iam-invoices-status.jpg",
+      "bytes": 133656,
+      "sha256": "3355a1ed37cbddd600acb4804557adc94065fe9e400b5c1bf0f7fbfee32dc48f"
+    },
+    {
+      "name": "33-iam-invoices-status.txt",
+      "bytes": 14811,
+      "sha256": "6c0f5f6095fc672deca82fdb48ed1d284fd73b8706cfcbbb5b16edc0fa58f690"
+    },
+    {
+      "name": "34-stack-before-delete.jpg",
+      "bytes": 72702,
+      "sha256": "9b2cafd9dd62d761316f4ae57b051aa694a416b864624d322eed5f69d582c4b5"
+    },
+    {
+      "name": "34-stack-before-delete.txt",
+      "bytes": 6785,
+      "sha256": "677adaadb72245ba7e73cd610797bb36b3002f497e4376f4a43ce024bb666ba5"
+    },
+    {
+      "name": "35-stack-delete-confirm.jpg",
+      "bytes": 80760,
+      "sha256": "4dbbfc61d8309a6e3d2e91b3d37207752220bd847f1383d92cf21c6407e7c7fd"
+    },
+    {
+      "name": "35-stack-delete-confirm.txt",
+      "bytes": 8560,
+      "sha256": "9e061c4b1b27301a3ee5c7ee135b587fa7bf7e27ce72b006d91bde61079bd776"
+    },
+    {
+      "name": "36-stack-delete-progress.jpg",
+      "bytes": 91211,
+      "sha256": "b43af66b8e1936be39a7968d5e232711d9074957e5229edee8f23b21eb89079b"
+    },
+    {
+      "name": "36-stack-delete-progress.txt",
+      "bytes": 18998,
+      "sha256": "d2cecca8d412235252a9f174b15ebba2829ad0c619b0d011127f6380caec0353"
+    },
+    {
+      "name": "37-stack-delete-events.jpg",
+      "bytes": 89913,
+      "sha256": "b7ebb59384e6d409cd80c0df9dc86f5daca56a8b7b515ad2bcdc1f9e34955625"
+    },
+    {
+      "name": "37-stack-delete-events.txt",
+      "bytes": 52583,
+      "sha256": "879e8406758993c7224303eaf80b9c91c49c212e69b5b8af3819d92757b203c9"
+    },
+    {
+      "name": "38-cleanup-resource-audit.jpg",
+      "bytes": 84202,
+      "sha256": "b79f4f925b11c1d423d7fe135ff48e6d32b569297996852f736a15894d2da1a3"
+    },
+    {
+      "name": "38-cleanup-resource-audit.txt",
+      "bytes": 3407,
+      "sha256": "9cbf1c26137d9de356d82192459bf7c3f186a83eac7c5331de7ca70e6aa52386"
+    },
+    {
+      "name": "39-key-before-delete.jpg",
+      "bytes": 68519,
+      "sha256": "3f73d76af4235ae82313672b366bca02c193eb5470eb90f6e8b96a371c3bd1d3"
+    },
+    {
+      "name": "39-key-before-delete.txt",
+      "bytes": 9477,
+      "sha256": "6312ce148d5bd78e83472f0fad4cc16253bf1e302c02d8d3e8b96642d8c3a388"
+    },
+    {
+      "name": "40-key-delete-denied.jpg",
+      "bytes": 92273,
+      "sha256": "7ad8f92699267719601626aab555adedc66e8a16e3892492418761e6e7788953"
+    },
+    {
+      "name": "40-key-delete-denied.txt",
+      "bytes": 3384,
+      "sha256": "6b175b9de6b3c88dba030961adc7b70a1bc552bdbb92513df7c3c8274a81137c"
+    },
+    {
+      "name": "41-billing-after-ec2-termination.jpg",
+      "bytes": 137910,
+      "sha256": "4bd286fa01179a5b2ae1f0fb6c4003e32074ac86b9e263f568e117bed1326abb"
+    },
+    {
+      "name": "41-billing-after-ec2-termination.txt",
+      "bytes": 13980,
+      "sha256": "6207234d6281e61bbfadaa8eaa626cd67a890f96ddf4fa568aae164aa803f6f0"
+    },
+    {
+      "name": "42-cleanup-permissions-prepared.jpg",
+      "bytes": 117959,
+      "sha256": "b412f23e9aedf1f654c416390ec268556e446c89f66c728bafaf6c1d0079f7eb"
+    },
+    {
+      "name": "42-cleanup-permissions-prepared.txt",
+      "bytes": 3904,
+      "sha256": "7ec687a715dc1d0d383f6aea6cdc87568bb275607f07716e3d3c464572682cbe"
+    },
+    {
+      "name": "43-iam-cleanup-retry-key-deleted.jpg",
+      "bytes": 52865,
+      "sha256": "b6c855b3d9d63442e217a37729559f6cf2513bded85e9571cae11b490f074828"
+    },
+    {
+      "name": "43-iam-cleanup-retry-key-deleted.txt",
+      "bytes": 2441,
+      "sha256": "b3b71d734f78e23ba648b3cb3e80023cce58c5d1af9851a25eadfba81b9dd720"
+    },
+    {
+      "name": "44-iam-cleanup-complete-audit.jpg",
+      "bytes": 82680,
+      "sha256": "594544597f24985cefb8f046f5cad832df079c2b08a0911b7b4968d2e166c82d"
+    },
+    {
+      "name": "44-iam-cleanup-complete-audit.txt",
+      "bytes": 3195,
+      "sha256": "7853bf0c4fa2093b0683ddf9b63e68af51310eef30c9c97fcb0172e56d9a0b3f"
+    },
+    {
+      "name": "45-iam-active-stacks-empty.jpg",
+      "bytes": 70386,
+      "sha256": "8ac8ceb743bf1cb6cba49c1243f4f9033b448f204f942220e137080ffea08c09"
+    },
+    {
+      "name": "45-iam-active-stacks-empty.txt",
+      "bytes": 6299,
+      "sha256": "724c4fb6922aaebf3852bf8a5ba283e9df6e74519bf6157237bac04dca7fa5b4"
+    },
+    {
+      "name": "46-iam-billing-after-cleanup.jpg",
+      "bytes": 93080,
+      "sha256": "4d490b679b30d6f32bf075d2e0eafefdfca8883a9cb38d95adbdc66b1c6cd6af"
+    },
+    {
+      "name": "46-iam-billing-after-cleanup.txt",
+      "bytes": 13990,
+      "sha256": "eb28a138ec57f7c732c98ed63715211f53c360a26a2394a38c2672ec11eb38ff"
+    },
+    {
+      "name": "47-iam-billing-home-after-cleanup.jpg",
+      "bytes": 112161,
+      "sha256": "3a762bce419372cc9e7f4941627f6daa9b620ddd6d278ea3f70facae36c90815"
+    },
+    {
+      "name": "47-iam-billing-home-after-cleanup.txt",
+      "bytes": 26356,
+      "sha256": "bd7b9557ece15480cd6cf96e7bd55189842dea0d12637ccdb25de3d0885ae643"
+    }
+  ]
+}

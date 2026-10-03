@@ -1,0 +1,81 @@
+- navigation:
+  - 'img "계정 색상: 설정 해제"'
+  - navigation "글로벌":
+    - link "기본 콘텐츠로 건너뛰기":
+      - /url: "#c"
+    - link "AWS 콘솔 홈":
+      - /url: https://ap-northeast-2.console.aws.amazon.com/console/home?region=ap-northeast-2
+    - button "서비스":
+    - img "검색":
+    - searchbox
+    - combobox "검색"
+    - button "Amazon Q에게 질문하기":
+    - generic: "[알트+S]"
+    - status
+    - link "CloudShell":
+      - /url: https://ap-northeast-2.console.aws.amazon.com/cloudshell/home?region=ap-northeast-2
+    - button "알림(사용 가능한 알림 없음)":
+      - img "알림":
+    - img "알림":
+    - list:
+      - button "도움말 및 지원":
+        - img "지원":
+      - button "설정":
+      - combobox "Regions (아시아 태평양 (서울))":
+        - generic: 아시아 태평양 (서울)
+      - button "cody-giyeop":
+        - 'generic "계정 색상: 설정 해제"':
+          - generic: cody-giyeop (171180524802)
+        - generic: cody-giyeop
+  - list
+- alert
+- main:
+  - list
+  - heading "CloudShell" [level=3]:
+    - generic: CloudShell
+  - button "CloudShell 작업":
+    - text: 작업
+  - generic "기본 설정":
+    - button "기본 설정":
+  - group "Pane 1":
+    - list:
+      - group "Terminal 24a27c43-142c-4003-b8e2-0b8b9da64067 tab":
+        - button "ap-northeast-2" [pressed]
+        - text: ×
+    - text: 
+    - button "새로운 탭 추가":
+  - group "Terminal 24a27c43-142c-4003-b8e2-0b8b9da64067 tab":
+    - generic: CloudShell 터미널 입력
+    - textbox "CloudShell 터미널 입력" [active]: ~ $
+    - generic: TIME 2026-10-03T10:11:07.835433+00:00
+    - generic: PREPARATION_CALLER arn:aws:iam::171180524802:root
+    - generic: "POLICY {'Version': '2012-10-17', 'Statement': [{'Sid': 'DeleteOnlyLearningLaunchTemplate', 'Effect': 'Allow', 'Action': 'ec2:DeleteLaunchTemplate', 'Resource': '"
+    - generic: "arn:aws:ec2:ap-northeast-2:171180524802:launch-template/lt-03da8c5fb9551abf8', 'Condition': {'StringEquals': {'aws:RequestedRegion': 'ap-northeast-2'}}}, {'Sid':"
+    - generic: "'DeleteOnlyLearningKeyPair', 'Effect': 'Allow', 'Action': 'ec2:DeleteKeyPair', 'Resource': 'arn:aws:ec2:ap-northeast-2:171180524802:key-pair/b6-1-key', 'Conditi"
+    - generic: "on': {'StringEquals': {'aws:RequestedRegion': 'ap-northeast-2'}}}, {'Sid': 'ReadRemainingCleanupResourcesInSeoul', 'Effect': 'Allow', 'Action': ['ec2:DescribeAdd"
+    - generic: "resses', 'ec2:DescribeNatGateways', 'ec2:DescribeSnapshots', 'elasticloadbalancing:DescribeLoadBalancers', 'rds:DescribeDBInstances'], 'Resource': '*', 'Conditio"
+    - generic: "n': {'StringEquals': {'aws:RequestedRegion': 'ap-northeast-2'}}}]}"
+    - generic: ec2:DeleteLaunchTemplate arn:aws:ec2:ap-northeast-2:171180524802:launch-template/lt-03da8c5fb9551abf8 allowed
+    - generic: ec2:DeleteKeyPair arn:aws:ec2:ap-northeast-2:171180524802:key-pair/b6-1-key allowed
+    - generic: ec2:DescribeAddresses * allowed
+    - generic: ec2:DescribeNatGateways * allowed
+    - generic: ec2:DescribeSnapshots * allowed
+    - generic: elasticloadbalancing:DescribeLoadBalancers * allowed
+    - generic: rds:DescribeDBInstances * allowed
+    - generic: iam:PutUserPolicy arn:aws:iam::171180524802:user/b6-1-learner implicitDeny
+    - generic: ec2:DeleteKeyPair arn:aws:ec2:ap-northeast-2:171180524802:key-pair/unrelated-key implicitDeny
+    - generic: PREPARATION_ONLY_NO_DELETION
+    - generic: ~ $
+- contentinfo:
+  - button "AWS용 에이전트 툴킷":
+    - text: AWS용 에이전트 툴킷
+  - button "의견"
+  - button "Console 모바일 앱":
+    - generic: Console 모바일 앱
+  - generic: © 2026, Amazon Web Services, Inc. 또는 계열사.
+  - list:
+    - link "개인 정보 보호":
+      - /url: https://aws.amazon.com/privacy/
+    - link "약관":
+      - /url: https://aws.amazon.com/terms/
+    - button "쿠키 기본 설정"

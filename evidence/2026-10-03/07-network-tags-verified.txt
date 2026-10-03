@@ -1,0 +1,5 @@
+Verified through b6-1-learner CloudShell in ap-northeast-2
+igw-00647fac7637690a3 Project=b6-1 stack-name=b6-1-learning
+rtb-048e2cf96a90714d5 Project=b6-1 stack-name=b6-1-learning
+sg-07d5aa052361be676 Project=b6-1 stack-name=b6-1-learning
+Policy draft: infra/owned-network-tag-update-policy.json; NOT APPLIED.

@@ -2,8 +2,13 @@
 
 AWS 서울 리전의 VPC와 EC2에 **Docker Nginx 정적 사이트**를 배포하는 학습 프로젝트다. CloudFormation으로 인프라를 다시 만들 수 있고, 브라우저와 `/health` 응답으로 실제 동작을 검증한다.
 
-> **현재 상태:** 코드·GitHub 병합 완료 · 기존 AWS 계정 사용 가능 확인 · IAM·MFA·Budget·Key Pair와 실제 배포/URL/증거는 대기 중<br>
-> 확인하지 않은 AWS 실행 결과를 성공으로 표시하지 않는다.
+> **현재 상태:** 2026-10-03 19:17 KST IAM으로 실습 리소스 정리 완료. 스택 DELETE_COMPLETE, EC2 terminated, EBS·키페어·시작 템플릿·해당 네트워크 삭제 확인. 서울 EIP/NAT/ALB/RDS/스냅샷0개. 최종 IAM Billing 조회 완료. [평가 항목별 설명·증거 안내](docs/evaluation-evidence-guide-2026-10-03.md).
+
+실행 당시 배포 URL(현재 EC2 종료): [http://52.79.115.167](http://52.79.115.167) · [health](http://52.79.115.167/health)
+
+최신 [IAM 증거 재수집·검수 결과](docs/evidence-review-ready-2026-10-03.md): 2026-10-03 18:25~18:27 KST, IAM Billing 홈 월간 USD 0.00·잔여 크레딧 USD 119.97 확인. 18:42 KST 세부 청구서와 청구 문서도 IAM 조회 성공(예상 USD 0.00, 상세 데이터 없음, 문서 0건). 금액 갱신 지연 및 준비 단계 root 이력을 기록했다. 18:56 KST 승인 후 삭제를 시작하고 권한 보정 후19:17 KST IAM 정리 완료(43~47).
+
+실제 서버 코드: `6bc1076c4311cc2685b483ca326be8bc7e5f4bb1`(첫 배포 기록 전 커밋). 원격 main은 변경하지 않았다. [새 증거 목록](evidence/README.md), [IAM 실행 기록](docs/iam-execution-2026-10-03.md), [재배포 기록](docs/redeployment-2026-10-03.md)에 결과와 준비 단계의 관리자 사용을 구분해 기록했다.
 
 ## 과제 정보
 
@@ -22,20 +27,20 @@ AWS 서울 리전의 VPC와 EC2에 **Docker Nginx 정적 사이트**를 배포�
 
 | 요구사항 | 구현 | 실제 AWS 검증 |
 |---|---:|---:|
-| 정적 웹사이트 | 완료 | 대기 |
-| `GET /health` → 200 `OK` | 완료 | 대기 |
-| Dockerfile과 container healthcheck | 완료 | Docker 환경 검사 대기 |
-| VPC `10.0.0.0/16` | CloudFormation 완료 | 대기 |
-| Public Subnet `10.0.1.0/24` | CloudFormation 완료 | 대기 |
-| Internet Gateway와 기본 Route | CloudFormation 완료 | 대기 |
-| EC2 t3.micro, 8GiB 암호화 gp3 | CloudFormation 완료 | 대기 |
-| HTTP 80 전체 공개 | CloudFormation 완료 | 대기 |
-| SSH 22 개인 IP `/32` | CloudFormation 완료 | 대기 |
-| SSH `0.0.0.0/0` 거부 | CloudFormation Rule 완료 | 대기 |
-| IAM 최소권한 정책 | 완료 | 계정 생성 후 적용 대기 |
+| 정적 웹사이트 | 완료 | 외부 브라우저 확인 |
+| `GET /health` → 200 `OK` | 완료 | 외부 HTTP 200 |
+| Dockerfile과 container healthcheck | 완료 | EC2 healthy |
+| VPC `10.0.0.0/16` | CloudFormation 완료 | 실제 확인 |
+| Public Subnet `10.0.1.0/24` | CloudFormation 완료 | 실제 확인 |
+| Internet Gateway와 기본 Route | CloudFormation 완료 | active |
+| EC2 t3.micro, 8GiB 암호화 gp3 | CloudFormation 완료 | running / in-use |
+| HTTP 80 전체 공개 | CloudFormation 완료 | 실제 규칙 확인 |
+| SSH 22 개인 IP `/32` | CloudFormation 완료 | SSH 연결 성공 |
+| SSH `0.0.0.0/0` 거부 | CloudFormation Rule 완료 | 전체 인바운드 규칙 확인 |
+| IAM 최소권한 정책 | 제한 정책 및 두 인라인 보정 | IAM 실제 스택 배포 |
 | 아키텍처 다이어그램 | 완료 | 해당 없음 |
-| 트러블슈팅 기록 | 개발환경 1건 | 실제 AWS 사례 추가 필요 |
-| 리소스 정리 체크리스트 | 완료 | 실제 삭제 증거 대기 |
+| 트러블슈팅 기록 | 개발환경 및 AWS IAM 2건 | 실패와 수정 후 성공 기록 |
+| 리소스 정리 체크리스트 | 완료 | 별도 요청 전 보존 |
 | HTTPS 보너스 | 도메인 없음 | 후속 작업 |
 
 ## 아키텍처
@@ -175,7 +180,7 @@ scripts/aws-verify.sh b6-1-learning
 - https://aws.amazon.com/free/free-tier-faqs/
 - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-free-tier-usage.html
 
-이 저장소는 리소스를 작게 제한하지만 **비용 0원을 보장하지 않는다.** 증거 수집 후 Stack을 삭제하고 Billing을 확인한다.
+이번 실행 전 무료 플랜 잔여 크레딧 USD 119.97 및 10월 누계 USD 0.00을 화면에서 확인했다. 배포 후 확정 청구액은 확인하지 않았다. t3.micro 1대, standard CPU credits, 암호화 gp3 8GiB를 사용하며 별도 EIP/NAT/ALB/RDS는 만들지 않았다. Budget은 미생성이다. 증거 누락 확인 후 사용자의 별도 삭제 요청이 있을 때만 정리 및 Billing 확인을 진행한다.
 
 ## 5. 보너스 범위
 
@@ -188,7 +193,7 @@ scripts/aws-verify.sh b6-1-learning
 - Docker healthcheck
 - EC2 재부팅 후 자동 시작을 위한 `--restart unless-stopped`
 
-실제 AWS Docker 증거는 배포 후 추가한다.
+실제 EC2의 `docker ps`, healthy, 내부 HTTP 200 및 고정 커밋은 [SSH 원본 출력](evidence/2026-10-03/13-ssh-docker-healthy.txt)에서 확인할 수 있다.
 
 ### HTTPS
 
@@ -206,15 +211,15 @@ scripts/aws-verify.sh b6-1-learning
 
 ## 제출 전 완료 조건
 
-- [ ] 루트·IAM MFA와 최소권한 사용자 실제 확인
-- [ ] 로컬 Docker 실제 검사 PASS
-- [ ] CloudFormation `CREATE_COMPLETE`
-- [ ] 배포 URL에서 사이트 표시
-- [ ] 외부 `/health` 200
-- [ ] EC2 내부 Docker `healthy`
-- [ ] 실제 AWS 트러블슈팅 1건
-- [ ] 증거 이미지 12종
-- [ ] Stack과 별도 리소스 삭제
-- [ ] Billing 확인
+- [x] IAM 실제 배포 사용자 확인(관리자 준비 단계는 별도 기록)
+- [x] CloudFormation `UPDATE_COMPLETE`
+- [x] 배포 URL에서 사이트 표시
+- [x] 외부 `/health` 200
+- [x] EC2 내부 Docker `healthy` 및 실제 커밋 확인
+- [x] 실제 AWS 트러블슈팅 기록
+- [x] 이번 배포 증거 파일 존재·내용 대조
+- [ ] MFA 확인(미확인)
+- [ ] Stack과 별도 리소스 삭제(별도 요청 전 보존)
+- [x] 삭제 후 Billing 확인(46·47, 예상 금액이며 최종 청구 미확정)
 
 이 체크가 끝나기 전까지 Codyssey 제출 상태를 “완료”라고 기록하지 않는다.

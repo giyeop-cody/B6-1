@@ -1,0 +1,234 @@
+- navigation:
+  - 'img "계정 색상: 설정 해제"'
+  - navigation "글로벌":
+    - link "기본 콘텐츠로 건너뛰기":
+      - /url: "#c"
+    - link "AWS 콘솔 홈":
+      - /url: https://ap-northeast-2.console.aws.amazon.com/console/home?region=ap-northeast-2
+    - button "Amazon Q":
+    - button "서비스":
+    - img "검색":
+    - searchbox
+    - combobox "검색"
+    - button "Amazon Q에게 질문하기":
+    - generic: "[알트+S]"
+    - status
+    - link "CloudShell":
+      - /url: https://ap-northeast-2.console.aws.amazon.com/cloudshell/home?region=ap-northeast-2
+    - button "알림(사용 가능한 알림 없음)":
+      - img "알림":
+    - img "알림":
+    - list:
+      - button "도움말 및 지원":
+        - img "지원":
+      - button "설정":
+      - combobox "Regions (아시아 태평양 (서울))":
+        - generic: 아시아 태평양 (서울)
+      - button "b6-1-learner @ 1711-8052-4802":
+        - 'generic "계정 색상: 설정 해제"':
+          - generic: cody-giyeop (171180524802)
+        - generic: b6-1-learner
+  - list
+- button "Open side navigation" [expanded]:
+- navigation "Breadcrumbs":
+  - list:
+    - link "CloudFormation":
+      - /url: "#/getting-started"
+      - generic: CloudFormation
+    - link "스택" [disabled]:
+      - generic: 스택
+  - list:
+    - link:
+      - /url: "#/getting-started"
+      - generic: CloudFormation
+    - generic: 스택
+- navigation "Side Navigation":
+  - button "Close side navigation":
+  - heading "CloudFormation" [level=2]:
+    - link "CloudFormation":
+      - /url: "#/getting-started"
+      - generic: CloudFormation
+  - list:
+    - link "스택":
+      - /url: "#/stacks"
+      - generic: 스택
+    - list:
+      - link "스택 세부 정보":
+        - /url: "#/stacks/stackinfo?filteringStatus=active&filteringText=&stackId=arn%3Aaws%3Acloudformation%3Aap-northeast-2%3A171180524802%3Astack%2Fb6-1-learning%2F7bdf99c0-bf01-11f1-99f8-02e7e30b774b&viewNested=true"
+        - generic: 스택 세부 정보
+      - link "드리프트":
+        - /url: "#/stacks/drifts?stackId=arn%3Aaws%3Acloudformation%3Aap-northeast-2%3A171180524802%3Astack%2Fb6-1-learning%2F7bdf99c0-bf01-11f1-99f8-02e7e30b774b"
+        - generic: 드리프트
+    - link "스택 리팩터링":
+      - /url: "#/stack-refactors"
+      - generic: 스택 리팩터링
+    - button "신규":
+      - generic: 신규
+    - link "StackSet":
+      - /url: "#/stacksets"
+      - generic: StackSet
+    - link "내보내기":
+      - /url: "#/exports"
+      - generic: 내보내기
+  - separator
+  - list:
+    - link "IaC 생성기":
+      - /url: "#/iac-generator"
+      - generic: IaC 생성기
+    - link "Template studio":
+      - /url: "#/template-studio?srcConsole=cloudformation"
+      - generic: Template studio
+  - separator
+  - list:
+    - link "후크 개요":
+      - /url: "#/hooks/overview"
+      - generic: 후크 개요
+    - link "간접 호출 요약":
+      - /url: "#/hooks/invocations"
+      - generic: 간접 호출 요약
+    - link "후크":
+      - /url: "#/hooks/list"
+      - generic: 후크
+  - separator
+  - list:
+    - button "레지스트리" [expanded]:
+      - generic: 레지스트리
+    - group "레지스트리":
+      - list:
+        - link "퍼블릭 익스텐션":
+          - /url: "#/registry/public-extensions"
+          - generic: 퍼블릭 익스텐션
+        - link "활성화된 익스텐션":
+          - /url: "#/registry/activated-extensions"
+          - generic: 활성화된 익스텐션
+        - link "게시자":
+          - /url: "#/registry/publisher"
+          - generic: 게시자
+  - separator
+  - list:
+    - link "스포트라이트":
+      - /url: "#/spotlight"
+      - generic: 스포트라이트
+  - list:
+    - button "의견"
+- main:
+  - region "Notifications"
+  - heading "스택 (1)" [level=1]:
+    - text: 스택
+    - generic: (1)
+  - 'button "새로 고침: 스택"':
+  - button "스택 삭제"
+  - button "스택 업데이트":
+    - text: 스택 업데이트
+  - button "스택 작업":
+    - text: 스택 작업
+  - button "스택 생성":
+    - text: 스택 생성
+  - searchbox "스택 이름으로 검색"
+  - generic: 상태 필터링
+  - button "상태 필터링 Select stack status 활성":
+    - generic: 활성
+  - checkbox "뷰 중첩됨" [checked]
+  - generic: 뷰 중첩됨
+  - list "페이지 매김":
+    - button "이전 페이지" [disabled]:
+    - button "전체 중 1 페이지": "1"
+    - button "다음 페이지" [disabled]:
+  - button "기본 설정":
+  - table:
+    - rowgroup:
+      - row:
+        - columnheader:
+          - generic: 항목 선택
+        - columnheader:
+          - generic: 스택 이름
+          - button
+          - slider
+        - columnheader:
+          - generic: 상태
+          - button
+          - slider
+        - columnheader:
+          - generic: 생성 시간
+          - button
+          - slider
+        - columnheader:
+          - generic: 설명
+          - button
+          - slider
+  - region "스택":
+    - table "스택":
+      - rowgroup:
+        - row "항목 선택 스택 이름 상태 생성 시간 설명":
+          - columnheader "항목 선택":
+            - generic: 항목 선택
+          - columnheader "스택 이름":
+            - generic: 스택 이름
+            - button "스택 이름"
+            - slider
+          - columnheader "상태":
+            - generic: 상태
+            - button "상태"
+            - slider
+          - columnheader "생성 시간":
+            - generic: 생성 시간
+            - button "생성 시간"
+            - slider
+          - columnheader "설명":
+            - generic: 설명
+            - button "설명"
+            - slider
+      - rowgroup:
+        - row "b6-1-learning 선택 b6-1-learning successUPDATE_COMPLETE 2026-10-03 17:07:31 UTC+0900 B6-1 learning infrastructure - public VPC, EC2, Docker and Nginx":
+          - cell "b6-1-learning 선택":
+            - generic "b6-1-learning 선택":
+              - radio "b6-1-learning 선택" [checked]
+          - cell "b6-1-learning":
+            - generic "b6-1-learning":
+              - link "b6-1-learning":
+                - /url: "#/stacks/stackinfo?filteringText=&filteringStatus=active&viewNested=true&stackId=arn%3Aaws%3Acloudformation%3Aap-northeast-2%3A171180524802%3Astack%2Fb6-1-learning%2F7bdf99c0-bf01-11f1-99f8-02e7e30b774b"
+          - cell "successUPDATE_COMPLETE":
+            - img "success":
+            - text: UPDATE_COMPLETE
+          - cell "2026-10-03 17:07:31 UTC+0900":
+            - generic: 2026-10-03 17:07:31 UTC+0900
+          - cell "B6-1 learning infrastructure - public VPC, EC2, Docker and Nginx":
+            - generic: B6-1 learning infrastructure - public VPC, EC2, Docker and Nginx
+- contentinfo:
+  - button "CloudShell":
+    - generic: CloudShell
+  - button "AWS용 에이전트 툴킷":
+    - text: AWS용 에이전트 툴킷
+  - button "의견"
+  - button "Console 모바일 앱":
+    - generic: Console 모바일 앱
+  - generic: © 2026, Amazon Web Services, Inc. 또는 계열사.
+  - list:
+    - link "개인 정보 보호":
+      - /url: https://aws.amazon.com/privacy/
+    - link "약관":
+      - /url: https://aws.amazon.com/terms/
+    - button "쿠키 기본 설정"
+- generic: 1개 일치 검색됨
+- dialog "스택을 삭제하시겠습니까?":
+  - heading "스택을 삭제하시겠습니까?" [level=2]:
+    - generic: 스택을 삭제하시겠습니까?
+  - button "모달 닫기":
+  - strong: b6-1-learning
+  - text: 스택을 영구적으로 삭제하시겠습니까? 이 작업은 실행 취소할 수 없습니다.
+  - img "Info":
+  - text: 이 스택을 삭제하면 모든 스택 리소스가 삭제됩니다. 리소스는 해당하는 DeletionPolicy에 따라 삭제됩니다.
+  - link "deletion policy에 대해 자세히 알아보기 새 탭에서 열림":
+    - /url: https://docs.aws.amazon.com/ko_kr/console/cloudformation/deletion-policy
+    - text: 자세히 알아보기
+    - img "새 탭에서 열림":
+  - generic: 익스프레스 모드 - 신규
+  - generic: Delete this stack faster. Resource cleanup runs without waiting for each resource to finish stabilizing.
+  - checkbox "활성화 익스프레스 모드 - 신규"
+  - generic: 활성화
+  - generic: ‘b6-1-learning’을(를) 입력하여 스택 삭제를 확인합니다.
+  - textbox "‘b6-1-learning’을(를) 입력하여 스택 삭제를 확인합니다." [active]:
+    - /placeholder: b6-1-learning
+    - text: b6-1-learning
+  - button "취소"
+  - button "스택 삭제"
